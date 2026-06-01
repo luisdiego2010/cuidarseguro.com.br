@@ -6,7 +6,7 @@
 
 ---
 
-## 📋 Sobre o Projeto
+## 📋 Sobre o Projetoh
 
 O **Cuidar Seguro** nasceu da necessidade de oferecer materiais atualizados, baseados em evidências e acessíveis para a formação em saúde. Todo o conteúdo é alinhado às diretrizes da **OMS** e aos protocolos do **Ministério da Saúde / ANVISA**.
 
@@ -62,7 +62,7 @@ cuidarseguro.com.br/
 
 Dúvidas, sugestões ou interesse em colaboração:
 
-- 📧 contato@cuidarseguro.com.br
+- 📧 info@cuidarseguro.com.br
 - 📘 [Facebook — CuidarSeguro](https://www.facebook.com/CuidarSeguro)
 - 🌐 [cuidarseguro.com.br](https://cuidarseguro.com.br)
 
