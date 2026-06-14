@@ -6,9 +6,35 @@
 
 ---
 
-## 📋 Sobre o Projetoh
+## 🚀 Início Rápido (Desenvolvimento)
 
-O **Cuidar Seguro** nasceu da necessidade de oferecer materiais atualizados, baseados em evidências e acessíveis para a formação em saúde. Todo o conteúdo é alinhado às diretrizes da **OMS** e aos protocolos do **Ministério da Saúde / ANVISA**.
+### Configuração de Variáveis de Ambiente
+
+1. **Copie o template de ambiente:**
+   ```bash
+   cp .env.example .env.local
+   ```
+
+2. **Configure `.env.local` com seus valores:**
+   ```
+   VITE_FORMSPREE_ID=seu_id_do_formspree_aqui
+   ```
+
+### ⚠️ Segurança Importante
+
+**Nunca faça commit** de credenciais ou chaves de API. O arquivo `.env.local` é automaticamente ignorado pelo Git:
+
+```
+.gitignore
+├── .env.local          ✅ Protegido (não versionado)
+└── .env.*.local        ✅ Protegido (não versionado)
+```
+
+---
+
+## 📋 Sobre o Projeto
+
+O **Cuidar Seguro** nasceu da necessidade de oferecer materiais atualizados, baseados em evidências e acessíveis para a formação em saúde. Todo o conteúdo é alinhado às diretrizes da **OMS** e aos protocolos do **Ministério da Saúde/ANVISA**.
 
 ### Objetivos
 - Difundir a cultura de segurança do paciente desde a graduação
@@ -23,6 +49,9 @@ O **Cuidar Seguro** nasceu da necessidade de oferecer materiais atualizados, bas
 cuidarseguro.com.br/
 ├── index.html                          # Página principal
 ├── metas.html                          # Página das Metas Internacionais OMS
+├── .env.example                        # Template de variáveis (commit)
+├── .env.local                          # Variáveis locais (ignorado pelo Git)
+├── .gitignore                          # Regras de git ignore
 ├── logo_cuidarseguro.png               # Logomarca do projeto
 ├── Slides.pdf                          # Introdução à Segurança do Paciente
 ├── glossario_seguranca_paciente_cuidarseguro.pdf
@@ -32,7 +61,8 @@ cuidarseguro.com.br/
 ├── PROTOCOLO DE IDENTIFICAÇÃO DO PACIENTE.pdf
 ├── PROTOCOLO HIGIENE DAS MÃOS.pdf
 ├── PROTOCOLO ULCERA POR PRESSÃO.pdf
-└── CNAME                               # Domínio personalizado
+├── CNAME                               # Domínio personalizado
+└── README.md                           # Este arquivo
 ```
 
 ---
@@ -55,6 +85,15 @@ cuidarseguro.com.br/
 | Investigação de eventos adversos (Ishikawa + Protocolo de Londres) | PDF |
 | Glossário de Segurança do Paciente | PDF |
 | Infográfico — Identificação do Paciente | PNG |
+
+---
+
+## 🔒 Práticas de Segurança
+
+✅ Variáveis sensíveis protegidas via `.env.local`  
+✅ Credenciais não versionadas no Git  
+✅ `.gitignore` previne commits acidentais  
+✅ `.env.example` documenta variáveis necessárias sem valores reais  
 
 ---
 
