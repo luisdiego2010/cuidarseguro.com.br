@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -58,6 +57,14 @@
     .recurso-info h4{font-weight:500;margin-bottom:0.3rem;}
     .recurso-info p{font-size:0.83rem;color:var(--texto-leve);line-height:1.5;}
     .recurso-info .tag-tipo{display:inline-block;margin-top:0.5rem;font-size:0.7rem;font-weight:500;background:var(--verde-suave);color:var(--verde);padding:0.15rem 0.5rem;border-radius:0.5rem;}
+    .links-card{background:white;border:1px solid var(--borda);border-radius:1.2rem;padding:2rem;margin-top:3rem;}
+    .links-card h3{font-family:'Fraunces',serif;font-size:1.2rem;font-weight:600;margin-bottom:1.5rem;color:var(--texto);}
+    .links-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;}
+    .links-categoria h4{font-size:0.75rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--verde);margin-bottom:0.8rem;padding-bottom:0.5rem;border-bottom:1px solid var(--borda);}
+    .links-lista{display:flex;flex-direction:column;gap:0.5rem;}
+    .link-item{display:flex;align-items:flex-start;gap:0.6rem;text-decoration:none;color:var(--texto-leve);font-size:0.88rem;line-height:1.5;padding:0.5rem 0.6rem;border-radius:0.5rem;transition:all 0.2s;}
+    .link-item:hover{background:var(--verde-suave);color:var(--verde);}
+    .link-item .link-ico{flex-shrink:0;font-size:1rem;margin-top:0.05rem;}
     #artigos{background:white;}
     .artigos-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.5rem;margin-top:3rem;}
     .artigo-card{border:1px solid var(--borda);border-radius:1.2rem;overflow:hidden;transition:all 0.25s;cursor:pointer;}
@@ -110,7 +117,7 @@
     @keyframes fadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
     .reveal{opacity:0;transform:translateY(20px);transition:opacity 0.6s ease,transform 0.6s ease;}
     .reveal.visible{opacity:1;transform:translateY(0);}
-    @media(max-width:768px){nav{padding:1rem 1.5rem;}.nav-links{display:none;}.hero{grid-template-columns:1fr;padding:6rem 1.5rem 3rem;}.hero-visual{display:none;}.stats-bar{gap:2rem;padding:2rem 1.5rem;}section{padding:3.5rem 1.5rem;}.recursos-layout{grid-template-columns:1fr;}#sobre{grid-template-columns:1fr;}.contato-layout{grid-template-columns:1fr;}.form-row{grid-template-columns:1fr;}footer{flex-direction:column;text-align:center;}}
+    @media(max-width:768px){nav{padding:1rem 1.5rem;}.nav-links{display:none;}.hero{grid-template-columns:1fr;padding:6rem 1.5rem 3rem;}.hero-visual{display:none;}.stats-bar{gap:2rem;padding:2rem 1.5rem;}section{padding:3.5rem 1.5rem;}.recursos-layout{grid-template-columns:1fr;}.links-grid{grid-template-columns:1fr;}#sobre{grid-template-columns:1fr;}.contato-layout{grid-template-columns:1fr;}.form-row{grid-template-columns:1fr;}footer{flex-direction:column;text-align:center;}}
   </style>
 </head>
 <body>
@@ -174,6 +181,63 @@
       <a href="glossario_seguranca_paciente_cuidarseguro.pdf" target="_blank" style="text-decoration:none;color:inherit;"><div class="recurso-item"><div class="recurso-icon-wrap">📖</div><div class="recurso-info"><h4>Glossário de Segurança do Paciente</h4><p>Terminologia padronizada da OMS e ANVISA para uso em estudos, trabalhos e relatórios clínicos.</p><span class="tag-tipo">PDF · 8 páginas ↗</span></div></div></a>
       <div style="border-radius:1rem;overflow:hidden;border:1px solid var(--borda);background:white;">
         <img src="undraw_medicine_cuidarseguro.svg" alt="Ilustração medicina e cuidado" style="width:100%;height:auto;display:block;padding:1.5rem;box-sizing:border-box;">
+      </div>
+    </div>
+  </div>
+
+  <!-- Card Metas Internacionais -->
+  <div class="links-card reveal" style="margin-top:2rem;background:var(--verde);border:none;">
+    <h3 style="color:white;margin-bottom:0.5rem;">🎯 As 6 Metas Internacionais de Segurança do Paciente</h3>
+    <p style="color:rgba(255,255,255,0.8);font-size:0.9rem;margin-bottom:1.5rem;">Definidas pela OMS e adotadas pelo Ministério da Saúde e ANVISA como base para o cuidado seguro no Brasil.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem;margin-bottom:1.5rem;">
+      <div style="background:rgba(255,255,255,0.12);border-radius:0.75rem;padding:1rem;"><div style="font-size:1.4rem;margin-bottom:0.4rem;">🔍</div><div style="font-size:0.8rem;font-weight:500;color:white;opacity:0.7;margin-bottom:0.2rem;">Meta 1</div><div style="font-size:0.9rem;color:white;font-weight:500;">Identificar corretamente o paciente</div></div>
+      <div style="background:rgba(255,255,255,0.12);border-radius:0.75rem;padding:1rem;"><div style="font-size:1.4rem;margin-bottom:0.4rem;">📢</div><div style="font-size:0.8rem;font-weight:500;color:white;opacity:0.7;margin-bottom:0.2rem;">Meta 2</div><div style="font-size:0.9rem;color:white;font-weight:500;">Melhorar a comunicação efetiva</div></div>
+      <div style="background:rgba(255,255,255,0.12);border-radius:0.75rem;padding:1rem;"><div style="font-size:1.4rem;margin-bottom:0.4rem;">💊</div><div style="font-size:0.8rem;font-weight:500;color:white;opacity:0.7;margin-bottom:0.2rem;">Meta 3</div><div style="font-size:0.9rem;color:white;font-weight:500;">Melhorar a segurança na medicação</div></div>
+      <div style="background:rgba(255,255,255,0.12);border-radius:0.75rem;padding:1rem;"><div style="font-size:1.4rem;margin-bottom:0.4rem;">🔪</div><div style="font-size:0.8rem;font-weight:500;color:white;opacity:0.7;margin-bottom:0.2rem;">Meta 4</div><div style="font-size:0.9rem;color:white;font-weight:500;">Assegurar cirurgias em local certo</div></div>
+      <div style="background:rgba(255,255,255,0.12);border-radius:0.75rem;padding:1rem;"><div style="font-size:1.4rem;margin-bottom:0.4rem;">🦠</div><div style="font-size:0.8rem;font-weight:500;color:white;opacity:0.7;margin-bottom:0.2rem;">Meta 5</div><div style="font-size:0.9rem;color:white;font-weight:500;">Reduzir infecções relacionadas ao cuidado</div></div>
+      <div style="background:rgba(255,255,255,0.12);border-radius:0.75rem;padding:1rem;"><div style="font-size:1.4rem;margin-bottom:0.4rem;">⚠️</div><div style="font-size:0.8rem;font-weight:500;color:white;opacity:0.7;margin-bottom:0.2rem;">Meta 6</div><div style="font-size:0.9rem;color:white;font-weight:500;">Reduzir o risco de quedas</div></div>
+    </div>
+    <a href="metas.html" style="display:inline-flex;align-items:center;gap:0.5rem;background:white;color:var(--verde);padding:0.75rem 1.5rem;border-radius:2rem;text-decoration:none;font-weight:500;font-size:0.9rem;transition:all 0.2s;">Ver todas as metas em detalhe →</a>
+  </div>
+
+  <!-- Card de links úteis -->
+  <div class="links-card reveal">
+    <h3>🔗 Links úteis — referências e recursos externos</h3>
+    <div class="links-grid">
+      <div class="links-categoria">
+        <h4>▶ Vídeos recomendados</h4>
+        <div class="links-lista">
+          <a href="https://www.youtube.com/watch?v=WhGPfn2MDzY" target="_blank" class="link-item">
+            <span class="link-ico">🎬</span>
+            <span><strong>Aprendendo com os Erros — Vincristina</strong><br>OMS · Tradução Proqualis/Fiocruz · 17 min</span>
+          </a>
+          <a href="https://www.youtube.com/@proqualis" target="_blank" class="link-item">
+            <span class="link-ico">📺</span>
+            <span><strong>Canal Proqualis no YouTube</strong><br>Vídeos sobre qualidade e segurança do paciente</span>
+          </a>
+
+        </div>
+      </div>
+      <div class="links-categoria">
+        <h4>🌐 Sites institucionais</h4>
+        <div class="links-lista">
+          <a href="https://proqualis.fiocruz.br" target="_blank" class="link-item">
+            <span class="link-ico">🏛️</span>
+            <span><strong>Proqualis — Fiocruz</strong><br>Centro colaborador para qualidade do cuidado e segurança do paciente</span>
+          </a>
+          <a href="https://notivisa.anvisa.gov.br" target="_blank" class="link-item">
+            <span class="link-ico">📋</span>
+            <span><strong>NOTIVISA — ANVISA</strong><br>Sistema de notificação de eventos adversos e incidentes em saúde</span>
+          </a>
+          <a href="https://www.ihi.org" target="_blank" class="link-item">
+            <span class="link-ico">🔬</span>
+            <span><strong>IHI — Institute for Healthcare Improvement</strong><br>Referência mundial em melhoria da qualidade e segurança</span>
+          </a>
+          <a href="https://www.who.int/news-room/fact-sheets/detail/patient-safety" target="_blank" class="link-item">
+            <span class="link-ico">🌐</span>
+            <span><strong>OMS — Patient Safety</strong><br>Página oficial de segurança do paciente da OMS</span>
+          </a>
+        </div>
       </div>
     </div>
   </div>
