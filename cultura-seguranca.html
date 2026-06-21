@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cultura de Segurança do Paciente — Cuidar Seguro</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;1,9..144,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --verde: #1a5c8a;
+      --verde-claro: #2a8fcc;
+      --creme: #f4f8fb;
+      --texto: #1a2a3a;
+      --texto-leve: #4a6070;
+      --borda: #d0e4f0;
+      --destaque: #e8f4fd;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--creme);
+      color: var(--texto);
+      line-height: 1.7;
+    }
+
+    /* NAV */
+    nav {
+      background: var(--verde);
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-logo img { height: 36px; }
+
+    .nav-links { display: flex; gap: 1.5rem; }
+    .nav-links a {
+      color: rgba(255,255,255,0.85);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: white; }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(135deg, var(--verde) 0%, var(--verde-claro) 100%);
+      color: white;
+      padding: 5rem 2rem 4rem;
+      text-align: center;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.3);
+      padding: 0.3rem 1rem;
+      border-radius: 2rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 1.2rem;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero p {
+      font-size: 1.15rem;
+      opacity: 0.9;
+      max-width: 580px;
+      margin: 0 auto;
+    }
+
+    /* CONTEÚDO */
+    .container {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* ÍNDICE */
+    .indice {
+      background: white;
+      border: 1px solid var(--borda);
+      border-radius: 1rem;
+      padding: 2rem;
+      margin: 3rem auto;
+      max-width: 820px;
+    }
+
+    .indice h2 {
+      font-family: 'Fraunces', serif;
+      font-size: 1.1rem;
+      color: var(--verde);
+      margin-bottom: 1rem;
+    }
+
+    .indice ol {
+      padding-left: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .indice li a {
+      color: var(--verde-claro);
+      text-decoration: none;
+      font-size: 0.95rem;
+    }
+
+    .indice li a:hover { text-decoration: underline; }
+
+    /* SEÇÕES */
+    .secao {
+      background: white;
+      border-radius: 1rem;
+      padding: 2.5rem;
+      margin-bottom: 2rem;
+      border: 1px solid var(--borda);
+    }
+
+    .secao-numero {
+      display: inline-block;
+      background: var(--verde);
+      color: white;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.2rem 0.7rem;
+      border-radius: 2rem;
+      margin-bottom: 0.8rem;
+      letter-spacing: 0.06em;
+    }
+
+    .secao h2 {
+      font-family: 'Fraunces', serif;
+      font-size: 1.6rem;
+      color: var(--verde);
+      margin-bottom: 1.2rem;
+      line-height: 1.3;
+    }
+
+    .secao p {
+      color: var(--texto-leve);
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+
+    .secao p:last-child { margin-bottom: 0; }
+
+    /* DESTAQUE */
+    .destaque {
+      background: var(--destaque);
+      border-left: 4px solid var(--verde-claro);
+      border-radius: 0 0.5rem 0.5rem 0;
+      padding: 1.2rem 1.5rem;
+      margin: 1.5rem 0;
+    }
+
+    .destaque p {
+      color: var(--texto);
+      font-style: italic;
+      margin-bottom: 0;
+    }
+
+    /* CARDS */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.2rem;
+      margin: 1.5rem 0;
+    }
+
+    .card {
+      background: var(--destaque);
+      border-radius: 0.75rem;
+      padding: 1.5rem;
+      border: 1px solid var(--borda);
+    }
+
+    .card-icon { font-size: 1.8rem; margin-bottom: 0.7rem; }
+
+    .card h3 {
+      font-family: 'Fraunces', serif;
+      font-size: 1rem;
+      color: var(--verde);
+      margin-bottom: 0.5rem;
+    }
+
+    .card p {
+      font-size: 0.9rem;
+      color: var(--texto-leve);
+      margin-bottom: 0;
+    }
+
+    /* TABELA */
+    .tabela-wrapper { overflow-x: auto; margin: 1.5rem 0; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+
+    th {
+      background: var(--verde);
+      color: white;
+      padding: 0.8rem 1rem;
+      text-align: left;
+      font-weight: 600;
+    }
+
+    td {
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--borda);
+      color: var(--texto-leve);
+    }
+
+    tr:nth-child(even) td { background: var(--destaque); }
+
+    /* LISTA */
+    .lista-customizada {
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .lista-customizada li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.7rem;
+      color: var(--texto-leve);
+      font-size: 0.95rem;
+    }
+
+    .lista-customizada li::before {
+      content: "✦";
+      color: var(--verde-claro);
+      font-size: 0.75rem;
+      margin-top: 0.3rem;
+      flex-shrink: 0;
+    }
+
+    /* RODAPÉ */
+    footer {
+      background: var(--verde);
+      color: rgba(255,255,255,0.75);
+      text-align: center;
+      padding: 2.5rem 1rem;
+      font-size: 0.85rem;
+      margin-top: 4rem;
+    }
+
+    footer a { color: rgba(255,255,255,0.9); }
+
+    @media (max-width: 600px) {
+      .hero { padding: 3rem 1.2rem 2.5rem; }
+      .secao { padding: 1.5rem; }
+      .indice { padding: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-logo">
+      <a href="index.html">
+        <img src="logo_cuidarseguro.png" alt="Cuidar Seguro">
+      </a>
+    </div>
+    <div class="nav-links">
+      <a href="index.html">Início</a>
+      <a href="metas.html">Metas OMS</a>
+      <a href="cultura-justa.html">Cultura Justa</a>
+    </div>
+  </nav>
+
+  <div class="hero">
+    <div class="hero-tag">Fundamentos</div>
+    <h1>Cultura de Segurança do Paciente</h1>
+    <p>Por que a segurança não depende apenas de protocolos — e o que as organizações de saúde precisam construir para proteger quem cuida e quem é cuidado.</p>
+  </div>
+
+  <div class="indice container">
+    <h2>Neste artigo</h2>
+    <ol>
+      <li><a href="#conceito">O que é cultura de segurança?</a></li>
+      <li><a href="#por-que-importa">Por que isso importa na prática?</a></li>
+      <li><a href="#dimensoes">As dimensões da cultura de segurança</a></li>
+      <li><a href="#modelos">Modelos teóricos de referência</a></li>
+      <li><a href="#tipos">Culturas patológicas vs. generativas</a></li>
+      <li><a href="#na-pratica">Como avaliar e fortalecer a cultura?</a></li>
+    </ol>
+  </div>
+
+  <div class="container">
+
+    <div class="secao" id="conceito">
+      <span class="secao-numero">01</span>
+      <h2>O que é cultura de segurança?</h2>
+      <p>A cultura de segurança do paciente pode ser definida como o conjunto de valores, atitudes, percepções, competências e padrões de comportamento — individuais e coletivos — que determinam o compromisso de uma organização de saúde com a gestão da segurança.</p>
+      <p>Em termos simples: é o que acontece quando ninguém está olhando. É a forma como os profissionais realmente se comportam diante de um erro, de uma sobrecarga ou de uma falha do sistema — não o que está escrito no manual.</p>
+      <div class="destaque">
+        <p>"A segurança não é a ausência de eventos adversos, mas a presença de capacidades que permitem à organização antecipar e responder aos riscos antes que se tornem danos."</p>
+      </div>
+      <p>O conceito foi formulado pela primeira vez de forma sistemática após o desastre de Chernobyl (1986), quando investigadores da Agência Internacional de Energia Atômica identificaram que falhas culturais foram determinantes para o acidente. Na saúde, ganhou força com o relatório <em>To Err is Human</em> (Institute of Medicine, EUA, 1999), que revelou que até 98.000 americanos morriam anualmente por erros evitáveis em hospitais.</p>
+    </div>
+
+    <div class="secao" id="por-que-importa">
+      <span class="secao-numero">02</span>
+      <h2>Por que isso importa na prática?</h2>
+      <p>Profissionais de saúde cometem erros. Essa afirmação, embora incômoda, é uma das verdades mais bem documentadas da literatura científica. Não por incompetência ou descuido, mas porque trabalham em sistemas complexos, sob pressão, com recursos limitados e diante de inúmeras variáveis simultâneas.</p>
+      <p>O problema não está apenas no erro em si — está em como o sistema responde a ele. Ambientes em que erros são punidos individualmente, em vez de analisados sistemicamente, criam profissionais com medo de reportar incidentes. E sem notificação, não há aprendizado. Sem aprendizado, os mesmos erros se repetem.</p>
+      <div class="cards-grid">
+        <div class="card">
+          <div class="card-icon">🔇</div>
+          <h3>Subnotificação</h3>
+          <p>Em culturas punitivas, estima-se que menos de 10% dos eventos adversos são formalmente notificados.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🔁</div>
+          <h3>Repetição de erros</h3>
+          <p>Sem análise sistêmica, as mesmas falhas se reproduzem em diferentes turnos, unidades e instituições.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🧠</div>
+          <h3>Esgotamento silencioso</h3>
+          <p>Profissionais que se sentem culpabilizados desenvolvem ansiedade, burnout e abandono da profissão.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="secao" id="dimensoes">
+      <span class="secao-numero">03</span>
+      <h2>As dimensões da cultura de segurança</h2>
+      <p>A Agency for Healthcare Research and Quality (AHRQ) dos EUA identificou dimensões-chave da cultura de segurança, amplamente utilizadas em instrumentos de avaliação como o <em>Hospital Survey on Patient Safety Culture</em> (HSOPSC):</p>
+      <ul class="lista-customizada">
+        <li><strong>Abertura para comunicação:</strong> os profissionais se sentem à vontade para reportar erros e quase-erros sem medo de represálias.</li>
+        <li><strong>Resposta não punitiva ao erro:</strong> falhas são tratadas como oportunidades de aprendizado, não como motivo de punição.</li>
+        <li><strong>Trabalho em equipe:</strong> colaboração efetiva dentro e entre as unidades de saúde.</li>
+        <li><strong>Apoio da liderança:</strong> gestores demonstram, com ações concretas, que a segurança é prioridade.</li>
+        <li><strong>Aprendizagem organizacional:</strong> a instituição avalia ativamente as falhas e implementa melhorias.</li>
+        <li><strong>Dotação de pessoal:</strong> número suficiente de profissionais para realizar o trabalho com segurança.</li>
+        <li><strong>Passagem de plantão e transições:</strong> informações críticas são transmitidas de forma confiável entre turnos e setores.</li>
+      </ul>
+    </div>
+
+    <div class="secao" id="modelos">
+      <span class="secao-numero">04</span>
+      <h2>Modelos teóricos de referência</h2>
+      <p>Dois modelos teóricos são fundamentais para compreender a cultura de segurança na saúde:</p>
+
+      <h3 style="font-family:'Fraunces',serif; font-size:1.1rem; color:var(--verde); margin: 1.2rem 0 0.5rem;">Modelo do Queijo Suíço (James Reason)</h3>
+      <p>James Reason propôs que os acidentes raramente resultam de uma única falha humana. Na maioria das vezes, são o produto de múltiplas falhas menores que se alinham — como os furos de um queijo suíço que, por acaso, ficam sobrepostos, permitindo que o "dano" atravesse todas as barreiras.</p>
+      <p>Esse modelo reforça a ideia de que a resposta ao erro deve ser sistêmica, não individualizada. A pergunta correta não é "quem errou?" mas "por que o sistema permitiu que o erro chegasse ao paciente?"</p>
+
+      <h3 style="font-family:'Fraunces',serif; font-size:1.1rem; color:var(--verde); margin: 1.2rem 0 0.5rem;">Organizações de Alta Confiabilidade (HRO)</h3>
+      <p>Inspirado em setores como aviação e energia nuclear, o conceito de High Reliability Organizations (HRO) descreve organizações que operam em ambientes de alto risco com taxas de erro excepcionalmente baixas. Seus princípios incluem: preocupação constante com o fracasso, relutância em simplificar interpretações, sensibilidade às operações de linha de frente, comprometimento com a resiliência e deferência ao especialista — independentemente da hierarquia.</p>
+
+      <div class="destaque">
+        <p>Nas HROs, a liderança encoraja ativamente os profissionais da linha de frente a interromper processos quando identificam riscos — mesmo que isso desagrade a hierarquia.</p>
+      </div>
+    </div>
+
+    <div class="secao" id="tipos">
+      <span class="secao-numero">05</span>
+      <h2>Culturas patológicas vs. generativas</h2>
+      <p>Ron Westrum, sociólogo especializado em segurança organizacional, propôs uma tipologia de culturas que se tornou referência na área:</p>
+      <div class="tabela-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Tipo</th>
+              <th>Relação com a informação</th>
+              <th>Resposta ao erro</th>
+              <th>Características</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Patológica</strong></td>
+              <td>Informação é suprimida</td>
+              <td>Culpabilização</td>
+              <td>Poder centralizado, medo, silos</td>
+            </tr>
+            <tr>
+              <td><strong>Burocrática</strong></td>
+              <td>Informação é ignorada</td>
+              <td>Justiça negligenciada</td>
+              <td>Regras e procedimentos rígidos</td>
+            </tr>
+            <tr>
+              <td><strong>Generativa</strong></td>
+              <td>Informação é ativamente buscada</td>
+              <td>Investigação e aprendizado</td>
+              <td>Missão compartilhada, colaboração</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>A cultura generativa é o objetivo das organizações de saúde comprometidas com a segurança do paciente. Nela, profissionais reportam erros sem medo, líderes investigam falhas sistemicamente e as melhorias são implementadas e monitoradas.</p>
+    </div>
+
+    <div class="secao" id="na-pratica">
+      <span class="secao-numero">06</span>
+      <h2>Como avaliar e fortalecer a cultura de segurança?</h2>
+      <p>A avaliação da cultura de segurança pode ser feita por meio de instrumentos validados, como o HSOPSC (AHRQ) e o Safety Attitudes Questionnaire (SAQ), amplamente utilizados em hospitais brasileiros e internacionais.</p>
+      <p>Mas a avaliação é apenas o ponto de partida. Fortalecer a cultura exige ações concretas em múltiplos níveis:</p>
+      <ul class="lista-customizada">
+        <li><strong>Liderança visível:</strong> gestores que visitam as unidades, conversam com a equipe e demonstram compromisso com a segurança em suas próprias decisões.</li>
+        <li><strong>Sistema de notificação acessível e não punitivo:</strong> notificar deve ser fácil, rápido e seguro. O retorno ao notificador é essencial para fechar o ciclo de aprendizado.</li>
+        <li><strong>Briefings e debriefings:</strong> reuniões curtas de início e fim de turno para antecipar riscos e refletir sobre o que ocorreu.</li>
+        <li><strong>Educação continuada:</strong> formação que vá além dos protocolos técnicos e aborde fatores humanos, comunicação e trabalho em equipe.</li>
+        <li><strong>Cultura justa (<em>just culture</em>):</strong> distinguir erros humanos inevitáveis de comportamentos imprudentes, respondendo de forma diferenciada a cada um.</li>
+        <li><strong>Envolvimento do paciente:</strong> pacientes e familiares são aliados na segurança — não apenas receptores do cuidado.</li>
+      </ul>
+
+      <div class="destaque">
+        <p>A cultura de segurança não se muda com um treinamento. Ela se constrói ao longo do tempo, com consistência, liderança e coragem institucional para aprender com os próprios erros.</p>
+      </div>
+
+      <p>Para estudantes e profissionais em formação, compreender a cultura de segurança é o primeiro passo para se tornarem agentes de mudança — seja na beira do leito, na gestão de uma unidade ou na formulação de políticas de saúde.</p>
+    </div>
+
+  </div>
+
+  <footer>
+    <p>© 2025 Cuidar Seguro — Conteúdo educacional gratuito sobre segurança do paciente.</p>
+    <p style="margin-top:0.5rem;"><a href="index.html">Voltar à página inicial</a></p>
+  </footer>
+
+</body>
+</html>
