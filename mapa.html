@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mapa do Conteúdo — Cuidar Seguro</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;1,9..144,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --verde: #1a5c8a;
+      --verde-claro: #2a8fcc;
+      --creme: #f4f8fb;
+      --texto: #1a2a3a;
+      --texto-leve: #4a6070;
+      --borda: #d0e4f0;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--creme); color: var(--texto); line-height: 1.7; }
+
+    nav {
+      background: var(--verde);
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-logo img { height: 36px; }
+    .nav-links { display: flex; gap: 1.5rem; }
+    .nav-links a { color: rgba(255,255,255,0.85); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: white; }
+
+    .hero {
+      background: linear-gradient(135deg, var(--verde) 0%, var(--verde-claro) 100%);
+      color: white;
+      padding: 4rem 2rem 3rem;
+      text-align: center;
+    }
+    .hero-tag {
+      display: inline-block;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.3);
+      padding: 0.3rem 1rem;
+      border-radius: 2rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    .hero h1 { font-family: 'Fraunces', serif; font-size: clamp(1.8rem, 4vw, 3rem); font-weight: 700; margin-bottom: 0.8rem; }
+    .hero p { font-size: 1.05rem; opacity: 0.9; max-width: 520px; margin: 0 auto; }
+
+    .container { max-width: 900px; margin: 0 auto; padding: 3rem 1.5rem; }
+
+    /* Mapa mental */
+    .mm-wrap { font-family: 'DM Sans', sans-serif; }
+    .mm-center {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 24px;
+      border-radius: 14px;
+      background: var(--verde);
+      color: white;
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 2rem;
+    }
+    .mm-root { display: flex; flex-direction: column; gap: 12px; }
+    .mm-branch { background: white; border: 1px solid var(--borda); border-radius: 12px; overflow: hidden; }
+
+    .mm-node {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 20px;
+      cursor: pointer;
+      border: none;
+      width: 100%;
+      text-align: left;
+      color: white;
+      font-size: 14px;
+      font-weight: 600;
+      font-family: 'DM Sans', sans-serif;
+      transition: opacity 0.15s;
+    }
+    .mm-node:hover { opacity: 0.9; }
+    .mm-arrow { font-size: 11px; transition: transform 0.25s; flex-shrink: 0; }
+    .mm-node.open .mm-arrow { transform: rotate(90deg); }
+
+    .mm-sub { display: none; padding: 16px 20px; background: #f8fbfd; border-top: 1px solid var(--borda); }
+    .mm-sub.open { display: block; }
+
+    .mm-mid-group { display: flex; flex-direction: column; gap: 8px; }
+    .mm-mid {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      border: none;
+      width: 100%;
+      text-align: left;
+      color: white;
+      font-size: 13px;
+      font-weight: 500;
+      font-family: 'DM Sans', sans-serif;
+      transition: opacity 0.15s;
+    }
+    .mm-mid:hover { opacity: 0.88; }
+    .mm-mid .mm-arrow { font-size: 10px; }
+
+    .mm-sub2 { display: none; padding: 8px 0 4px 20px; }
+    .mm-sub2.open { display: flex; flex-direction: column; gap: 5px; }
+    .mm-leaf {
+      font-size: 12px;
+      color: var(--texto-leve);
+      padding: 5px 12px;
+      border-radius: 6px;
+      background: white;
+      border: 1px solid var(--borda);
+      display: inline-block;
+    }
+    .mm-leaves { display: flex; flex-direction: column; gap: 5px; margin-top: 8px; padding-left: 8px; }
+
+    footer {
+      background: var(--verde);
+      color: rgba(255,255,255,0.75);
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.85rem;
+      margin-top: 4rem;
+    }
+    footer a { color: rgba(255,255,255,0.9); }
+
+    @media (max-width: 600px) {
+      .hero { padding: 2.5rem 1.2rem 2rem; }
+      .container { padding: 2rem 1rem; }
+      .nav-links { gap: 1rem; font-size: 0.8rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-logo">
+      <a href="index.html"><img src="logo_cuidarseguro.png" alt="Cuidar Seguro"></a>
+    </div>
+    <div class="nav-links">
+      <a href="index.html">Início</a>
+      <a href="metas.html">Metas OMS</a>
+      <a href="mapa.html" class="active">Mapa</a>
+      <a href="cultura-justa.html">Cultura Justa</a>
+    </div>
+  </nav>
+
+  <div class="hero">
+    <div class="hero-tag">Visão Geral</div>
+    <h1>Mapa do Conteúdo</h1>
+    <p>Explore toda a estrutura do Cuidar Seguro. Clique nos tópicos para expandir.</p>
+  </div>
+
+  <div class="container">
+    <div class="mm-wrap">
+      <div class="mm-center">🗺️ Cuidar Seguro: Segurança do Paciente</div>
+
+      <div class="mm-root">
+
+        <!-- Temas e Protocolos -->
+        <div class="mm-branch">
+          <button class="mm-node" style="background:#1a5c8a;" onclick="toggle(this,'sub-temas')">
+            <span class="mm-arrow">▶</span> Temas e Protocolos
+          </button>
+          <div class="mm-sub" id="sub-temas">
+            <div class="mm-mid-group">
+
+              <button class="mm-mid" style="background:#2a8fcc;" onclick="toggle(this,'sub-id')">
+                <span class="mm-arrow">▶</span> Identificação do Paciente
+              </button>
+              <div class="mm-sub2" id="sub-id">
+                <span class="mm-leaf">Dois identificadores obrigatórios</span>
+              </div>
+
+              <button class="mm-mid" style="background:#2a8fcc;" onclick="toggle(this,'sub-med')">
+                <span class="mm-arrow">▶</span> Segurança na Medicação
+              </button>
+              <div class="mm-sub2" id="sub-med">
+                <span class="mm-leaf">Os 5 certos</span>
+                <span class="mm-leaf">Medicamentos de alta vigilância</span>
+              </div>
+
+              <button class="mm-mid" style="background:#2a8fcc;" onclick="toggle(this,'sub-maos')">
+                <span class="mm-arrow">▶</span> Higiene das Mãos
+              </button>
+              <div class="mm-sub2" id="sub-maos">
+                <span class="mm-leaf">5 momentos da higienização</span>
+                <span class="mm-leaf">Técnicas com água/sabão e álcool gel</span>
+              </div>
+
+              <button class="mm-mid" style="background:#2a8fcc;" onclick="toggle(this,'sub-cir')">
+                <span class="mm-arrow">▶</span> Cirurgia Segura
+              </button>
+              <div class="mm-sub2" id="sub-cir">
+                <span class="mm-leaf">Checklist cirúrgico OMS</span>
+                <span class="mm-leaf">Prevenção de local/paciente errado</span>
+              </div>
+
+              <button class="mm-mid" style="background:#2a8fcc;" onclick="toggle(this,'sub-com')">
+                <span class="mm-arrow">▶</span> Comunicação Efetiva
+              </button>
+              <div class="mm-sub2" id="sub-com">
+                <span class="mm-leaf">SBAR</span>
+                <span class="mm-leaf">Read-back</span>
+                <span class="mm-leaf">Passagem de plantão segura</span>
+              </div>
+
+              <button class="mm-mid" style="background:#2a8fcc;" onclick="toggle(this,'sub-quedas')">
+                <span class="mm-arrow">▶</span> Prevenção de Incidentes
+              </button>
+              <div class="mm-sub2" id="sub-quedas">
+                <span class="mm-leaf">Escalas de quedas (Morse, Humpty Dumpty)</span>
+                <span class="mm-leaf">Lesões por Pressão (Braden e Braden Q)</span>
+              </div>
+
+              <button class="mm-mid" style="background:#2a8fcc;" onclick="toggle(this,'sub-cult')">
+                <span class="mm-arrow">▶</span> Cultura de Segurança
+              </button>
+              <div class="mm-sub2" id="sub-cult">
+                <span class="mm-leaf">Notificação de incidentes</span>
+                <span class="mm-leaf">Cultura justa</span>
+                <span class="mm-leaf">Aprendizado com o erro</span>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- Materiais e Recursos -->
+        <div class="mm-branch">
+          <button class="mm-node" style="background:#0f6e56;" onclick="toggle(this,'sub-mat')">
+            <span class="mm-arrow">▶</span> Materiais e Recursos
+          </button>
+          <div class="mm-sub" id="sub-mat">
+            <div class="mm-mid-group">
+
+              <button class="mm-mid" style="background:#1d9e75;" onclick="toggle(this,'sub-guias')">
+                <span class="mm-arrow">▶</span> Guias e Manuais
+              </button>
+              <div class="mm-sub2" id="sub-guias">
+                <span class="mm-leaf">Checklist Metas Internacionais</span>
+                <span class="mm-leaf">Manual Cirurgia Segura</span>
+                <span class="mm-leaf">Glossário de Segurança do Paciente</span>
+              </div>
+
+              <button class="mm-mid" style="background:#1d9e75;" onclick="toggle(this,'sub-ferramentas')">
+                <span class="mm-arrow">▶</span> Ferramentas de Análise
+              </button>
+              <div class="mm-sub2" id="sub-ferramentas">
+                <span class="mm-leaf">Diagrama de Ishikawa</span>
+                <span class="mm-leaf">Protocolo de Londres</span>
+                <span class="mm-leaf">Caso clínico simulado</span>
+              </div>
+
+              <div class="mm-leaves">
+                <span class="mm-leaf">Lei dos Direitos do Paciente</span>
+                <span class="mm-leaf">Apresentações introdutórias (45 slides)</span>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- 6 Metas Internacionais OMS -->
+        <div class="mm-branch">
+          <button class="mm-node" style="background:#533ab7;" onclick="toggle(this,'sub-metas')">
+            <span class="mm-arrow">▶</span> 6 Metas Internacionais OMS
+          </button>
+          <div class="mm-sub" id="sub-metas">
+            <div class="mm-leaves">
+              <span class="mm-leaf">Meta 1 — Identificação correta do paciente</span>
+              <span class="mm-leaf">Meta 2 — Comunicação efetiva</span>
+              <span class="mm-leaf">Meta 3 — Segurança na medicação</span>
+              <span class="mm-leaf">Meta 4 — Cirurgia segura</span>
+              <span class="mm-leaf">Meta 5 — Higiene das mãos</span>
+              <span class="mm-leaf">Meta 6 — Prevenção de quedas</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Referências Externas -->
+        <div class="mm-branch">
+          <button class="mm-node" style="background:#854f0b;" onclick="toggle(this,'sub-ref')">
+            <span class="mm-arrow">▶</span> Referências Externas
+          </button>
+          <div class="mm-sub" id="sub-ref">
+            <div class="mm-leaves">
+              <span class="mm-leaf">Proqualis (Fiocruz)</span>
+              <span class="mm-leaf">Notivisa (ANVISA)</span>
+              <span class="mm-leaf">IHI — Institute for Healthcare Improvement</span>
+              <span class="mm-leaf">OMS Patient Safety</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Podcast e Mídias -->
+        <div class="mm-branch">
+          <button class="mm-node" style="background:#993556;" onclick="toggle(this,'sub-podcast')">
+            <span class="mm-arrow">▶</span> Podcast e Mídias
+          </button>
+          <div class="mm-sub" id="sub-podcast">
+            <div class="mm-leaves">
+              <span class="mm-leaf">Podcast: Sistemas de saúde à prova de falhas (NotebookLM)</span>
+              <span class="mm-leaf">Mapa mental interativo</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2025 Cuidar Seguro — Conteúdo educacional gratuito sobre segurança do paciente.</p>
+    <p style="margin-top:0.5rem;"><a href="index.html">Voltar à página inicial</a></p>
+  </footer>
+
+  <script>
+    function toggle(btn, subId) {
+      var sub = document.getElementById(subId);
+      var isOpen = sub.classList.contains('open');
+      if (isOpen) {
+        sub.classList.remove('open');
+        btn.classList.remove('open');
+      } else {
+        sub.classList.add('open');
+        btn.classList.add('open');
+      }
+    }
+  </script>
+
+</body>
+</html>
