@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz — Segurança do Paciente | Cuidar Seguro</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;1,9..144,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --verde: #1a5c8a;
+      --verde-claro: #2a8fcc;
+      --creme: #f4f8fb;
+      --texto: #1a2a3a;
+      --texto-leve: #4a6070;
+      --borda: #d0e4f0;
+      --verde-ok: #0f6e56;
+      --vermelho: #b91c1c;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--creme); color: var(--texto); line-height: 1.7; }
+
+    nav {
+      background: var(--verde);
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-logo img { height: 36px; }
+    .nav-links { display: flex; gap: 1.5rem; }
+    .nav-links a { color: rgba(255,255,255,0.85); text-decoration: none; font-size: 0.9rem; font-weight: 500; }
+    .nav-links a:hover { color: white; }
+
+    .hero {
+      background: linear-gradient(135deg, var(--verde) 0%, var(--verde-claro) 100%);
+      color: white;
+      padding: 4rem 2rem 3rem;
+      text-align: center;
+    }
+    .hero-tag {
+      display: inline-block;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.3);
+      padding: 0.3rem 1rem;
+      border-radius: 2rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    .hero h1 { font-family: 'Fraunces', serif; font-size: clamp(1.8rem, 4vw, 3rem); font-weight: 700; margin-bottom: 0.8rem; }
+    .hero p { font-size: 1.05rem; opacity: 0.9; max-width: 520px; margin: 0 auto; }
+
+    .container { max-width: 760px; margin: 0 auto; padding: 3rem 1.5rem; }
+
+    /* Progresso */
+    .progress-bar-wrap { background: var(--borda); border-radius: 99px; height: 8px; margin-bottom: 2rem; }
+    .progress-bar { background: var(--verde-claro); height: 8px; border-radius: 99px; transition: width 0.4s; }
+    .progress-label { font-size: 13px; color: var(--texto-leve); margin-bottom: 0.5rem; }
+
+    /* Card da pergunta */
+    .quiz-card {
+      background: white;
+      border-radius: 16px;
+      padding: 2rem;
+      border: 1px solid var(--borda);
+      margin-bottom: 1.5rem;
+    }
+    .quiz-numero {
+      display: inline-block;
+      background: var(--verde);
+      color: white;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.2rem 0.8rem;
+      border-radius: 2rem;
+      margin-bottom: 1rem;
+      letter-spacing: 0.06em;
+    }
+    .quiz-pergunta {
+      font-family: 'Fraunces', serif;
+      font-size: 1.15rem;
+      color: var(--texto);
+      margin-bottom: 1.5rem;
+      line-height: 1.5;
+    }
+
+    /* Alternativas */
+    .alternativas { display: flex; flex-direction: column; gap: 10px; }
+    .alt-btn {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 14px 16px;
+      border-radius: 10px;
+      border: 1.5px solid var(--borda);
+      background: white;
+      cursor: pointer;
+      text-align: left;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      color: var(--texto);
+      transition: all 0.15s;
+    }
+    .alt-btn:hover:not(:disabled) { border-color: var(--verde-claro); background: #f0f8ff; }
+    .alt-letra {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: var(--creme);
+      border: 1px solid var(--borda);
+      font-weight: 700;
+      font-size: 12px;
+      flex-shrink: 0;
+      color: var(--verde);
+    }
+    .alt-btn.correta { border-color: var(--verde-ok); background: #e1f5ee; }
+    .alt-btn.correta .alt-letra { background: var(--verde-ok); color: white; border-color: var(--verde-ok); }
+    .alt-btn.errada { border-color: var(--vermelho); background: #fef2f2; }
+    .alt-btn.errada .alt-letra { background: var(--vermelho); color: white; border-color: var(--vermelho); }
+    .alt-btn:disabled { cursor: default; }
+
+    /* Feedback */
+    .feedback {
+      display: none;
+      margin-top: 1.2rem;
+      padding: 1rem 1.2rem;
+      border-radius: 10px;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    .feedback.show { display: block; }
+    .feedback.ok { background: #e1f5ee; border-left: 4px solid var(--verde-ok); color: #085041; }
+    .feedback.erro { background: #fef2f2; border-left: 4px solid var(--vermelho); color: #7f1d1d; }
+    .feedback-titulo { font-weight: 700; margin-bottom: 0.3rem; }
+
+    /* Dica */
+    .dica-btn {
+      margin-top: 1rem;
+      background: none;
+      border: 1px dashed var(--verde-claro);
+      color: var(--verde-claro);
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 13px;
+      cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+      transition: background 0.15s;
+    }
+    .dica-btn:hover { background: #e8f4fd; }
+    .dica-box {
+      display: none;
+      margin-top: 10px;
+      padding: 10px 14px;
+      background: #e8f4fd;
+      border-radius: 8px;
+      font-size: 13px;
+      color: var(--verde);
+      border-left: 3px solid var(--verde-claro);
+    }
+    .dica-box.show { display: block; }
+
+    /* Botão próxima */
+    .btn-proxima {
+      display: none;
+      margin-top: 1.5rem;
+      background: var(--verde);
+      color: white;
+      border: none;
+      padding: 12px 28px;
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: 600;
+      font-family: 'DM Sans', sans-serif;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .btn-proxima:hover { background: var(--verde-claro); }
+    .btn-proxima.show { display: inline-block; }
+
+    /* Resultado final */
+    .resultado {
+      display: none;
+      text-align: center;
+      padding: 3rem 2rem;
+      background: white;
+      border-radius: 16px;
+      border: 1px solid var(--borda);
+    }
+    .resultado.show { display: block; }
+    .resultado-emoji { font-size: 4rem; margin-bottom: 1rem; }
+    .resultado h2 { font-family: 'Fraunces', serif; font-size: 2rem; color: var(--verde); margin-bottom: 0.5rem; }
+    .resultado-nota { font-size: 3rem; font-weight: 700; color: var(--verde-claro); margin: 1rem 0; }
+    .resultado p { color: var(--texto-leve); margin-bottom: 1.5rem; }
+    .btn-reiniciar {
+      background: var(--verde);
+      color: white;
+      border: none;
+      padding: 12px 28px;
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: 600;
+      font-family: 'DM Sans', sans-serif;
+      cursor: pointer;
+    }
+    .btn-reiniciar:hover { background: var(--verde-claro); }
+
+    footer {
+      background: var(--verde);
+      color: rgba(255,255,255,0.75);
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.85rem;
+      margin-top: 4rem;
+    }
+    footer a { color: rgba(255,255,255,0.9); }
+
+    @media (max-width: 600px) {
+      .hero { padding: 2.5rem 1.2rem 2rem; }
+      .container { padding: 1.5rem 1rem; }
+      .quiz-card { padding: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">
+    <a href="index.html"><img src="logo_cuidarseguro.png" alt="Cuidar Seguro"></a>
+  </div>
+  <div class="nav-links">
+    <a href="index.html">Início</a>
+    <a href="metas.html">Metas OMS</a>
+    <a href="mapa.html">Mapa</a>
+    <a href="cultura-justa.html">Cultura Justa</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-tag">Avaliação</div>
+  <h1>Quiz — Segurança do Paciente</h1>
+  <p>Teste seus conhecimentos sobre as Metas Internacionais da OMS e os fundamentos da segurança do paciente.</p>
+</div>
+
+<div class="container">
+  <div id="quiz-area">
+    <p class="progress-label" id="progress-label">Pergunta 1 de 10</p>
+    <div class="progress-bar-wrap">
+      <div class="progress-bar" id="progress-bar" style="width:10%"></div>
+    </div>
+
+    <div class="quiz-card" id="quiz-card">
+      <span class="quiz-numero" id="quiz-numero">QUESTÃO 01</span>
+      <p class="quiz-pergunta" id="quiz-pergunta"></p>
+      <div class="alternativas" id="alternativas"></div>
+      <div class="feedback" id="feedback">
+        <div class="feedback-titulo" id="feedback-titulo"></div>
+        <div id="feedback-texto"></div>
+      </div>
+      <button class="dica-btn" id="dica-btn" onclick="mostrarDica()">💡 Ver dica</button>
+      <div class="dica-box" id="dica-box"></div>
+      <button class="btn-proxima" id="btn-proxima" onclick="proxima()">Próxima →</button>
+    </div>
+  </div>
+
+  <div class="resultado" id="resultado">
+    <div class="resultado-emoji" id="resultado-emoji"></div>
+    <h2>Quiz concluído!</h2>
+    <div class="resultado-nota" id="resultado-nota"></div>
+    <p id="resultado-msg"></p>
+    <button class="btn-reiniciar" onclick="reiniciar()">🔄 Tentar novamente</button>
+    <br><br>
+    <a href="index.html" style="color:var(--verde-claro);font-size:14px;">← Voltar ao início</a>
+  </div>
+</div>
+
+<footer>
+  <p>© 2025 Cuidar Seguro — Conteúdo educacional gratuito sobre segurança do paciente.</p>
+  <p style="margin-top:0.5rem;"><a href="index.html">Voltar à página inicial</a></p>
+</footer>
+
+<script>
+const perguntas = [
+  {
+    pergunta: "De acordo com a Meta 1 da OMS, por que o número do leito ou do quarto não deve ser utilizado como um dos identificadores do paciente?",
+    alternativas: [
+      "Porque o número do leito é uma informação confidencial que não deve ser exposta em pulseiras.",
+      "Porque o nome completo do paciente já é suficiente para garantir a segurança em 100% dos casos.",
+      "Porque o sistema de prontuário eletrônico não aceita números como forma de busca primária.",
+      "Porque esses indicadores são variáveis e o paciente pode mudar de localização durante a internação."
+    ],
+    correta: 3,
+    dica: "Reflita sobre o que acontece com a identificação se o paciente precisar ser transferido de setor subitamente.",
+    explicacao: "O número do leito é uma informação dinâmica — o paciente pode ser transferido a qualquer momento. Por isso, os identificadores devem ser estáveis, como nome completo e data de nascimento ou número do prontuário."
+  },
+  {
+    pergunta: "Na segurança da medicação (Meta 3), qual etapa é considerada crítica para a prevenção de erros antes que o fármaco chegue ao paciente?",
+    alternativas: [
+      "A eliminação completa de medicamentos de alta vigilância das unidades de internação.",
+      "A delegação da conferência final apenas para o acompanhante do paciente no leito.",
+      "A conferência dos '5 certos' no momento da administração.",
+      "O armazenamento exclusivo de medicamentos em ordem alfabética na farmácia central."
+    ],
+    correta: 2,
+    dica: "Considere o conjunto de verificações fundamentais que o profissional realiza à beira do leito.",
+    explicacao: "Os 5 certos — paciente certo, medicamento certo, dose certa, via certa e horário certo — são verificados no momento da administração e constituem a última barreira antes do fármaco atingir o paciente."
+  },
+  {
+    pergunta: "A técnica de 'read-back' (ler de volta) é uma estratégia recomendada para qual meta internacional de segurança?",
+    alternativas: [
+      "Meta 6 — Prevenção de Quedas.",
+      "Protocolo de Cultura de Segurança.",
+      "Meta 4 — Cirurgia Segura.",
+      "Meta 2 — Comunicação Efetiva."
+    ],
+    correta: 3,
+    dica: "Essa técnica foca em garantir que a mensagem enviada pelo emissor foi exatamente a mesma compreendida pelo receptor.",
+    explicacao: "O read-back é uma técnica de comunicação em que o receptor repete a informação recebida para confirmar que compreendeu corretamente. É fundamental na Meta 2, que trata da comunicação efetiva entre profissionais."
+  },
+  {
+    pergunta: "O checklist de cirurgia segura da OMS visa prevenir três erros graves principais. Quais são eles?",
+    alternativas: [
+      "Falta de materiais, atraso na equipe e erro de faturamento.",
+      "Queda da mesa cirúrgica, hipotermia e infecção urinária.",
+      "Reação alérgica tardia, dor crônica pós-operatória e cicatriz hipertrófica.",
+      "Local errado, paciente errado e procedimento errado."
+    ],
+    correta: 3,
+    dica: "Pense nos erros mais catastróficos que podem ocorrer por falhas de identificação ou de lateralidade no bloco cirúrgico.",
+    explicacao: "O checklist cirúrgico da OMS (Meta 4) foi desenvolvido para prevenir cirurgia em local errado, em paciente errado e procedimento errado — três erros considerados never events, ou seja, eventos que nunca deveriam ocorrer."
+  },
+  {
+    pergunta: "Qual é a intervenção considerada mais simples e eficaz para a redução de infecções relacionadas à assistência à saúde (Meta 5)?",
+    alternativas: [
+      "Limpeza das superfícies do hospital apenas com água e sabão neutro.",
+      "Higiene das mãos com técnica correta e nos momentos preconizados.",
+      "Manter o paciente em isolamento preventivo durante todo o período hospitalar.",
+      "Uso de antibióticos profiláticos em todos os pacientes internados."
+    ],
+    correta: 1,
+    dica: "Trata-se de uma ação individual de baixo custo que deve ser realizada em 5 momentos específicos durante o cuidado.",
+    explicacao: "A higiene das mãos nos 5 momentos preconizados pela OMS é a intervenção mais simples, barata e eficaz para prevenir infecções relacionadas à assistência à saúde, sendo o pilar da Meta 5."
+  },
+  {
+    pergunta: "As escalas de Morse e Humpty Dumpty são ferramentas utilizadas para qual finalidade na prática clínica?",
+    alternativas: [
+      "Identificação de pacientes com risco de choque anafilático.",
+      "Classificação da gravidade de lesões por pressão já existentes.",
+      "Avaliação do risco de quedas em adultos e crianças, respectivamente.",
+      "Cálculo da dose ideal de medicamentos para pacientes críticos."
+    ],
+    correta: 2,
+    dica: "Lembre-se da Meta 6 da OMS, que foca na integridade física do paciente em relação à sua mobilidade e ambiente.",
+    explicacao: "A Escala de Morse é usada para avaliar risco de quedas em adultos, enquanto a Humpty Dumpty é adaptada para a população pediátrica. Ambas são ferramentas da Meta 6 — Prevenção de Quedas."
+  },
+  {
+    pergunta: "Para a prevenção de lesões por pressão, qual escala é amplamente utilizada para avaliar o risco e planejar cuidados preventivos?",
+    alternativas: [
+      "Escala de Braden.",
+      "Diagrama de Ishikawa.",
+      "Protocolo SBAR.",
+      "Escala de Glasgow."
+    ],
+    correta: 0,
+    dica: "Pense na escala que analisa a tolerância da pele e tecidos à pressão, fricção e cisalhamento.",
+    explicacao: "A Escala de Braden avalia seis subescalas — percepção sensorial, umidade, atividade, mobilidade, nutrição e fricção/cisalhamento — para identificar pacientes em risco de desenvolver lesões por pressão."
+  },
+  {
+    pergunta: "No contexto da Cultura de Segurança, o que define uma 'Cultura Justa' em uma instituição de saúde?",
+    alternativas: [
+      "A distinção entre erros humanos não intencionais e comportamentos negligentes ou imprudentes.",
+      "A aplicação de punições severas a qualquer profissional que cometa um erro para servir de exemplo.",
+      "O foco exclusivo na tecnologia para eliminar a necessidade de intervenção humana no cuidado.",
+      "A garantia de que nenhum profissional jamais será responsabilizado, independentemente de sua conduta."
+    ],
+    correta: 0,
+    dica: "Considere o equilíbrio entre aprender com falhas do sistema e responsabilizar comportamentos de risco conscientes.",
+    explicacao: "A Cultura Justa diferencia erros humanos não intencionais (que devem ser analisados sistemicamente) de comportamentos imprudentes ou negligentes (que requerem responsabilização). Não é ausência de responsabilidade, mas justiça no julgamento."
+  },
+  {
+    pergunta: "Qual ferramenta de qualidade é sugerida para investigar a causa raiz de um evento adverso através da análise de múltiplos fatores (método da espinha de peixe)?",
+    alternativas: [
+      "Checklist de Passagem de Plantão.",
+      "Termo de Consentimento Livre e Esclarecido.",
+      "Diagrama de Ishikawa.",
+      "Fluxograma de Dispensação."
+    ],
+    correta: 2,
+    dica: "Esta ferramenta visual ajuda a separar as causas de um efeito indesejado em diferentes ramificações.",
+    explicacao: "O Diagrama de Ishikawa, também chamado de espinha de peixe ou diagrama de causa e efeito, é amplamente utilizado para investigar a causa raiz de eventos adversos, organizando os fatores contribuintes em categorias."
+  },
+  {
+    pergunta: "Sobre a 'Lei dos Direitos do Paciente' mencionada nos materiais, o que ela garante prioritariamente?",
+    alternativas: [
+      "A isenção total de custos em hospitais privados para qualquer cidadão.",
+      "O direito de escolher qualquer medicamento, mesmo sem prescrição médica.",
+      "Dignidade, respeito, informação e participação nas decisões sobre o próprio cuidado.",
+      "O acesso a tratamentos experimentais sem a necessidade de aprovação por comitês de ética."
+    ],
+    correta: 2,
+    dica: "Pense nos princípios fundamentais de humanização e protagonismo do indivíduo em seu tratamento.",
+    explicacao: "A Lei dos Direitos do Paciente garante dignidade, respeito, informação clara e participação ativa nas decisões sobre o próprio cuidado — princípios que colocam o paciente como sujeito central do processo de saúde."
+  }
+];
+
+let atual = 0;
+let acertos = 0;
+let respondido = false;
+
+function render() {
+  const q = perguntas[atual];
+  document.getElementById('progress-label').textContent = `Pergunta ${atual + 1} de ${perguntas.length}`;
+  document.getElementById('progress-bar').style.width = `${((atual + 1) / perguntas.length) * 100}%`;
+  document.getElementById('quiz-numero').textContent = `QUESTÃO ${String(atual + 1).padStart(2, '0')}`;
+  document.getElementById('quiz-pergunta').textContent = q.pergunta;
+
+  const altDiv = document.getElementById('alternativas');
+  const letras = ['A', 'B', 'C', 'D'];
+  altDiv.innerHTML = '';
+  q.alternativas.forEach((alt, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'alt-btn';
+    btn.innerHTML = `<span class="alt-letra">${letras[i]}</span><span>${alt}</span>`;
+    btn.onclick = () => responder(i);
+    altDiv.appendChild(btn);
+  });
+
+  document.getElementById('feedback').className = 'feedback';
+  document.getElementById('dica-btn').style.display = 'inline-block';
+  document.getElementById('dica-box').className = 'dica-box';
+  document.getElementById('dica-box').textContent = q.dica;
+  document.getElementById('btn-proxima').className = 'btn-proxima';
+  document.getElementById('btn-proxima').textContent = atual < perguntas.length - 1 ? 'Próxima →' : 'Ver resultado →';
+  respondido = false;
+}
+
+function responder(idx) {
+  if (respondido) return;
+  respondido = true;
+  const q = perguntas[atual];
+  const btns = document.querySelectorAll('.alt-btn');
+  btns.forEach(b => b.disabled = true);
+
+  if (idx === q.correta) {
+    btns[idx].classList.add('correta');
+    acertos++;
+    const fb = document.getElementById('feedback');
+    fb.className = 'feedback ok show';
+    document.getElementById('feedback-titulo').textContent = '✅ Resposta correta!';
+    document.getElementById('feedback-texto').textContent = q.explicacao;
+  } else {
+    btns[idx].classList.add('errada');
+    btns[q.correta].classList.add('correta');
+    const fb = document.getElementById('feedback');
+    fb.className = 'feedback erro show';
+    document.getElementById('feedback-titulo').textContent = '❌ Resposta incorreta.';
+    document.getElementById('feedback-texto').textContent = q.explicacao;
+  }
+
+  document.getElementById('btn-proxima').className = 'btn-proxima show';
+  document.getElementById('dica-btn').style.display = 'none';
+}
+
+function mostrarDica() {
+  document.getElementById('dica-box').classList.toggle('show');
+}
+
+function proxima() {
+  atual++;
+  if (atual >= perguntas.length) {
+    mostrarResultado();
+  } else {
+    render();
+  }
+}
+
+function mostrarResultado() {
+  document.getElementById('quiz-area').style.display = 'none';
+  const res = document.getElementById('resultado');
+  res.className = 'resultado show';
+  const pct = Math.round((acertos / perguntas.length) * 100);
+  document.getElementById('resultado-nota').textContent = `${acertos} / ${perguntas.length}`;
+
+  let emoji, msg;
+  if (pct >= 80) {
+    emoji = '🏆';
+    msg = 'Excelente! Você demonstra sólido conhecimento em segurança do paciente.';
+  } else if (pct >= 60) {
+    emoji = '👍';
+    msg = 'Bom desempenho! Revise os temas em que errou e tente novamente.';
+  } else {
+    emoji = '📚';
+    msg = 'Continue estudando! Explore os módulos do Cuidar Seguro para reforçar seu aprendizado.';
+  }
+  document.getElementById('resultado-emoji').textContent = emoji;
+  document.getElementById('resultado-msg').textContent = msg;
+}
+
+function reiniciar() {
+  atual = 0;
+  acertos = 0;
+  document.getElementById('quiz-area').style.display = 'block';
+  document.getElementById('resultado').className = 'resultado';
+  render();
+}
+
+render();
+</script>
+
+</body>
+</html>
