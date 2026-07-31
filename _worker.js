@@ -11,23 +11,32 @@ export default {
   },
 };
 
+function getAllowedOrigins(env) {
+  if (env.ALLOWED_ORIGIN) {
+    return [env.ALLOWED_ORIGIN];
+  }
+  return ["https://cuidarseguro.com.br", "https://www.cuidarseguro.com.br"];
+}
+
 function getAllowedOrigin(env) {
   return env.ALLOWED_ORIGIN || "https://cuidarseguro.com.br";
 }
 
 function checkOrigin(request, env) {
-  const ALLOWED_ORIGIN = getAllowedOrigin(env);
+  const ALLOWED_ORIGINS = getAllowedOrigins(env);
   const origin = request.headers.get("Origin") || "";
-  if (origin && origin !== ALLOWED_ORIGIN) {
-    return jsonResponse({ error: "Origem não autorizada." }, 403, ALLOWED_ORIGIN);
+  if (origin && !ALLOWED_ORIGINS.includes(origin)) {
+    return jsonResponse({ error: "Origem não autorizada." }, 403, ALLOWED_ORIGINS[0]);
   }
-  return null;
+  // Retorna o CORS header com a origem exata da requisição (se autorizada)
+  const corsOrigin = ALLOWED_ORIGINS.includes(origin) ? origin : ALLOWED_ORIGINS[0];
+  return { corsOrigin };
 }
 
 async function handleSignup(request, env) {
-  const ALLOWED_ORIGIN = getAllowedOrigin(env);
-  const originError = checkOrigin(request, env);
-  if (originError) return originError;
+  const originCheck = checkOrigin(request, env);
+  if (originCheck instanceof Response) return originCheck;
+  const ALLOWED_ORIGIN = originCheck.corsOrigin;
 
   if (!env.LEADS_KV) {
     return jsonResponse({ error: "Servidor mal configurado." }, 500, ALLOWED_ORIGIN);
@@ -61,9 +70,9 @@ async function handleSignup(request, env) {
 }
 
 async function handleChat(request, env) {
-  const ALLOWED_ORIGIN = getAllowedOrigin(env);
-  const originError = checkOrigin(request, env);
-  if (originError) return originError;
+  const originCheck = checkOrigin(request, env);
+  if (originCheck instanceof Response) return originCheck;
+  const ALLOWED_ORIGIN = originCheck.corsOrigin;
 
   if (!env.ANTHROPIC_API_KEY) {
     return jsonResponse({ error: "Servidor mal configurado." }, 500, ALLOWED_ORIGIN);
