@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="logo_cuidarseguro.png">
+    <title>Protocolo de anestesia segura como melhoria contínua dos processos assistenciais</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: #ffffff;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+            color: #1e40af;
+        }
+
+        .subtitulo-en {
+            font-size: 1.1rem;
+            font-style: italic;
+            color: #666;
+            margin-bottom: 2rem;
+            line-height: 1.5;
+        }
+
+        article p {
+            margin-bottom: 1.5rem;
+            text-align: justify;
+            line-height: 1.8;
+            font-size: 1rem;
+        }
+
+        article em {
+            font-style: italic;
+        }
+
+        h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 3rem 0 1.5rem 0;
+            padding-top: 2rem;
+            border-top: 1px solid #e5e5e5;
+            color: #1e40af;
+        }
+
+        h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin: 2rem 0 1rem 0;
+            color: #1e40af;
+        }
+
+        .highlight-box {
+            background: #f0fdf4;
+            border-left: 4px solid #15803d;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .highlight-box h2 {
+            margin-top: 0;
+            padding-top: 0;
+            border-top: none;
+            font-size: 1.3rem;
+            color: #15803d;
+        }
+
+        .highlight-box p {
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .highlight-box a {
+            color: #15803d;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        .highlight-box a:hover {
+            text-decoration: underline;
+        }
+
+        .principles-box {
+            background: #f0f9ff;
+            border-left: 4px solid #1e40af;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .principles-box h2 {
+            margin-top: 0;
+            padding-top: 0;
+            border-top: none;
+            font-size: 1.3rem;
+        }
+
+        .principles-box ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .principles-box li {
+            margin-bottom: 0.75rem;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .principles-box strong {
+            color: #1e40af;
+        }
+
+        .autores {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+            color: #1a1a1a;
+        }
+
+        .afiliacoes {
+            font-size: 0.85rem;
+            color: #555;
+            line-height: 1.7;
+            margin-bottom: 2rem;
+            padding-left: 1rem;
+            border-left: 2px solid #e5e5e5;
+        }
+
+        .resumo-box {
+            background: #fafafa;
+            border: 1px solid #e5e5e5;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .resumo-box h2 {
+            margin-top: 0;
+            padding-top: 0;
+            border-top: none;
+            font-size: 1.2rem;
+        }
+
+        .resumo-box p {
+            font-size: 0.92rem;
+            line-height: 1.75;
+            margin-bottom: 1rem;
+        }
+
+        .palavras-chave {
+            font-size: 0.88rem;
+            color: #555;
+            margin-bottom: 0;
+        }
+
+        .palavras-chave strong {
+            color: #1e40af;
+        }
+
+        .tabela-wrap {
+            overflow-x: auto;
+            margin: 2rem 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+        }
+
+        caption {
+            caption-side: top;
+            text-align: left;
+            font-weight: 600;
+            color: #1e40af;
+            font-size: 0.92rem;
+            margin-bottom: 0.75rem;
+            line-height: 1.5;
+        }
+
+        th {
+            background: #f0f9ff;
+            color: #1e40af;
+            text-align: left;
+            padding: 0.7rem 0.9rem;
+            border-bottom: 2px solid #1e40af;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 0.65rem 0.9rem;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        th.num, td.num {
+            text-align: right;
+        }
+
+        tr.total td {
+            font-weight: 700;
+            border-top: 2px solid #1e40af;
+            border-bottom: none;
+        }
+
+        ol {
+            margin-left: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        li {
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        ol a {
+            color: #1e40af;
+            word-break: break-word;
+        }
+
+        .licenca {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid #e5e5e5;
+            font-size: 0.85rem;
+            color: #555;
+            line-height: 1.7;
+        }
+
+        .licenca p {
+            margin-bottom: 0.75rem;
+            text-align: left;
+            font-size: 0.85rem;
+            line-height: 1.7;
+        }
+
+        .licenca a {
+            color: #1e40af;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 1.25rem;
+            }
+            h1 {
+                font-size: 1.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Protocolo de anestesia segura como melhoria contínua dos processos assistenciais</h1>
+        <p class="subtitulo-en">Safe anesthesia protocol as a continuous improvement of care processes</p>
+
+        <article>
+            <p class="autores">Leonardo Ayres Canga<sup>1</sup>, Patricia Mitsue Saruhashi Shimabukuro<sup>2</sup>, Beatriz Gonçalves Miron<sup>3</sup>, Adeli Mariane Vieira Lino Alfano<sup>4</sup>, Cirilo Haddad Silveira<sup>5</sup>, Guinther Giroldo Badessa<sup>6</sup></p>
+
+            <div class="afiliacoes">
+                1. Médico anestesiologista. Membro do Centro de Estudos e Diagnóstico de Hipertermia Maligna — Escola Paulista de Medicina, São Paulo SP<br>
+                2. Enfermeira da qualidade do Grupo de Anestesiologia Associados Paulista (GAAP), São Paulo SP<br>
+                3. Médica anestesiologista do GAAP, São Paulo SP<br>
+                4. Médica anestesiologista do GAAP, São Paulo SP<br>
+                5. Médico anestesiologista do GAAP, São Paulo SP<br>
+                6. Médico anestesiologista. Professor do Centro Universitário São Camilo, São Paulo SP
+            </div>
+
+            <div class="highlight-box">
+                <h2>Sobre esta publicação</h2>
+                <p>Artigo original publicado na <strong>Revista de Administração em Saúde (Rev. Adm. Saúde, On-line)</strong>, São Paulo, v. 23, n. 93: e360, out.–dez. 2023. Epub 18 dez. 2023. Reproduzido integralmente no Cuidar Seguro sob licença Creative Commons Attribution (CC BY), com a devida atribuição aos autores.</p>
+                <a href="http://dx.doi.org/10.23973/ras.93.360" target="_blank" rel="noopener noreferrer">Acessar o artigo original (DOI: 10.23973/ras.93.360)</a>
+            </div>
+
+            <div class="resumo-box">
+                <h2>Resumo</h2>
+                <p><strong>Introdução:</strong> A especialidade de anestesiologia possui grandes avanços na área de segurança do paciente, sendo uma das pioneiras na implantação da cultura de segurança na prática clínica. Os eventos adversos ocorrem afetando de 4% a 16% dos pacientes internados nos países desenvolvidos, com cerca de 2,6 milhões de mortes anualmente e o custo social ao paciente é avaliado entre 1 trilhão a 2 trilhões de dólares ao ano. <strong>Objetivo:</strong> Elaborar um documento sobre anestesia segura baseado nas principais tratativas para prevenção de eventos adversos no processo anestésico. <strong>Método:</strong> Este estudo foi realizado de maneira observacional e transversal no período de janeiro de 2017 a dezembro de 2022 em dois hospitais privados localizados no município de São Paulo. Um hospital possui 257 leitos, sendo 90 leitos de UTI, 18 salas cirúrgicas e o segundo hospital possui 116 leitos, sendo 40 leitos de UTI, 7 salas cirúrgicas. Os dados coletados foram coletados através de um aplicativo onde os médicos anestesistas inserem os dados. Como variáveis deste estudo temos: a taxa anual de ocorrência das notificações, total de cirurgias realizadas por ano, total de eventos notificados por ano, classificação do evento conforme critérios estabelecidos pela Organização Mundial da Saúde (OMS), principais sistemas envolvidos e as intercorrências mais frequentes. Estes dados são analisados pelo setor de qualidade da empresa de anestesiologia. <strong>Resultados:</strong> No período de janeiro de 2017 a dezembro de 2022 tivemos 959 eventos adversos e um total de 86953, o que equivale a 1,10%. Em relação a classificação dos eventos notificados no período estudado, observa-se que a grande parte são sem danos 451 (73,81%), dano leve 87 (14,23%), dano moderado 65 (10,65%) e grave 8 (1,30%). Notamos que no período avaliado as intercorrências envolvendo o sistema respiratório 407 (42,22%) e a parte clínica 405 (42,23%) ficaram muito próximas, seguido do sistema cardiovascular 136 (14,18%) e envolvendo material ou equipamento 11 (1,15%). <strong>Conclusão:</strong> Mediante a apresentação dos resultados deste trabalho, foi possível a elaboração do documento denominado protocolo de anestesia segura, para que o anestesiologista seja direcionado para as melhores práticas assistenciais garantindo a qualidade da assistência.</p>
+                <p class="palavras-chave"><strong>Palavras-chave:</strong> Anestesiologia, Protocolos Clínicos, Segurança do Paciente, Serviços de Saúde.</p>
+            </div>
+
+            <div class="resumo-box">
+                <h2>Abstract</h2>
+                <p><strong>Introduction:</strong> The specialty of anesthesiology has made great advances in the area of patient safety, being one of the pioneers in implementing a safety culture in clinical practice. Adverse events occur, affecting from 4% to 16% of patients admitted in developed countries, with approximately 2.6 million deaths annually and the social cost to the patient is estimated at between 1 trillion and 2 trillion dollars per year. <strong>Objective:</strong> Prepare a document on safe anesthesia based on the main approaches to preventing adverse events in the anesthetic process. <strong>Method:</strong> This study was carried out in an observational and cross-sectional manner from January 2017 to December 2022 in two private hospitals located in the city of São Paulo. One hospital has 257 beds, 90 ICU beds, 18 operating rooms and the second hospital has 116 beds, 40 ICU beds, 7 operating rooms. The data collected was collected through an application where anesthetists enter the data. As variables in this study, we have: the annual rate of occurrence of notifications, total number of surgeries performed per year, total number of events reported per year, classification of the event according to criteria established by the World Health Organization (WHO), main systems involved and the most common complications. frequent. This data is analyzed by the quality sector of the anesthesiology company. <strong>Results:</strong> In the period from January 2017 to December 2022 we had 959 adverse events and a total of 86953, which is equivalent to 1.10%. Regarding the classification of events reported in the period studied, it is observed that the majority are without damage 451 (73.81%), mild damage 87 (14.23%), moderate damage 65 (10.65%) and severe 8 (1.30%). We noted that in the period evaluated, complications involving the respiratory system 407 (42.22%) and the clinical part 405 (42.23%) were very close, followed by the cardiovascular system 136 (14.18%) and involving material or equipment 11 (1.15%). <strong>Conclusion:</strong> By presenting the results of this work, it was possible to prepare the document called safe anesthesia protocol, so that the anesthesiologist is guided towards the best care practices guaranteeing the quality of care.</p>
+                <p class="palavras-chave"><strong>Keywords:</strong> Anesthesiology, Clinical Protocols, Health Services, Patient Safety.</p>
+            </div>
+
+            <h2>Introdução</h2>
+
+            <p>A especialidade de anestesiologia possui grandes avanços na área de segurança e é uma das pioneiras a implantar a cultura de segurança na prática clínica, os eventos adversos continuam a ocorrer e colocam à prova nossa capacidade de responder a situações críticas<sup>1</sup>.</p>
+
+            <p>Considerando que no Brasil temos a RDC nº 36/2013 que institui ações de segurança do paciente nos serviços de saúde, os profissionais de saúde precisam adquirir consciência em todo o processo assistencial do paciente durante o período em que estiverem dentro de uma instituição de saúde<sup>2,3</sup>.</p>
+
+            <p>Tendo em vista a necessidade da melhoria contínua em relação aos processos assistenciais e que os eventos adversos afetam de 4% a 16% dos pacientes internados nos países desenvolvidos, com cerca de 2,6 milhões de mortes anualmente e o custo social ao paciente é avaliado entre 1 trilhão a 2 trilhões de dólares ao ano. Diante destes dados, o documento da Organização Mundial da Saúde (OMS) publicado em 2021 reforça a importância do cuidado seguro e estimula que todos os profissionais de saúde tenham uma reflexão sobre a importância do cuidado seguro<sup>3-6</sup>.</p>
+
+            <p>A existência de um protocolo institucional sobre a anestesia segura, proporciona que os profissionais e os pacientes tenham medidas de proteção e possuam embasamento em diretrizes nacionais e internacionais sobre a segurança do paciente.</p>
+
+            <p>Este estudo justifica-se pela necessidade de aprimoramento do processo anestésico voltado para a população em geral.</p>
+
+            <h3>Objetivos</h3>
+
+            <p>Este trabalho possui como objetivo elaborar um documento sobre anestesia segura baseado nas principais tratativas para prevenção de eventos adversos no processo anestésico.</p>
+
+            <h2>Métodos</h2>
+
+            <p>Este estudo foi realizado de maneira observacional e transversal no período de janeiro de 2017 a dezembro de 2022 em dois hospitais privados localizados no município de São Paulo. Um hospital possui 257 leitos, sendo 90 leitos de UTI, 18 salas cirúrgicas e o segundo hospital possui 116 leitos, sendo 40 leitos de UTI, 7 salas cirúrgicas.</p>
+
+            <p>Os dados coletados foram coletados através de um aplicativo onde os médicos anestesistas inserem os dados. Estes dados são analisados pelo setor de qualidade da empresa de anestesiologia, para posterior elaboração de relatórios, ações.</p>
+
+            <p>Como variáveis deste estudo temos: a taxa anual de ocorrência das notificações, total de cirurgias realizadas por ano, total de eventos notificados por ano, classificação do evento conforme critérios estabelecidos pela Organização Mundial da Saúde (OMS), principais sistemas envolvidos e as intercorrências mais frequentes.</p>
+
+            <p>Os critérios de inclusão foram os pacientes submetidos a procedimentos cirúrgicos independente da especialidade, que foram notificados com eventos adversos no ano de 2017 a 2022.</p>
+
+            <p>Os critérios de exclusão foram os pacientes que não foram submetidos a procedimentos cirúrgicos, que não tiveram eventos adversos notificados e que não ocorreram no período de 2017 a 2022.</p>
+
+            <p>Este trabalho foi avaliado pelo Comitê de Ética em Pesquisa do Centro Universitário São Camilo, garantindo o sigilo total e o anonimato dos participantes conforme estabelecido na Resolução nº 466/2012.</p>
+
+            <h2>Resultados e discussão</h2>
+
+            <p>No período de janeiro de 2017 a dezembro de 2022 tivemos 959 eventos adversos e um total de 86.953, o que equivale a 1,10%.</p>
+
+            <p>Abaixo descrevemos os eventos notificados por ano.</p>
+
+            <div class="tabela-wrap">
+                <table>
+                    <caption>Tabela 1. Total de eventos adversos notificados, total de procedimentos realizados e porcentagem dos eventos por ano.</caption>
+                    <thead>
+                        <tr>
+                            <th scope="col">Ano</th>
+                            <th scope="col" class="num">Total de eventos</th>
+                            <th scope="col" class="num">Total de procedimentos realizados</th>
+                            <th scope="col" class="num">%</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>2017</td><td class="num">197</td><td class="num">15.555</td><td class="num">1,27%</td></tr>
+                        <tr><td>2018</td><td class="num">176</td><td class="num">16.698</td><td class="num">1,05%</td></tr>
+                        <tr><td>2019</td><td class="num">183</td><td class="num">16.881</td><td class="num">1,08%</td></tr>
+                        <tr><td>2020</td><td class="num">127</td><td class="num">12.518</td><td class="num">1,01%</td></tr>
+                        <tr><td>2021</td><td class="num">160</td><td class="num">12.776</td><td class="num">1,25%</td></tr>
+                        <tr><td>2022</td><td class="num">116</td><td class="num">12.525</td><td class="num">0,93%</td></tr>
+                        <tr class="total"><td>Total</td><td class="num">959</td><td class="num">86.953</td><td class="num">1,10%</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p>Nota-se que no período analisado a taxa de eventos adversos acabou mantendo uma média 1,10%, comparando com as falhas durante o procedimento cirúrgico conforme o boletim da ANVISA as taxas estão abaixo do apresentado, mesmo considerando que o item falhas durante o procedimento cirúrgico há uma incidência entre as 11 ocorrências mais notificadas no sistema NOTIVISA no período de 2014 a 2021.</p>
+
+            <div class="tabela-wrap">
+                <table>
+                    <caption>Tabela 2. Intercorrências por sistema, período de 2017 a 2022.</caption>
+                    <thead>
+                        <tr>
+                            <th scope="col">Sistema</th>
+                            <th scope="col" class="num">Nº</th>
+                            <th scope="col" class="num">%</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Cardiovascular</td><td class="num">136</td><td class="num">14,18%</td></tr>
+                        <tr><td>Clínico</td><td class="num">405</td><td class="num">42,23%</td></tr>
+                        <tr><td>Respiratório</td><td class="num">407</td><td class="num">42,44%</td></tr>
+                        <tr><td>Material/Equipamento</td><td class="num">11</td><td class="num">1,15%</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p>Notamos que no período avaliado as intercorrências envolvendo o sistema respiratório 407 (42,22%) e a parte clínica 405 (42,23%) ficaram muito próximas, seguido do sistema cardiovascular 136 (14,18%) e envolvendo material ou equipamento 11 (1,15%).</p>
+
+            <p>O ano de maior número de casos de eventos clínicos foram nos anos de 2019 e 2022, isso ocorreu devido a fase de estruturação das unidades hospitalares em relação a troca do sistema de prontuário eletrônico e adequação dos <em>templates</em> que a equipe de anestesiologia já estava acostumada a utilizar. Os gestores das unidades precisaram realizar intervenções direcionadas para a melhoria desta problemática. Em relação ao sistema respiratório notamos uma elevação dos casos em 2017 e 2019.</p>
+
+            <div class="tabela-wrap">
+                <table>
+                    <caption>Tabela 3. Classificação dos eventos adversos notificados.</caption>
+                    <thead>
+                        <tr>
+                            <th scope="col">Classificação</th>
+                            <th scope="col" class="num">Nº</th>
+                            <th scope="col" class="num">%</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Grave</td><td class="num">08</td><td class="num">1,30%</td></tr>
+                        <tr><td>Moderado</td><td class="num">65</td><td class="num">10,65%</td></tr>
+                        <tr><td>Leve</td><td class="num">87</td><td class="num">14,23%</td></tr>
+                        <tr><td>Sem dano</td><td class="num">451</td><td class="num">73,81%</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p>Em relação a classificação dos eventos notificados no período estudado, observa-se que a grande parte são sem danos 451 (73,81%), dano leve 87 (14,23%), dano moderado 65 (10,65%) e grave 8 (1,30%).</p>
+
+            <p>O ano de maior ocorrência de eventos adversos foi 2019 seguido de 2021, são períodos pré-pandemia e durante a pandemia respectivamente o que foi preciso resgate de informações para melhoria e ajuste nos processos internos da anestesiologia.</p>
+
+            <p>Considerando que as falhas durante o procedimento cirúrgico estão em 4º lugar no tocante aos óbitos dos pacientes pelo boletim da ANVISA, este estudo demonstra a necessidade do aprimoramento das práticas e protocolos assistenciais para evitar os eventos adversos.</p>
+
+            <h2>Considerações finais</h2>
+
+            <p>Mediante a apresentação dos resultados deste trabalho, foi possível a elaboração do documento denominado protocolo de anestesia segura, para que o anestesiologista seja direcionado para as melhores práticas assistenciais garantindo a qualidade da assistência.</p>
+
+            <p>Este protocolo visa não somente a segurança do paciente como a prevenção de infecções relacionadas à assistência à saúde e assim ajuda a gerenciar os riscos iminentes em um processo perioperatório e possibilitará um melhor gerenciamento nos protocolos clínicos.</p>
+
+            <div class="principles-box">
+                <h2>Por que este estudo importa para a segurança do paciente</h2>
+                <ul>
+                    <li><strong>Notificação como base da melhoria:</strong> os 959 eventos registrados só se tornaram informação útil porque houve um sistema estruturado de notificação.</li>
+                    <li><strong>Predomínio de eventos sem dano:</strong> 73,81% das ocorrências não causaram dano — são justamente elas que sinalizam vulnerabilidades antes que o paciente seja atingido.</li>
+                    <li><strong>Sistemas respiratório e clínico em destaque:</strong> juntos concentram mais de 84% das intercorrências, orientando onde treinar equipes e revisar processos.</li>
+                    <li><strong>Da análise ao protocolo:</strong> o desfecho do trabalho não foi apenas descritivo — os dados geraram um documento institucional que padroniza as melhores práticas.</li>
+                    <li><strong>Melhoria contínua:</strong> monitorar, analisar e retroalimentar o processo assistencial é o que sustenta a redução de riscos no perioperatório.</li>
+                </ul>
+            </div>
+
+            <h2>Referências</h2>
+            <ol>
+                <li>Sociedade Brasileira de Anestesiologia (SBA). Complicações e eventos adversos em anestesiologia. Rio de Janeiro. 2021.</li>
+                <li>Agência Nacional de Vigilância Sanitária (ANVISA). RDC nº 36. Institui ações para a segurança do paciente e dá outras providências. Brasília. 2013.</li>
+                <li>Centre for Perioperative Care. National Safety Standards for Invasive Procedures (NatSSIPs). Londres. 2023.</li>
+                <li>Pavão ALB e cols. Eventos adversos em anestesiologia: análise por meio da ferramenta Logbook usada por médicos em especialização no Brasil. Rev Bras Anestesiol. 69(5):461-468. 2019. <a href="https://doi.org/10.1016/j.bjane.2019.06.006" target="_blank" rel="noopener noreferrer">https://doi.org/10.1016/j.bjane.2019.06.006</a></li>
+                <li>Keebler JR e cols. Human factors applied to perioperative process improvement. Anesthesiol Clin. 36(1):17-29. 2018. <a href="https://doi.org/10.1016/j.anclin.2017.10.005" target="_blank" rel="noopener noreferrer">https://doi.org/10.1016/j.anclin.2017.10.005</a></li>
+                <li>Eichhorn JH. History of Anesthesia Patient Safety. Int Anesthesiol Clin. Spring; 56(2):65-93. 2018. <a href="https://doi.org/10.1097/AIA.0000000000000186" target="_blank" rel="noopener noreferrer">https://doi.org/10.1097/AIA.0000000000000186</a></li>
+                <li>Agência Nacional de Vigilância Sanitária (ANVISA). Boletim Segurança do Paciente e Qualidade em Serviços de Saúde nº 27: Incidentes Relacionados à Assistência à Saúde — 2014 a 2021. Brasília. 2022.</li>
+            </ol>
+
+            <div class="licenca">
+                <p><strong>Recebido:</strong> 21 de novembro de 2023. <strong>Aceito:</strong> 18 de dezembro de 2023.</p>
+                <p><strong>Correspondência:</strong> Leonardo Ayres Canga. E-mail: leocanga@hotmail.com</p>
+                <p><strong>Conflito de interesses:</strong> o autor declara não haver conflito de interesses.</p>
+                <p><strong>Como citar:</strong> Canga LA, Shimabukuro PMS, Miron BG, Alfano AMVL, Silveira CH, Badessa GG. Protocolo de anestesia segura como melhoria contínua dos processos assistenciais. Rev. Adm. Saúde (On-line). 2023;23(93):e360. <a href="http://dx.doi.org/10.23973/ras.93.360" target="_blank" rel="noopener noreferrer">http://dx.doi.org/10.23973/ras.93.360</a></p>
+                <p>© Este é um artigo de acesso aberto distribuído sob os termos da <a href="https://creativecommons.org/licenses/by/4.0/deed.pt-br" target="_blank" rel="noopener noreferrer">Licença Creative Commons Attribution (CC BY)</a>, que permite uso, distribuição e reprodução irrestritos em qualquer meio, desde que o trabalho original seja devidamente citado.</p>
+            </div>
+        </article>
+    </div>
+</body>
+</html>

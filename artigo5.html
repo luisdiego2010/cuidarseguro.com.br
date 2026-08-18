@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="logo_cuidarseguro.png">
+    <title>Utilização da ferramenta PDSA para implantação de um serviço de anestesiologia</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: #ffffff;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+            color: #1e40af;
+        }
+
+        .subtitulo-en {
+            font-size: 1.1rem;
+            font-style: italic;
+            color: #666;
+            margin-bottom: 2rem;
+            line-height: 1.5;
+        }
+
+        article p {
+            margin-bottom: 1.5rem;
+            text-align: justify;
+            line-height: 1.8;
+            font-size: 1rem;
+        }
+
+        article em {
+            font-style: italic;
+        }
+
+        h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 3rem 0 1.5rem 0;
+            padding-top: 2rem;
+            border-top: 1px solid #e5e5e5;
+            color: #1e40af;
+        }
+
+        h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin: 2rem 0 1rem 0;
+            color: #1e40af;
+        }
+
+        .highlight-box {
+            background: #f0fdf4;
+            border-left: 4px solid #15803d;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .highlight-box h2 {
+            margin-top: 0;
+            padding-top: 0;
+            border-top: none;
+            font-size: 1.3rem;
+            color: #15803d;
+        }
+
+        .highlight-box p {
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .highlight-box a {
+            color: #15803d;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        .highlight-box a:hover {
+            text-decoration: underline;
+        }
+
+        .principles-box {
+            background: #f0f9ff;
+            border-left: 4px solid #1e40af;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .principles-box h2 {
+            margin-top: 0;
+            padding-top: 0;
+            border-top: none;
+            font-size: 1.3rem;
+        }
+
+        .principles-box ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .principles-box li {
+            margin-bottom: 0.75rem;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .principles-box strong {
+            color: #1e40af;
+        }
+
+        .autores {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+            color: #1a1a1a;
+        }
+
+        .afiliacoes {
+            font-size: 0.85rem;
+            color: #555;
+            line-height: 1.7;
+            margin-bottom: 2rem;
+            padding-left: 1rem;
+            border-left: 2px solid #e5e5e5;
+        }
+
+        .resumo-box {
+            background: #fafafa;
+            border: 1px solid #e5e5e5;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .resumo-box h2 {
+            margin-top: 0;
+            padding-top: 0;
+            border-top: none;
+            font-size: 1.2rem;
+        }
+
+        .resumo-box p {
+            font-size: 0.92rem;
+            line-height: 1.75;
+            margin-bottom: 1rem;
+        }
+
+        .palavras-chave {
+            font-size: 0.88rem;
+            color: #555;
+            margin-bottom: 0;
+        }
+
+        .palavras-chave strong {
+            color: #1e40af;
+        }
+
+        figure {
+            margin: 2rem 0;
+        }
+
+        figure img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border: 1px solid #e5e5e5;
+            border-radius: 0.5rem;
+        }
+
+        figcaption {
+            font-size: 0.88rem;
+            color: #555;
+            margin-top: 0.75rem;
+            line-height: 1.6;
+            text-align: left;
+        }
+
+        .tabela-wrap {
+            overflow-x: auto;
+            margin: 2rem 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+        }
+
+        caption {
+            caption-side: top;
+            text-align: left;
+            font-weight: 600;
+            color: #1e40af;
+            font-size: 0.92rem;
+            margin-bottom: 0.75rem;
+            line-height: 1.5;
+        }
+
+        th {
+            background: #f0f9ff;
+            color: #1e40af;
+            text-align: left;
+            padding: 0.7rem 0.9rem;
+            border-bottom: 2px solid #1e40af;
+            font-weight: 600;
+            vertical-align: top;
+        }
+
+        td {
+            padding: 0.7rem 0.9rem;
+            border-bottom: 1px solid #e5e5e5;
+            vertical-align: top;
+            line-height: 1.6;
+        }
+
+        td.etapa {
+            font-weight: 700;
+            color: #1e40af;
+            white-space: nowrap;
+        }
+
+        ul.perguntas {
+            margin: 0 0 1.5rem 1.5rem;
+        }
+
+        ul.perguntas li {
+            margin-bottom: 0.6rem;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        ol {
+            margin-left: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        li {
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .referencias {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .referencias li {
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            padding-left: 1.5rem;
+            text-indent: -1.5rem;
+        }
+
+        .licenca {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid #e5e5e5;
+            font-size: 0.85rem;
+            color: #555;
+            line-height: 1.7;
+        }
+
+        .licenca p {
+            margin-bottom: 0.75rem;
+            text-align: left;
+            font-size: 0.85rem;
+            line-height: 1.7;
+        }
+
+        .licenca a {
+            color: #1e40af;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 1.25rem;
+            }
+            h1 {
+                font-size: 1.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Utilização da ferramenta PDSA para implantação de um serviço de anestesiologia</h1>
+        <p class="subtitulo-en">Use of the PDSA tool to implement an anesthesiology service</p>
+
+        <article>
+            <p class="autores">Patrícia Mitsue Saruhashi Shimabukuro<sup>1</sup>, Fabiana Traldi Terzian<sup>2</sup>, Raissa Meire Val<sup>3</sup>, Gilmar Pereira Coan<sup>4</sup></p>
+
+            <div class="afiliacoes">
+                1. Enfermeira da Qualidade e Educação Corporativa. Universidade Federal de São Paulo. São Paulo SP<br>
+                2. Diretora estratégica da DG Medicina Perioperatória. São Paulo SP<br>
+                3. Médica. Coordenadora médica da DG Medicina Perioperatória. São Paulo SP<br>
+                4. Médico. Coordenador da DG Medicina Perioperatória. São Paulo SP
+            </div>
+
+            <div class="highlight-box">
+                <h2>Sobre esta publicação</h2>
+                <p>Artigo original publicado na <strong>Revista de Administração em Saúde (Rev. Adm. Saúde, On-line)</strong>, São Paulo, v. 24, n. 95: e381, abr.–jun. 2024. Epub 26 jun. 2024. Reproduzido integralmente no Cuidar Seguro sob licença Creative Commons Attribution (CC BY), com a devida atribuição aos autores.</p>
+                <a href="http://dx.doi.org/10.23973/ras.95.381" target="_blank" rel="noopener noreferrer">Acessar o artigo original (DOI: 10.23973/ras.95.381)</a>
+            </div>
+
+            <div class="resumo-box">
+                <h2>Resumo</h2>
+                <p><strong>Introdução:</strong> A qualidade do cuidado em saúde é composta por diversos atributos, como eficiência, eficácia e efetividade visando a otimização, melhoria contínua e melhor performance dos serviços de saúde. Diante deste cenário, o ciclo Plan, Check, Do, Study, Action (PDSA) é baseada no conhecimento científico de forma a visualizar os resultados obtidos. Neste cenário, justifica-se a utilização desta ferramenta para implantação do serviço de anestesiologia em serviços de saúde. <strong>Objetivo:</strong> demonstrar a importância do uso da ferramenta PDSA durante a implantação do serviço de anestesiologia em um hospital parceiro. <strong>Método:</strong> estudo transversal e prospectivo demonstrando a importância da escolha da ferramenta da qualidade PDSA para a implantação do serviço de anestesiologia em um hospital privado localizado no município de São Paulo no período de janeiro a maio de 2024, foi realizada uma visita diagnóstica no serviço de saúde para a realização do levantamento das necessidades de um serviço de anestesiologia, elaborado um relatório gerencial para a alta direção elencando as principais necessidades para o funcionamento adequado do serviço de anestesiologia. <strong>Resultados e discussão:</strong> Com esta avaliação sistematizada e mensal dos itens elencados na fase diagnóstica de implantação, foram observados 29 itens a serem trabalhados na instituição, sendo dividido em 2 fases de monitoramento, a primeira a implantação e a segunda execução. No primeiro mês, no contexto da fase de implantação, dos 29 itens mencionados, tivemos 9 (31%) itens concluídos, 20 (69%) itens em planejamento/andamento. No segundo mês, dos 20 itens que estavam em execução, 5 (25%) foram considerados concluídos e 15 (75%) itens em andamento/planejamento. No terceiro mês, dos 15 itens em andamento, 3 (20%) foram considerados concluídos, e 12 (80%) são considerados em andamento/planejamento. <strong>Considerações finais:</strong> para que o ciclo PDSA seja eficaz, é preciso que os profissionais envolvidos no processo tenham a cultura da melhoria contínua com uma liderança comprometida, apoio institucional e mentalidade aberta às mudanças para que a abordagem sistemática possa ser embasada em evidências científicas, promovendo uma prática mais segura, eficiente e centrada no paciente.</p>
+                <p class="palavras-chave"><strong>Palavras-chave:</strong> Anestesiologia, Gestão em Saúde, Melhoria de qualidade, Segurança do Paciente, Serviços de Saúde.</p>
+            </div>
+
+            <div class="resumo-box">
+                <h2>Abstract</h2>
+                <p><strong>Introduction:</strong> The quality of health care is made up of several attributes, such as efficiency, effectiveness and effectiveness aiming at optimization, continuous improvement and better performance of health services. Given this scenario, the Plan, Check, Do, Study, Action (PDSA) cycle is based on scientific knowledge in order to visualize the results obtained. In this scenario, the use of this tool to implement anesthesiology services in health services is justified. <strong>Objective:</strong> demonstrate the importance of using the PDSA tool during the implementation of the anesthesiology service in a partner hospital. <strong>Method:</strong> cross-sectional and prospective study demonstrating the importance of choosing the PDSA quality tool for implementing the anesthesiology service in a private hospital located in the city of São Paulo from January to May 2024, a diagnostic visit was carried out at the anesthesiology service health to carry out a survey of the needs of an anesthesiology service, preparing a management report for senior management listing the main needs for the proper functioning of the anesthesiology service. <strong>Results and discussion:</strong> With this systematic and monthly evaluation of the items listed in the diagnostic phase of implementation, 29 items were observed to be worked on in the institution, being divided into 2 monitoring phases, the first implementation and the second execution. In the first month, in the context of the implementation phase, of the 29 items mentioned, we had 9 (31%) items completed, 20 (69%) items in planning/progress. In the second month of the 20 items that were being executed, 5 (25%) were considered completed and 15 (75%) items were in progress/planning. In the third month of the 15 items in progress, 3 (20%) were considered completed, and 12 (80%) were considered in progress/planning. <strong>Final considerations:</strong> for the PDSA cycle to be effective, the professionals involved in the process must have a culture of continuous improvement with committed leadership, institutional support and a mindset open to change so that the systematic approach can be based on scientific evidence, promoting a safer, more efficient and patient-centered practice.</p>
+                <p class="palavras-chave"><strong>Keywords:</strong> Anesthesiology, Health Management, Health service, Quality improvment, Safety patient.</p>
+            </div>
+
+            <h2>Introdução</h2>
+
+            <p>Qualidade é um sistema complexo e altamente exigido nas organizações de saúde devido a necessidade de as empresas estarem alinhadas com a efetividade e eficácia da prestação do serviço prestado às pessoas que procuram a instituição de saúde (RAFFA; BARRETO, 2023).</p>
+
+            <p>A qualidade do cuidado em saúde é composta por diversos atributos, como a eficácia, a efetividade, a eficiência, a otimização, a aceitabilidade, a legitimidade e a equidade. Estes atributos são avaliados de maneira isolada ou combinada de acordo com a magnitude proposta pela instituição de saúde (ANVISA, 2017).</p>
+
+            <p>Deming pregava que a qualidade é um sistema de melhoria contínua que visa melhoria de processos e pessoas através de princípios da busca de satisfação para clientes, colaboradores da instituição, fornecedores e acionistas. As atividades realizadas nos serviços de saúde são simultâneas e podem construir uma base para a transição da qualidade em todo o sistema (WHO, 2020; IHI, 2021).</p>
+
+            <p>Dentro do sistema de qualidade existem várias ferramentas a serem utilizadas para instrumentalizar e demonstrar a importância em um serviço de saúde. A ferramenta a ser utilizada neste estudo é o Plan, Check, Do, Study, Action (PDSA), baseada em gerar conhecimento científico, e propõe o estudo como forma de obtenção dos resultados baseados em evidências como demonstrado na figura 1.</p>
+
+            <figure>
+                <img src="pdsa_figura1.png" alt="Diagrama circular do ciclo PDSA dividido em quatro quadrantes: Plan (mudança a ser testada ou implementada), Do (realizar o teste ou mudança), Study (coletar dados antes e depois da mudança e refletir sobre o impacto e o que foi aprendido) e Act (planejar o próximo ciclo de mudança ou implementação completa).">
+                <figcaption><strong>Figura 1.</strong> Ferramenta PDSA (fonte: Adaptado de WHO, 2020).</figcaption>
+            </figure>
+
+            <p>Na etapa <strong>Plan</strong> é necessário a realização do diagnóstico institucional, elaborando relatórios e propondo soluções. Na etapa <strong>Do</strong> é realizada a implementação das soluções propostas como fase de teste. Na etapa <strong>Study</strong> realizar o comparativo do antes e depois das implementações comparando os dados e visualizando oportunidades de melhoria. Na etapa <strong>Act</strong> é o momento de realizar os ajustes necessários, treinar a equipe e realizar a melhoria proposta de maneira efetiva (SANTOS, LANZONI, ERDMANN, 2023).</p>
+
+            <p>Os resultados esperados com foco na qualidade e segurança é uma necessidade do centro cirúrgico e envolve todo o processo da medicina perioperatória. Com a crescente pressão financeira e econômica para realizar o atendimento com eficiência, eficácia e menor custo com menor tempo de hospitalização é uma das principais necessidades dos serviços de saúde e torna-se um grande desafio para os gestores (SAESP, 2024).</p>
+
+            <p>No contexto atual, as instituições de saúde, visam a otimização perioperatória como forma de identificar melhorias nos processos previamente implantados propondo assertividade nos procedimentos cirúrgicos, anestésicos, garantindo a segurança do paciente e minimizando o seu tempo de internação no serviço de saúde (RAFFA; BARRETO, 2023; SAESP, 2024).</p>
+
+            <p>Desta forma, justifica-se a utilização desta ferramenta como forma de visualizar momentos e situações de extrema relevância durante o processo de implantação do serviço de anestesiologia.</p>
+
+            <h3>Objetivo</h3>
+
+            <p>Demonstrar a importância do uso da ferramenta PDSA durante a implantação do serviço de anestesiologia em um hospital parceiro.</p>
+
+            <h2>Método</h2>
+
+            <p>Este é um estudo transversal e prospectivo demonstrando a importância da escolha da ferramenta da qualidade PDSA para a implantação do serviço de anestesiologia em um hospital privado localizado no município de São Paulo.</p>
+
+            <p>O período da realização do estudo foi de janeiro a maio de 2024, foi realizada uma visita diagnóstica no serviço de saúde para a realização do levantamento das necessidades de um serviço de anestesiologia, elaborado um relatório gerencial para a alta direção. Elencadas as prioridades de atuação para o bom funcionamento do serviço, visando qualidade e eficiência nos processos anestésicos. As prioridades elencadas estão relacionadas a recursos humanos, equipamentos e materiais. Estabelecimento de metas para a elaboração e efetivação do item a ser desenvolvido ou adequado.</p>
+
+            <p>São realizadas reuniões semanais para alinhamento estratégico e direcionamento das ações, bem como atualização do status de implantação do serviço, o que ajuda na avaliação dos processos e possibilita a visualização da melhoria proposta.</p>
+
+            <p>Para os critérios de inclusão foram avaliados os setores centro cirúrgico (CC), centro obstétrico (CO) e serviço de apoio e diagnóstico terapêutico (SADT) conforme acordado em contrato de prestação de serviço com a instituição de saúde.</p>
+
+            <p>Como critérios de exclusão, são os setores onde não há atualização do médico anestesiologista na instituição de saúde, conforme contrato de prestação de serviços.</p>
+
+            <p>Este trabalho foi submetido ao comitê de ética, garantindo o sigilo total e o anonimato dos participantes conforme estabelecido na Resolução nº 466/2012.</p>
+
+            <h2>Resultados e discussão</h2>
+
+            <p>Para a aplicação da ferramenta da qualidade PDSA, foi realizado a seguinte aplicação conforme demonstrado no Quadro 1.</p>
+
+            <div class="tabela-wrap">
+                <table>
+                    <caption>Quadro 1. Apresentação da aplicabilidade da ferramenta PDSA para implantação do serviço de anestesiologia, São Paulo, 2024.</caption>
+                    <thead>
+                        <tr>
+                            <th scope="col">Etapa da ferramenta</th>
+                            <th scope="col">Definição</th>
+                            <th scope="col">Aplicabilidade prática</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="etapa">P (Plan)</td>
+                            <td>Mudança a ser implementada ou realizada</td>
+                            <td>Visita técnica, elaboração do relatório, diagnóstico da avaliação e planejamento das ações a serem realizadas, análise das intervenções possíveis e que neste momento não geram custo para à instituição de saúde e o tipo de abordagem a ser realizada para alcance dos resultados esperados.</td>
+                        </tr>
+                        <tr>
+                            <td class="etapa">D (Do)</td>
+                            <td>Realizar a tarefa a ser implementada</td>
+                            <td>Reuniões semanais com a alta direção, contratação de profissionais para composição do quadro de recursos humanos, elaboração de indicadores, protocolos e demais necessidades observadas durante o processo de implantação.</td>
+                        </tr>
+                        <tr>
+                            <td class="etapa">S (Study)</td>
+                            <td>Realização da coleta de dados, avaliar os impactos da aprovação.</td>
+                            <td>Coleta de dados para elaboração dos indicadores, emissão de relatórios sobre intercorrências anestésicas, classificação ASA, mapa de calor sobre os principais dias das semanas com maior volumetria cirúrgica, observar através do mapa de calor os horários de maior volumetria cirúrgica para dimensionamento adequado da equipe de anestesiologia.</td>
+                        </tr>
+                        <tr>
+                            <td class="etapa">A (Action)</td>
+                            <td>Planejamento do próximo ciclo ou implementação do processo.</td>
+                            <td>Divulgação para a equipe das melhorias realizadas através de reuniões com os coordenadores médicos, treinamentos de acordo com a necessidade observada no serviço, elaboração de informe online em aplicativo de mensagem instantânea a todo o corpo clínico da instituição e alinhamento das condutas a serem realizadas no serviço de saúde.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p>A mudança cultural e de processo de uma instituição de saúde deve ser produtiva e perene para que as melhorias sejam implementadas de maneira contínua. A implementação das melhorias de processo só pode ser obtida através de avaliação por um determinado período, de forma a gerar uma conscientização nas pessoas sobre a importância da manutenção da proposta de melhoria para a instituição de saúde (VIDAL JUNIOR, 2023; SANTOS, LANZONI, ERDMANN, 2023).</p>
+
+            <p>Para aplicação desta ferramenta é preciso responder às seguintes perguntas (OVRETREIT, 2015; KURCGANT, 2016):</p>
+
+            <ul class="perguntas">
+                <li>Por que este processo foi selecionado?</li>
+                <li>Este processo está funcionando de maneira adequada?</li>
+                <li>O que os clientes que utilizam o serviço de anestesiologia estão dizendo?</li>
+                <li>O que os clientes precisam e não estão recebendo da anestesiologia?</li>
+                <li>O que os clientes estão recebendo da anestesiologia e não precisam neste momento?</li>
+                <li>Quais os dados devem ser coletados (desperdícios, erros, retrabalho, tempo do ciclo, dentre outros)?</li>
+            </ul>
+
+            <p>Com esta avaliação sistematizada e avaliação mensal dos itens elencados na fase diagnóstica de implantação, foram observados 29 itens a serem trabalhados na instituição, sendo dividido em 2 fases de monitoramento, a primeira a implantação e a segunda execução.</p>
+
+            <p>No primeiro mês, no contexto da fase de implantação, dos 29 itens mencionados, tivemos 9 (31%) itens concluídos, 20 (69%) itens em planejamento/andamento.</p>
+
+            <p>No segundo mês, dos 20 itens que estavam em execução, 5 (25%) foram considerados concluídos e 15 (75%) itens em andamento/planejamento.</p>
+
+            <p>No terceiro mês, dos 15 itens em andamento, 3 (20%) foram considerados concluídos, e 12 (80%) são considerados em andamento/planejamento.</p>
+
+            <p>Desta forma, esta ferramenta ajuda no planejamento estratégico da equipe de anestesiologia através de um pensamento sistêmico estruturado para que os objetivos sejam alcançados de maneira adequada e de acordo com o amadurecimento da instituição de saúde. O serviço de saúde entende que o centro cirúrgico pode ser considerado como um negócio e ajuda no direcionamento dos recursos financeiros (GODILHO, 2018; IHI, 2021).</p>
+
+            <h2>Considerações finais</h2>
+
+            <p>Diante do apresentado, a aplicação do ciclo PDSA na anestesiologia pode gerar vários benefícios tangíveis, melhorando os resultados clínicos para os pacientes, reduzindo as complicações perioperatórias, utilização eficiente dos recursos hospitalares e maior satisfação da equipe multiprofissional.</p>
+
+            <p>Para que o ciclo PDSA seja eficaz, é preciso que os profissionais envolvidos no processo tenham a cultura da melhoria contínua com uma liderança comprometida, apoio institucional e mentalidade aberta às mudanças.</p>
+
+            <p>Desta forma, o ciclo PDSA oferece uma estrutura sólida para implementação de melhorias significativas além de uma abordagem sistemática, embasada em evidências científicas e promovendo prática mais segura, eficiente e centrada no paciente.</p>
+
+            <div class="principles-box">
+                <h2>Por que este estudo importa para a segurança do paciente</h2>
+                <ul>
+                    <li><strong>Melhoria contínua tem método:</strong> o PDSA transforma boas intenções em um ciclo verificável de planejar, testar, estudar e agir.</li>
+                    <li><strong>Diagnóstico antes da ação:</strong> os 29 itens só emergiram porque houve visita técnica e relatório gerencial — não se corrige o que não foi mapeado.</li>
+                    <li><strong>Medir a implantação, não só o desfecho:</strong> acompanhar mensalmente quantos itens foram concluídos torna visível o ritmo real da mudança.</li>
+                    <li><strong>Dados que orientam escala de equipe:</strong> mapas de calor de volumetria cirúrgica ligam gestão de pessoal diretamente à segurança do ato anestésico.</li>
+                    <li><strong>Cultura e liderança são pré-requisitos:</strong> sem apoio institucional e abertura à mudança, a ferramenta vira formalidade sem efeito.</li>
+                </ul>
+            </div>
+
+            <h2>Referências</h2>
+            <ul class="referencias">
+                <li>Agência Nacional de Vigilância Sanitária (ANVISA). Assistência segura: uma reflexão teórica aplicada à prática. Brasília. 2017.</li>
+                <li>Godilho, R. Maturidade de gestão hospitalar e transformação digital. Ledriprint editora. São Paulo. 2018.</li>
+                <li>Institute Healthcare Improvement (IHI). Qualidade de todo sistema. Boston. 2021.</li>
+                <li>Kurcgant P. Gerenciamento em enfermagem. Guanabara Koogan. Rio de Janeiro. 2016.</li>
+                <li>Ovretveit J. Melhoria da qualidade que agrega valor: o cuidado da saúde. Rio de Janeiro. 2015.</li>
+                <li>Raffa C, Barreto S. Qualidade em gestão de saúde. Centro Universitário São Camilo. São Paulo. 2023.</li>
+                <li>Santos JLG; Lanzoni GMM; Erdmann AL. Gestão em enfermagem. Ponta Grossa. Athena Editora. 2023.</li>
+                <li>Sociedade de Anestesiologia do Estado de São Paulo (SAESP). Gestão em anestesia. Manole. São Paulo. 2024.</li>
+                <li>Toledo LV (org). Gerenciamento de serviços de saúde e enfermagem. Ponta Grossa. Athena editora. 2021.</li>
+                <li>Vidal Junior, GC. Modelo de Deming e Ciclo PDSA: Alcançando resultados, gerando conhecimento e incrementando a qualidade. REPEGE. 6(1):e32482. 2023.</li>
+                <li>World Health Organization (WHO). Quality health services: a planning guide. Genebra. 2020.</li>
+            </ul>
+
+            <div class="licenca">
+                <p><strong>Recebido:</strong> 16 de maio de 2024. <strong>Aceito:</strong> 26 de junho de 2024.</p>
+                <p><strong>Correspondência:</strong> Patrícia Mitsue Saruhashi Shimabukuro. E-mail: ccihitaim@gmail.com</p>
+                <p><strong>Conflito de interesses:</strong> os autores declararam não haver conflito de interesses.</p>
+                <p><strong>Como citar:</strong> Shimabukuro PMS, Terzian FT, Val RM, Coan GP. Utilização da ferramenta PDSA para implantação de um serviço de anestesiologia. Rev. Adm. Saúde (On-line). 2024;24(95):e381. <a href="http://dx.doi.org/10.23973/ras.95.381" target="_blank" rel="noopener noreferrer">http://dx.doi.org/10.23973/ras.95.381</a></p>
+                <p>© Este é um artigo de acesso aberto distribuído sob os termos da <a href="https://creativecommons.org/licenses/by/4.0/deed.pt-br" target="_blank" rel="noopener noreferrer">Licença Creative Commons Attribution (CC BY)</a>, que permite uso, distribuição e reprodução irrestritos em qualquer meio, desde que o trabalho original seja devidamente citado.</p>
+            </div>
+        </article>
+    </div>
+</body>
+</html>
