@@ -393,7 +393,15 @@
 #ia-cadastro button:hover,#ia-chat-enviar:hover{background:#2a8fcc;}
 #ia-cadastro-erro{font-size:0.8rem;color:#b3261e;display:none;}
 #ia-mensagens{flex:1;overflow-y:auto;display:flex;flex-direction:column;gap:0.6rem;min-height:180px;max-height:320px;}
-.ia-msg{padding:0.6rem 0.9rem;border-radius:0.8rem;font-size:0.86rem;line-height:1.5;max-width:85%;white-space:pre-wrap;}
+.ia-msg{padding:0.6rem 0.9rem;border-radius:0.8rem;font-size:0.86rem;line-height:1.5;max-width:85%;white-space:pre-wrap;overflow-wrap:anywhere;}
+.ia-msg.assistente{white-space:normal;}
+.ia-msg p{margin:0 0 0.5rem 0;}
+.ia-msg p:last-child{margin-bottom:0;}
+.ia-msg ul,.ia-msg ol{margin:0.35rem 0 0.5rem 1.1rem;padding:0;}
+.ia-msg li{margin-bottom:0.25rem;}
+.ia-msg strong{font-weight:600;}
+.ia-msg code{background:rgba(0,0,0,0.07);padding:0.1rem 0.32rem;border-radius:0.3rem;font-size:0.82em;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;}
+.ia-msg a{color:#1a5c8a;text-decoration:underline;}
 .ia-msg.usuario{align-self:flex-end;background:#1a5c8a;color:white;border-bottom-right-radius:0.2rem;}
 .ia-msg.assistente{align-self:flex-start;background:#dbeef7;color:#1c2b3a;border-bottom-left-radius:0.2rem;}
 .ia-msg.carregando{align-self:flex-start;background:#dbeef7;color:#3a5a72;font-style:italic;}
@@ -475,11 +483,47 @@
     }
   };
 
+  // O modelo responde em Markdown; convertemos para HTML com escape prévio,
+  // aceitando apenas um subconjunto seguro (negrito, itálico, código, listas e links http/https).
+  function iaEscapar(s){
+    return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  }
+
+  function iaMarkdown(txt){
+    let t = iaEscapar(txt);
+    t = t.replace(/`([^`\n]+)`/g, '<code>$1</code>');
+    t = t.replace(/\*\*([^*\n]+)\*\*/g, '<strong>$1</strong>');
+    t = t.replace(/(^|[\s(])\*([^*\n]+)\*(?=[\s).,;:!?]|$)/g, '$1<em>$2</em>');
+    t = t.replace(/\[([^\]\n]+)\]\((https?:\/\/[^\s)]+)\)/g,
+                  '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>');
+    t = t.replace(/^\s{0,3}#{1,6}\s*(.+)$/gm, '<strong>$1</strong>');
+
+    const saida = [];
+    let lista = null;
+    t.split('\n').forEach(function(linha){
+      const ord = linha.match(/^\s*\d+[.)]\s+(.*)$/);
+      const nao = linha.match(/^\s*[-*+]\s+(.*)$/);
+      if (ord) {
+        if (lista !== 'ol'){ if (lista) saida.push('</' + lista + '>'); saida.push('<ol>'); lista = 'ol'; }
+        saida.push('<li>' + ord[1] + '</li>');
+      } else if (nao) {
+        if (lista !== 'ul'){ if (lista) saida.push('</' + lista + '>'); saida.push('<ul>'); lista = 'ul'; }
+        saida.push('<li>' + nao[1] + '</li>');
+      } else {
+        if (lista){ saida.push('</' + lista + '>'); lista = null; }
+        if (linha.trim() !== '') saida.push('<p>' + linha.trim() + '</p>');
+      }
+    });
+    if (lista) saida.push('</' + lista + '>');
+    return saida.join('');
+  }
+
   function iaAdicionarMensagem(tipo, texto){
     const wrap = document.getElementById('ia-mensagens');
     const div = document.createElement('div');
     div.className = 'ia-msg ' + tipo;
-    div.textContent = texto;
+    if (tipo === 'assistente') { div.innerHTML = iaMarkdown(texto); }
+    else { div.textContent = texto; }
     wrap.appendChild(div);
     wrap.scrollTop = wrap.scrollHeight;
     return div;
