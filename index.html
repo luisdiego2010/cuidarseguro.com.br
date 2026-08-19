@@ -132,6 +132,7 @@
     .reveal.visible{opacity:1;transform:translateY(0);}
     @media(max-width:768px){nav{padding:1rem 1.5rem;}.nav-links{display:none;}.hero{grid-template-columns:1fr;padding:6rem 1.5rem 3rem;}.hero-visual{display:none;}.stats-bar{gap:2rem;padding:2rem 1.5rem;}section{padding:3.5rem 1.5rem;}.recursos-layout{grid-template-columns:1fr;}.links-grid{grid-template-columns:1fr;}#sobre{grid-template-columns:1fr;}.contato-layout{grid-template-columns:1fr;}.form-row{grid-template-columns:1fr;}footer{flex-direction:column;text-align:center;}}
   </style>
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 <body>
 <div id="aviso-cfm" role="region" aria-label="Aviso sobre a Resolução CFM nº 2.454/2026">
@@ -429,6 +430,7 @@
     <input type="text" id="ia-nome" placeholder="Seu nome">
     <label for="ia-email" style="font-size:0.82rem;font-weight:500;">E-mail</label>
     <input type="email" id="ia-email" placeholder="seu@email.com">
+    <div class="cf-turnstile" data-sitekey="0x4AAAAAAEVYoFUkd_vkTisK" data-theme="light"></div>
     <div id="ia-cadastro-erro"></div>
     <button onclick="iaCadastrar()">Liberar assistente →</button>
     <p class="ia-lgpd">Seu nome e e-mail são usados apenas para liberar o acesso a este assistente. As perguntas enviadas são processadas por um serviço de inteligência artificial para gerar as respostas. Para solicitar a exclusão dos seus dados, use o <a href="#contato" onclick="iaFecharPainel()">formulário de contato</a>.</p>
@@ -511,16 +513,23 @@
       erroEl.style.display = 'block';
       return;
     }
+    const turnstileToken = (window.turnstile && turnstile.getResponse()) || '';
+    if(!turnstileToken){
+      erroEl.textContent = 'Confirme a verificação de segurança antes de continuar.';
+      erroEl.style.display = 'block';
+      return;
+    }
     try{
       const res = await fetch(IA_API + '/signup', {
         method: 'POST',
         headers: {'content-type':'application/json'},
-        body: JSON.stringify({nome, email})
+        body: JSON.stringify({nome, email, turnstileToken})
       });
       const data = await res.json();
       if(!res.ok){
         erroEl.textContent = data.error || 'Não foi possível concluir o cadastro.';
         erroEl.style.display = 'block';
+        if (window.turnstile) turnstile.reset();
         return;
       }
       try { localStorage.setItem(IA_TOKEN_KEY, data.token); } catch (e) {}
@@ -531,6 +540,7 @@
     }catch(err){
       erroEl.textContent = 'Falha de conexão. Tente novamente.';
       erroEl.style.display = 'block';
+      if (window.turnstile) turnstile.reset();
     }
   };
 
