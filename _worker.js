@@ -1,3 +1,4 @@
+// build: força nova versão para garantir vínculo correto de secrets (2026-08-19)
 export default {
   async fetch(request, env, ctx) {
     const url = new URL(request.url);
