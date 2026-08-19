@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="logo_cuidarseguro.png">
+    <title>Elaboração de protocolo para preservação da privacidade física do paciente em centro cirúrgico</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: #ffffff;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+            color: #1e40af;
+        }
+
+        .subtitulo-en {
+            font-size: 1.1rem;
+            font-style: italic;
+            color: #666;
+            margin-bottom: 2rem;
+            line-height: 1.5;
+        }
+
+        article p {
+            margin-bottom: 1.5rem;
+            text-align: justify;
+            line-height: 1.8;
+            font-size: 1rem;
+        }
+
+        article em {
+            font-style: italic;
+        }
+
+        h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 3rem 0 1.5rem 0;
+            padding-top: 2rem;
+            border-top: 1px solid #e5e5e5;
+            color: #1e40af;
+        }
+
+        h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin: 2rem 0 1rem 0;
+            color: #1e40af;
+        }
+
+        .highlight-box {
+            background: #f0fdf4;
+            border-left: 4px solid #15803d;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .highlight-box h2 {
+            margin-top: 0;
+            padding-top: 0;
+            border-top: none;
+            font-size: 1.3rem;
+            color: #15803d;
+        }
+
+        .highlight-box p {
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .highlight-box a {
+            color: #15803d;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        .highlight-box a:hover {
+            text-decoration: underline;
+        }
+
+        .principles-box {
+            background: #f0f9ff;
+            border-left: 4px solid #1e40af;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .principles-box h2 {
+            margin-top: 0;
+            padding-top: 0;
+            border-top: none;
+            font-size: 1.3rem;
+        }
+
+        .principles-box ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .principles-box li {
+            margin-bottom: 0.75rem;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .principles-box strong {
+            color: #1e40af;
+        }
+
+        .autores {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+            color: #1a1a1a;
+        }
+
+        .afiliacoes {
+            font-size: 0.85rem;
+            color: #555;
+            line-height: 1.7;
+            margin-bottom: 2rem;
+            padding-left: 1rem;
+            border-left: 2px solid #e5e5e5;
+        }
+
+        .resumo-box {
+            background: #fafafa;
+            border: 1px solid #e5e5e5;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .resumo-box h2 {
+            margin-top: 0;
+            padding-top: 0;
+            border-top: none;
+            font-size: 1.2rem;
+        }
+
+        .resumo-box p {
+            font-size: 0.92rem;
+            line-height: 1.75;
+            margin-bottom: 1rem;
+        }
+
+        .palavras-chave {
+            font-size: 0.88rem;
+            color: #555;
+            margin-bottom: 0;
+        }
+
+        .palavras-chave strong {
+            color: #1e40af;
+        }
+
+        ol {
+            margin-left: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        li {
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        ol a {
+            color: #1e40af;
+            word-break: break-word;
+        }
+
+        .licenca {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid #e5e5e5;
+            font-size: 0.85rem;
+            color: #555;
+            line-height: 1.7;
+        }
+
+        .licenca p {
+            margin-bottom: 0.75rem;
+            text-align: left;
+            font-size: 0.85rem;
+            line-height: 1.7;
+        }
+
+        .licenca a {
+            color: #1e40af;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 1.25rem;
+            }
+            h1 {
+                font-size: 1.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Elaboração de protocolo para preservação da privacidade física do paciente em centro cirúrgico</h1>
+        <p class="subtitulo-en">Development of a protocol to preserve the physical privacy of patients in a surgical center</p>
+
+        <article>
+            <p class="autores">Isau Paulino de Oliveira<sup>1</sup>, Patrícia Mitsue Saruhashi Shimabukuro<sup>2</sup>, Gilmar Pereira Coan<sup>3</sup>, Dario Yamashiro<sup>4</sup>, Emilio Carlos Del Massa<sup>5</sup></p>
+
+            <div class="afiliacoes">
+                1. Médico residente do Hospital Santa Marcelina de Itaquera. São Paulo SP<br>
+                2. Enfermeira. Gestora da DG Medicina Perioperatória. São Paulo SP<br>
+                3. Anestesiologista da DG Medicina Perioperatória. São Paulo SP<br>
+                4. Anestesiologista da DG Medicina Perioperatória. São Paulo SP<br>
+                5. Instrutor de anestesiologia no Hospital Santa Marcelina. São Paulo SP
+            </div>
+
+            <div class="highlight-box">
+                <h2>Sobre esta publicação</h2>
+                <p>Artigo de revisão publicado na <strong>Revista de Administração em Saúde (Rev. Adm. Saúde, On-line)</strong>, São Paulo, v. 25, n. 99: e415, abr.–jun. 2025. Epub 30 jun. 2025. Reproduzido integralmente no Cuidar Seguro sob licença Creative Commons Attribution (CC BY), com a devida atribuição aos autores.</p>
+                <a href="http://dx.doi.org/10.23973/ras.99.415" target="_blank" rel="noopener noreferrer">Acessar o artigo original (DOI: 10.23973/ras.99.415)</a>
+            </div>
+
+            <div class="resumo-box">
+                <h2>Resumo</h2>
+                <p><strong>Introdução:</strong> A privacidade é um direito humano essencial, protegido por diversas legislações. A ausência de medidas protocolares para protegê-la no ambiente de cuidados em saúde, como em um centro cirúrgico, pode dar oportunidade para casos de abuso físico e exposição de imagem de cunho sexual, com consequências desastrosas para pacientes, instituições e classes profissionais envolvidas. <strong>Objetivos:</strong> Realizar uma busca na literatura para elaboração de um protocolo institucional visando a proteção da privacidade corporal do paciente durante procedimentos em centro cirúrgico. <strong>Métodos:</strong> A base literária foi composta de uma revisão integrativa de documentos dos últimos dez anos nas seguintes plataformas de dados: Literatura Latino-Americana e do Caribe em Ciências da Saúde (LILACS), Bireme, Medical Literature Analysis and Retrieval Sistem on-line (Medline) e Google acadêmico, além de publicações da Sociedade Brasileira de Anestesiologia. <strong>Resultados:</strong> A busca resultou na seleção de 13 artigos científicos, 3 legislações, além de 3 notas oficiais emitidas pela Sociedade Brasileira de Anestesiologia. <strong>Discussão:</strong> As referências apontaram que, embora a necessidade de exposição, manipulação e registro de informações sobre os corpos dos pacientes seja inerente à assistência à saúde, as consequências dessa condição indispensável precisam ser levadas em conta, principalmente considerando o impacto disso na experiência vivenciada. Alguns trabalhos evidenciam ainda que muitos profissionais assistentes do paciente, e, por conseguinte, as próprias instituições de saúde, parecem não demonstrar que reconhecem a privacidade física como um elemento importante para a qualidade e a segurança do serviço prestado. Esse cenário também expõe o direito à privacidade física e à honra dos pacientes a situações de vulnerabilidade, desde constrangimentos até mesmo casos de abuso físico por manipulação ou por registros de vídeos e fotografias erotizados. <strong>Conclusão:</strong> Para alcançar o objetivo de melhorar a experiência e oferecer mais segurança ao direito à privacidade e à honra dos seus pacientes, as instituições devem estabelecer protocolos e treinar seus quadros profissionais para comunicar com clareza e agir sem gerar suspeitas durante a manipulação física daqueles aos quais prestam assistência à saúde.</p>
+                <p class="palavras-chave"><strong>Palavras-chave:</strong> Cirurgia; Direitos do paciente; Privacidade.</p>
+            </div>
+
+            <div class="resumo-box">
+                <h2>Abstract</h2>
+                <p><strong>Introduction:</strong> Privacy is a fundamental human right, protected by various legislations. The absence of standardized protocols to safeguard it within healthcare settings, such as in an operating room, can create opportunities for physical abuse and sexually suggestive image exposure, leading to disastrous consequences for patients, institutions, and the professional classes involved. <strong>Objectives:</strong> To conduct a literature review for the development of an institutional protocol aimed at protecting the bodily privacy of patients during procedures performed in the surgical center. <strong>Methods:</strong> The literature base consisted of an integrative review of documents from the past ten years sourced from the following databases: Latin American and Caribbean Health Sciences Literature (LILACS), BIREME, Medical Literature Analysis and Retrieval System Online (Medline), and Google Scholar, in addition to publications from the Brazilian Society of Anesthesiology (SBA). <strong>Results:</strong> The search led to the selection of 13 scientific articles, 3 pieces of legislation, and 3 official statements issued by the Brazilian Society of Anesthesiology. <strong>Discussion:</strong> The references indicated that although exposure, handling, and recording of information regarding patients' bodies are inherent to healthcare delivery, the consequences of this indispensable condition must be considered, especially regarding its impact on patient experience. Some studies further show that many healthcare professionals, and consequently the institutions themselves, do not appear to acknowledge physical privacy as a key element in the quality and safety of the care provided. This scenario also puts patients' rights to physical privacy and dignity at risk, exposing them to vulnerable situations ranging from embarrassment to cases of physical abuse through handling or the creation of eroticized videos and photographs. <strong>Conclusion:</strong> To achieve the goal of improving patient experience and better ensuring their rights to privacy and dignity, healthcare institutions must establish protocols and train their professionals to communicate clearly and act in a way that avoids raising suspicions during the physical handling of patients under their care.</p>
+                <p class="palavras-chave"><strong>Keywords:</strong> Surgery; Patient rights; Privacy.</p>
+            </div>
+
+            <h2>Introdução</h2>
+
+            <p>A privacidade, a honra e a reputação fazem parte dos direitos humanos fundamentais, para protegê-los há diversos ordenamentos legais, a exemplos da própria Declaração Universal dos Direitos Humanos, da nossa carta magna e da lei 13.709/2018, Lei Geral de Proteção de Dados (LGPD)<sup>1-4</sup>.</p>
+
+            <p>As instituições de saúde rotineiramente vivenciam situações que exigem condutas para proteção da integridade física e da imagem de seus pacientes. Mesmo com estas medidas, infelizmente observamos denúncias relacionados a abusos físicos durante a assistência, envolvendo desde manipulação física a registros vídeo fotográficos de caráter erótico. Esses fatos costumam ganhar enorme destaque jornalístico e se disseminam maciçamente através de redes sociais, gerando severas repercussões emocionais, jurídicas e financeiras às vítimas, às instituições e às classes profissionais envolvidas<sup>1-3</sup>.</p>
+
+            <p>Pesquisas de satisfação dos pacientes também indicam que a violação da privacidade pode levar a uma redução significativa na adesão ao tratamento proposto, o que evidencia uma correlação direta entre privacidade e eficácia do cuidado. Esses dados reforçam a necessidade de práticas rigorosas de proteção de informações pessoais e confidenciais no ambiente hospitalar. E garantir tais condições é oferecer um atendimento mais humanizado e eficaz<sup>4,5,6</sup>.</p>
+
+            <p>Há poucos estudos que discutem a privacidade física do paciente na prática diária dos cuidados em saúde. Ainda sabemos pouco sobre as situações desconfortáveis que são vivenciadas pelos pacientes.</p>
+
+            <p>Portanto, estabelecer protocolos que objetivem prevenir esses fatos e ao mesmo tempo protejam os diversos atores envolvidos na assistência à saúde é um imperativo, de forma que permita o fluxo normal dos procedimentos num ambiente confiável para todos.</p>
+
+            <p>Este trabalho objetiva realizar uma busca literária para servir de base para proposição futura de um protocolo institucional visando a proteção da privacidade corporal do paciente durante procedimentos em centro cirúrgico, e, assim, contribuir para a promoção de um ambiente de cuidados respeitoso, seguro e centrado no paciente.</p>
+
+            <h2>Método</h2>
+
+            <p>Para a produção deste estudo foi realizada uma revisão integrativa da literatura, além da consulta de legislações pertinentes e de notas emitidas pela Sociedade Brasileira de Anestesiologia (SBA). A revisão integrativa possui uma abordagem metodológica ampliada referente às revisões, permitindo a inclusão de estudos experimentais e não-experimentais para uma compreensão completa do fenômeno analisado, combinando dados e conceitos da literatura científica e cinzenta. Esta amplitude da amostra gera um panorama consistente e compreensível de conceitos complexos, teorias ou problemas de saúde relevantes para a temática abordada.</p>
+
+            <p>Para o levantamento dos artigos na literatura, realizou-se uma busca nas seguintes bases de dados: Literatura Latino-Americana e do Caribe em Ciências da Saúde (LILACS), Bireme, Medical Literature Analysis and Retrieval Sistem on-line (Medline) e Google acadêmico. Foram utilizados, para busca dos artigos, os seguintes descritores e suas combinações nas línguas portuguesa e inglesa: segurança do paciente, direitos do paciente, cirurgia, corpo humano e privacidade.</p>
+
+            <p>Como critérios de inclusão, foram adotados documentos e artigos que respondiam ao objetivo do estudo e que não ultrapassem 10 anos de publicação.</p>
+
+            <p>Nos critérios de exclusão entraram os documentos que não puderam ser obtidos na íntegra, publicações que ultrapassaram 10 anos e documentos que não respondiam ao objetivo do estudo.</p>
+
+            <h2>Resultados e discussão</h2>
+
+            <p>Conforme os critérios previamente definidos, para compor a base literária que será utilizada para a elaboração do protocolo institucional para preservação da privacidade física do paciente em procedimentos cirúrgicos, foi realizada uma revisão constituída por 13 artigos científicos, 3 legislações, além de 3 notas oficiais emitidas pela Sociedade Brasileira de Anestesiologia (SBA) sobre fatos referentes à privacidade física de pacientes envolvendo profissionais anestesistas.</p>
+
+            <p>A necessidade de expor o corpo do paciente, observar, manipular e registrar informações para lhe prestar avaliações e cuidados necessários, sob os limites éticos, é inerente à assistência à saúde. A relação estabelecida entre pacientes e profissionais pressupõe uma autorização baseada na confiança de que o corpo físico é privado e será invadido somente o necessário para concretizar o cuidado. E é nesse sentido que a privacidade de um paciente pode tornar-se vulnerável<sup>9,10</sup>. Estudos mostram que a percepção dos pacientes quanto à violação de sua privacidade não reside totalmente no incômodo de ser tocado ou despido, mas principalmente na forma de serem abordados para essa finalidade<sup>4,6</sup>.</p>
+
+            <p>Tornar a comunicação efetiva e assertiva, demonstrando a importância de resguardar a privacidade, pode melhorar a experiência do paciente. O profissional de saúde é responsável em pedir permissão para expor e manipular fisicamente um paciente, o que ajuda no aumento da percepção de ser respeitado e da autonomia sobre seu corpo. O paciente precisa saber "por quê", "por quem" e "quando" seu corpo será manipulado e quais tipos de registros serão feitos dele<sup>4,6</sup>.</p>
+
+            <p>Esses aspectos devem ser considerados, pois minimizam o incômodo que a quebra da privacidade produz e reduz significativamente as margens para interpretações errôneas sobre o toque físico. Uma conduta respeitosa no momento cirúrgico, pode violar a privacidade de alguém, com isso, deve-se minimizar as exposições corporais lembrando da importância do respeito pelos valores e crenças do outro<sup>5,10</sup>.</p>
+
+            <p>Por outro lado, há estudos em que a maioria dos profissionais entrevistados parece não ter ciência de que a privacidade é um elemento do cuidado muito valioso para o paciente, e demonstrar respeito por ela eleva a percepção de qualidade dessa assistência<sup>5,11,12,13</sup>.</p>
+
+            <p>A rotina de cuidados no centro cirúrgico frequentemente requer a nudez do paciente durante situações que envolvem algum grau de alteração de nível de consciência, consequência de alguma das diversas técnicas anestésicas ou mesmo da própria condição clínica<sup>13,14</sup>. Um contexto em que à condição inerente do paciente de ter o corpo disponível à manipulação soma-se a diminuição significativa da sua capacidade de autodefesa. O que as instituições e nós, profissionais de saúde, temos feito para aumentar a segurança dada à privacidade do paciente nesse ambiente com tantas vulnerabilidades? Ter normas de conduta para manipular, expor e registrar informações sobre a privacidade física de um paciente diminui a discricionariedade e torna a proteção da privacidade um valor institucional, que só contribui para fortalecer a credibilidade da instituição junto ao público. Portanto, um protocolo institucional com esse objetivo deve ser do conhecimento de todos os seus colaboradores e deve ser compreendido também como ferramenta de proteção jurídica da sua atuação.</p>
+
+            <p>Com esse objetivo as instituições podem oferecer treinamentos para aprimorar as competências éticas de seus profissionais, de todos os setores hospitalares, não apenas do centro cirúrgico. Ele deve servir para inibir abusos e proteger um direito primordial dos pacientes. Além disso, evitar interpretações errôneas e, assim, resguardar a idoneidade da conduta profissional, para melhorar a experiência do paciente e para proteger a reputação das instituições.</p>
+
+            <h2>Conclusão</h2>
+
+            <p>É preciso melhorar a experiência dos pacientes quanto à quebra da privacidade durante a assistência à saúde. Com esse intuito as instituições devem oferecer mais segurança ao direito à privacidade e à honra dos seus assistidos. Nesse sentido, sugerimos o estabelecimento de protocolos e o treinamento dos quadros profissionais, de forma a capacitá-los para comunicar com clareza e agir sem gerar suspeitas durante a manipulação física daqueles aos quais prestam assistência. Essas ferramentas têm o potencial de mitigar algum constrangimento inerente vivenciado pelo paciente, melhorar sua satisfação e adesão ao cuidado, além de aumentar a segurança jurídica da atuação profissional e gerar credibilidade para a imagem das próprias instituições de saúde.</p>
+
+            <div class="principles-box">
+                <h2>Por que este estudo importa para a segurança do paciente</h2>
+                <ul>
+                    <li><strong>Privacidade é dimensão da qualidade:</strong> não é etiqueta nem gentileza opcional — integra a segurança e a experiência do cuidado.</li>
+                    <li><strong>O incômodo está na abordagem, não só no toque:</strong> a percepção de violação depende sobretudo de <em>como</em> o paciente é abordado antes da exposição corporal.</li>
+                    <li><strong>Vulnerabilidade somada:</strong> sob anestesia, o paciente perde a capacidade de autodefesa justamente quando o corpo está mais exposto.</li>
+                    <li><strong>Protocolo reduz discricionariedade:</strong> normas explícitas sobre manipular, expor e registrar protegem o paciente e também a idoneidade do profissional.</li>
+                    <li><strong>Comunicação como barreira de segurança:</strong> explicar "por quê", "por quem" e "quando" o corpo será manipulado previne constrangimento e interpretação errônea.</li>
+                </ul>
+            </div>
+
+            <h2>Referências</h2>
+            <ol>
+                <li>Brasil. Lei nº 13709 Lei geral de proteção de dados. Brasília. 2018.</li>
+                <li>Organização das Nações Unidas (ONU). Declaração Universal dos Direitos Humanos. [Internet]. Disponível em <a href="https://www.unicef.org/brazil/declaracao-universal-dos-direitos-humanos" target="_blank" rel="noopener noreferrer">https://www.unicef.org/brazil/declaracao-universal-dos-direitos-humanos</a></li>
+                <li>Brasil. Constituição Federal. Brasília. 1988.</li>
+                <li>Melgaço M, Albuquerque A. Direito do paciente: formação e atualização. Ed Athena. Ponta Grossa. 2023.</li>
+                <li>Carvalhal GF e cols. Recomendações para proteção da privacidade do paciente. Rev Bioét. 2017; 25(1):39-43.</li>
+                <li>Joint Commission International (JCI). Comissão conjunta internacional: padrões de acreditação para hospitais. Estados Unidos. 8ª edição. 2024.</li>
+                <li>Pupulim JSL, Sawada NO. Privacidade física referente à exposição e manipulação corporal: percepção de pacientes hospitalizados. Texto Contexto Enferm. 2010; 19(1):36-44.</li>
+                <li>Souza MT e cols. Revisão integrativa: o que é e como fazer. Einstein. 201; 8(1):102-6.</li>
+                <li>Martorell LB, Nascimento WF, Garrafa W. Redes sociais, privacidade, confidencialidade e ética: a exposição de imagens de pacientes no Facebook. Interface. 2016; 20(56):13-23.</li>
+                <li>Planetree International. Manual do programa de certificação de cuidado centrado na pessoa 2024. 2023.</li>
+                <li>Pupulim JSL, Sawada NO. Percepção de pacientes sobre a privacidade no hospital. REBEn. 2012; 65(4):621-9.</li>
+                <li>Hartigan L e cols. Percepção de privacidade e confidencialidade por parte dos pacientes no departamento de emergência de uma unidade obstétrica movimentada. BMC Health Services Research. 2018.18:978. <a href="https://doi.org/10.1186/s12913-018-3782-6" target="_blank" rel="noopener noreferrer">https://doi.org/10.1186/s12913-018-3782-6</a>.</li>
+                <li>Castanheira JS e cols. Percepção do paciente no período perioperatório em relação à assistência prestada no centro cirúrgico. Research, Society and Development. 202; 9(11):e969119573. <a href="http://dx.doi.org/10.33448/rsd-v9i11.9573" target="_blank" rel="noopener noreferrer">http://dx.doi.org/10.33448/rsd-v9i11.9573</a>.</li>
+                <li>Mendonça ET e cols. Concepções de técnicos de enfermagem acerca da humanização da assistência em centro cirúrgico. R. Enferm. Cent. O. Min. 2016; 6(3):2389-2397. <a href="https://doi.org/10.19175/recom.v6i3.1177" target="_blank" rel="noopener noreferrer">https://doi.org/10.19175/recom.v6i3.1177</a>.</li>
+            </ol>
+
+            <div class="licenca">
+                <p><strong>Recebido:</strong> 17 de junho de 2025. <strong>Aceito:</strong> 27 de junho de 2025.</p>
+                <p><strong>Correspondência:</strong> Patrícia Mitsue Saruhashi Shimabukuro. E-mail: ccihitaim@gmail.com</p>
+                <p><strong>Conflito de interesses:</strong> os autores declararam não haver conflito de interesses.</p>
+                <p><strong>Como citar:</strong> Oliveira IP, Shimabukuro PMS, Coan GP, Yamashiro D, Del Massa EC. Elaboração de protocolo para preservação da privacidade física do paciente em centro cirúrgico. Rev. Adm. Saúde (On-line). 2025;25(99):e415. <a href="http://dx.doi.org/10.23973/ras.99.415" target="_blank" rel="noopener noreferrer">http://dx.doi.org/10.23973/ras.99.415</a></p>
+                <p>© Este é um artigo de acesso aberto distribuído sob os termos da <a href="https://creativecommons.org/licenses/by/4.0/deed.pt-br" target="_blank" rel="noopener noreferrer">Licença Creative Commons Attribution (CC BY)</a>, que permite uso, distribuição e reprodução irrestritos em qualquer meio, desde que o trabalho original seja devidamente citado.</p>
+            </div>
+        </article>
+    </div>
+</body>
+</html>
