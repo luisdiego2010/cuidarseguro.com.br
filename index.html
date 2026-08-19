@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="logo_cuidarseguro.png">
   <title>Cuidar Seguro — Segurança do Paciente para Quem Cuida</title>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;0,9..144,700;1,9..144,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
@@ -86,6 +87,7 @@
     .sobre-item p{font-size:0.95rem;opacity:0.9;line-height:1.6;}
     .sobre-visual{background:rgba(255,255,255,0.1);border-radius:1.5rem;padding:2rem;border:1px solid rgba(255,255,255,0.2);}
     .sobre-quote{font-family:'Fraunces',serif;font-size:1.3rem;font-style:italic;font-weight:300;line-height:1.6;opacity:0.95;margin-bottom:1.5rem;}
+    .sobre-autores{display:flex;flex-direction:column;gap:1.25rem;}
     .sobre-autor{display:flex;align-items:center;gap:1rem;}
     .autor-avatar{width:48px;height:48px;border-radius:50%;background:rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;font-size:1.5rem;}
     .autor-info .nome{font-weight:500;font-size:0.95rem;}
@@ -114,6 +116,16 @@
     .footer-links{display:flex;gap:1.5rem;}
     .footer-links a{color:rgba(255,255,255,0.6);text-decoration:none;font-size:0.82rem;transition:color 0.2s;}
     .footer-links a:hover{color:var(--verde-claro);}
+    #aviso-cfm{position:fixed;top:0;left:0;right:0;z-index:120;background:var(--destaque);color:#1c2b3a;display:none;align-items:center;justify-content:center;gap:0.75rem;padding:0.65rem 3rem;font-size:0.88rem;line-height:1.45;text-align:center;box-shadow:0 1px 4px rgba(0,0,0,0.12);}
+    #aviso-cfm.ativo{display:flex;}
+    #aviso-cfm .aviso-txt{max-width:820px;}
+    #aviso-cfm a{color:#1c2b3a;font-weight:600;text-decoration:underline;white-space:nowrap;}
+    #aviso-cfm a:hover{text-decoration:none;}
+    #aviso-cfm .aviso-fechar{position:absolute;right:1rem;top:50%;transform:translateY(-50%);background:none;border:none;font-size:1.05rem;line-height:1;cursor:pointer;color:#1c2b3a;opacity:0.55;padding:0.3rem;}
+    #aviso-cfm .aviso-fechar:hover{opacity:1;}
+    html.com-aviso nav{top:var(--aviso-altura,46px);}
+    html.com-aviso .hero{padding-top:calc(7rem + var(--aviso-altura,46px));}
+    @media(max-width:768px){#aviso-cfm{padding:0.6rem 2.6rem 0.6rem 1rem;font-size:0.8rem;flex-direction:column;gap:0.3rem;}html.com-aviso .hero{padding-top:calc(6rem + var(--aviso-altura,64px));}}
     @keyframes fadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
     .reveal{opacity:0;transform:translateY(20px);transition:opacity 0.6s ease,transform 0.6s ease;}
     .reveal.visible{opacity:1;transform:translateY(0);}
@@ -121,6 +133,11 @@
   </style>
 </head>
 <body>
+<div id="aviso-cfm" role="region" aria-label="Aviso sobre a Resolução CFM nº 2.454/2026">
+  <span class="aviso-txt" id="aviso-texto"></span>
+  <a href="resolucao-cfm-2454-2026.html">Conhecer a resolução →</a>
+  <button type="button" class="aviso-fechar" onclick="fecharAvisoCFM()" aria-label="Fechar aviso">✕</button>
+</div>
 <nav>
   <div class="nav-logo"><img src="logo_cuidarseguro.png" alt="Cuidar Seguro" style="height:44px;width:auto;display:block;"></div>
   <ul class="nav-links">
@@ -158,7 +175,7 @@
     <div class="tema-card"><div class="tema-icon">🦠</div><h3>Higiene das Mãos</h3><p>A intervenção mais eficaz e mais simples. Os 5 momentos da higienização e as técnicas corretas com água/sabão e álcool gel.</p><a href="https://bvsms.saude.gov.br/bvs/publicacoes/seguranca_paciente_servicos_saude_higienizacao_maos.pdf" target="_blank" class="tema-badge">Meta 5 — OMS</a></div>
     <div class="tema-card"><div class="tema-icon">🔪</div><h3>Cirurgia Segura</h3><p>Protocolo do checklist cirúrgico da OMS. Prevenção de cirurgia em local errado, paciente errado e procedimento errado.</p><a href="https://cbc.org.br/artigo-cirurgia-segura/" target="_blank" class="tema-badge">Meta 4 — OMS</a></div>
     <div class="tema-card"><div class="tema-icon">📋</div><h3>Comunicação Efetiva</h3><p>Falhas de comunicação causam a maioria dos eventos adversos. SBAR, read-back e a passagem de plantão segura.</p><a href="https://proqualis.fiocruz.br/artigo/impacto-da-ferramenta-de-comunicacao-e-de-passagem-de-casos-sbar-na-seguranca-do-paciente" target="_blank" class="tema-badge">Meta 2 — OMS</a></div>
-    <div class="tema-card"><div class="tema-icon">⚠️</div><h3>Prevenção de Quedas</h3><p>Avaliação de risco, escalas validadas (Morse, Humpty Dumpty) e intervenções preventivas no ambiente hospitalar.</p><a class="tema-badge" href="https://www.extensao.uff.br/?q=content/preven%C3%A7%C3%A3o-de-quedas-a%C3%A7%C3%B5es-para-implementa%C3%A7%C3%A3o-da-meta-6-para-seguran%C3%A7a-do-paciente-c%C3%B3pia-12" target="_blank">Meta 6 � OMS</a></div>
+    <div class="tema-card"><div class="tema-icon">⚠️</div><h3>Prevenção de Quedas</h3><p>Avaliação de risco, escalas validadas (Morse, Humpty Dumpty) e intervenções preventivas no ambiente hospitalar.</p><a class="tema-badge" href="https://www.extensao.uff.br/?q=content/preven%C3%A7%C3%A3o-de-quedas-a%C3%A7%C3%B5es-para-implementa%C3%A7%C3%A3o-da-meta-6-para-seguran%C3%A7a-do-paciente-c%C3%B3pia-12" target="_blank">Meta 6 — OMS</a></div>
     <div class="tema-card"><div class="tema-icon">🩹</div><h3>Lesões por Pressão</h3><p>Estadiamento, escalas de risco (Braden) e cuidados preventivos. Como incluir a família nos cuidados.</p><a href="https://ibsp.net.br/lesao-por-pressao-como-estruturar-um-programa-completo/" target="_blank" class="tema-badge">Protocolo ANVISA</a></div>
     <div class="tema-card"><div class="tema-icon">🏥</div><h3>Cultura de Segurança</h3><p>Notificação de incidentes, cultura justa e aprendizado com os erros. Como construir ambientes mais seguros.</p><a href="cultura-seguranca.html" class="tema-badge">Fundamentos</a></div>
   </div>
@@ -244,6 +261,14 @@
             <span class="link-ico">🌐</span>
             <span><strong>OMS — Patient Safety</strong><br>Página oficial de segurança do paciente da OMS</span>
           </a>
+          <a href="https://portal.cfm.org.br/biblioteca" target="_blank" rel="noopener noreferrer" class="link-item">
+            <span class="link-ico">📚</span>
+            <span><strong>Biblioteca do CFM</strong><br>Acervo do Conselho Federal de Medicina: resoluções e normativas, publicações sobre ética médica e inteligência artificial, periódicos e teses</span>
+          </a>
+          <a href="https://cem.cfm.org.br/" target="_blank" rel="noopener noreferrer" class="link-item">
+            <span class="link-ico">⚖️</span>
+            <span><strong>Código de Ética Médica 2018</strong><br>Versão navegável da Resolução CFM nº 2.217/2018, em vigor desde 30/04/2019: princípios fundamentais, normas deontológicas e índice remissivo</span>
+          </a>
         </div>
       </div>
     </div>
@@ -254,6 +279,10 @@
   <h2 class="section-title">Artigos e <em>leituras</em><br>recomendadas</h2>
   <p class="section-subtitle">Textos educacionais, resumos de evidências e reflexões sobre segurança do paciente na formação e na prática em saúde.</p>
   <div class="artigos-grid reveal">
+    <div class="artigo-card"><div class="artigo-topo"><span class="cat">Normativa</span><span class="data">Ago 2026</span></div><div class="artigo-body"><h3>Resolução CFM nº 2.454/2026 — uso da inteligência artificial na medicina</h3><p>Texto integral e resumo executivo: direitos e deveres do médico, classificação de risco e governança. Em vigor desde 26/08/2026.</p><a href="resolucao-cfm-2454-2026.html" class="ler-mais">Ler a resolução →</a></div></div>
+    <div class="artigo-card"><div class="artigo-topo"><span class="cat">Direitos do Paciente</span><span class="data">Ago 2026</span></div><div class="artigo-body"><h3>Elaboração de protocolo para preservação da privacidade física do paciente em centro cirúrgico</h3><p>Sob anestesia, o corpo fica exposto e a autodefesa, reduzida. Revisão que fundamenta um protocolo institucional de privacidade no centro cirúrgico.</p><a href="artigo6.html" class="ler-mais">Ler artigo →</a></div></div>
+    <div class="artigo-card"><div class="artigo-topo"><span class="cat">Gestão da Qualidade</span><span class="data">Ago 2026</span></div><div class="artigo-body"><h3>Utilização da ferramenta PDSA para implantação de um serviço de anestesiologia</h3><p>Como o ciclo Plan-Do-Study-Act estruturou a implantação de um serviço de anestesiologia: 29 itens mapeados e monitorados mês a mês.</p><a href="artigo5.html" class="ler-mais">Ler artigo →</a></div></div>
+    <div class="artigo-card"><div class="artigo-topo"><span class="cat">Anestesiologia</span><span class="data">Ago 2026</span></div><div class="artigo-body"><h3>Protocolo de anestesia segura como melhoria contínua dos processos assistenciais</h3><p>Estudo com 86.953 procedimentos em dois hospitais de São Paulo: 1,10% de eventos adversos e o caminho dos dados até um protocolo institucional.</p><a href="artigo4.html" class="ler-mais">Ler artigo →</a></div></div>
     <div class="artigo-card"><div class="artigo-topo"><span class="cat">Fundamentos</span><span class="data">Mai 2026</span></div><div class="artigo-body"><h3>Por que a segurança do paciente deve ser ensinada desde o primeiro ano da graduação?</h3><p>A formação precoce em cultura de segurança é determinante para a prática clínica futura. Entenda por quê.</p><a href="artigo1.html" class="ler-mais">Ler artigo →</a></div></div>
     <div class="artigo-card"><div class="artigo-topo"><span class="cat">Prática Clínica</span><span class="data">Abr 2026</span></div><div class="artigo-body"><h3>Os 5 momentos da higienização das mãos: uma revisão para estudantes</h3><p>Uma análise dos momentos preconizados pela OMS e a adesão em contextos reais de treinamento clínico.</p><a href="artigo2.html" class="ler-mais">Ler artigo →</a></div></div>
     <div class="artigo-card"><div class="artigo-topo"><span class="cat">Cultura</span><span class="data">Mar 2026</span></div><div class="artigo-body"><h3>Notificar erros é aprender: entendendo a cultura justa nas instituições de saúde</h3><p>Como a cultura punitiva impede o aprendizado e de que forma a cultura justa transforma organizações.</p><a href="artigo3.html" class="ler-mais">Ler artigo →</a></div></div>
@@ -273,7 +302,10 @@
   </div>
   <div class="sobre-visual reveal">
     <p class="sobre-quote">"Segurança não é um departamento. É uma responsabilidade de todos que cuidam."</p>
-    <div class="sobre-autor"><div class="autor-avatar">👨‍⚕️</div><div class="autor-info"><div class="nome">Coordenador do Projeto: Prof. Luis Antonio Diego (Fac. Med. UFF)</div><div class="cargo">Brasil · cuidarseguro.com.br</div></div></div>
+    <div class="sobre-autores">
+      <div class="sobre-autor"><div class="autor-avatar">👨‍⚕️</div><div class="autor-info"><div class="nome">Coordenador do Projeto: Prof. Luis Antonio Diego</div><div class="cargo">MBA em Gestão em Saúde · PhD em Anestesiologia (UNESP – Botucatu/SP) · Faculdade de Medicina da UFF</div></div></div>
+      <div class="sobre-autor"><div class="autor-avatar">👩‍⚕️</div><div class="autor-info"><div class="nome">Colaboradora de Conteúdo: Enf.ª Patrícia M.S. Shimabukuro, PhD</div><div class="cargo">Coordenadora do GTT de Doenças Emergentes e IRAS da Sociedade Brasileira para a Qualidade do Cuidado e Segurança do Paciente (SOBRASP)</div></div></div>
+    </div>
   </div>
 </section>
 <section id="contato">
@@ -316,6 +348,32 @@
   reveals.forEach(r=>observer.observe(r));
   function enviarForm(e){e.preventDefault();fetch('https://formspree.io/f/mpqnjvgd',{method:'POST',body:new FormData(document.getElementById('form-contato')),headers:{Accept:'application/json'}}).then(()=>{document.getElementById('form-contato').style.display='none';document.getElementById('form-sucesso').style.display='block';});}function tocarPodcast(){var capa=document.getElementById('podcast-capa');if(!capa)return;capa.outerHTML='<div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:0.5rem;"><iframe src="https://www.youtube-nocookie.com/embed/PNo3iAceivM?autoplay=1&rel=0" title="Podcast Cuidar Seguro" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>';}
   window.addEventListener('scroll',()=>{document.querySelector('nav').style.boxShadow=window.scrollY>10?'0 2px 20px rgba(0,0,0,0.08)':'none';});
+
+  // Aviso de vigência da Resolução CFM nº 2.454/2026 — troca de mensagem sozinho em 26/08/2026
+  (function(){
+    var VIGENCIA=new Date(2026,7,26);          // 26/08/2026
+    var VALIDO_ATE=new Date(2026,10,24);       // some da tela 90 dias após a vigência
+    var CHAVE='cs_aviso_cfm2454';
+    var barra=document.getElementById('aviso-cfm');
+    var alvo=document.getElementById('aviso-texto');
+    if(!barra||!alvo) return;
+    var hoje=new Date(); hoje.setHours(0,0,0,0);
+    if(hoje>VALIDO_ATE) return;
+    try{ if(localStorage.getItem(CHAVE)==='1') return; }catch(e){}
+    var dias=Math.round((VIGENCIA-hoje)/86400000);
+    alvo.innerHTML = dias>0
+      ? '⚖️ <strong>Resolução CFM nº 2.454/2026</strong> — normatiza o uso da inteligência artificial na medicina e entra em vigor em 26/08/2026. Falta'+(dias===1?'':'m')+' '+dias+' dia'+(dias===1?'':'s')+'.'
+      : '⚖️ <strong>Resolução CFM nº 2.454/2026</strong> — em vigor desde 26/08/2026, normatiza o uso da inteligência artificial na medicina.';
+    barra.classList.add('ativo');
+    document.documentElement.classList.add('com-aviso');
+    function medir(){document.documentElement.style.setProperty('--aviso-altura',barra.offsetHeight+'px');}
+    medir(); window.addEventListener('resize',medir);
+    window.fecharAvisoCFM=function(){
+      barra.classList.remove('ativo');
+      document.documentElement.classList.remove('com-aviso');
+      try{ localStorage.setItem(CHAVE,'1'); }catch(e){}
+    };
+  })();
 </script>
 
 <style>
