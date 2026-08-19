@@ -392,6 +392,12 @@
 #ia-cadastro button,#ia-chat-enviar{background:#1a5c8a;color:white;border:none;padding:0.7rem 1rem;border-radius:0.6rem;font-weight:500;font-size:0.88rem;cursor:pointer;transition:background 0.2s;}
 #ia-cadastro button:hover,#ia-chat-enviar:hover{background:#2a8fcc;}
 #ia-cadastro-erro{font-size:0.8rem;color:#b3261e;display:none;}
+.ia-lgpd{font-size:0.72rem;color:#5a7285;line-height:1.45;margin-top:0.1rem;}
+.ia-lgpd a{color:#1a5c8a;}
+#ia-sugestoes{display:none;flex-wrap:wrap;gap:0.4rem;margin-top:0.5rem;}
+#ia-sugestoes.ativo{display:flex;}
+.ia-sugestao{background:#eef6fb;border:1px solid #b8d8ed;color:#1a5c8a;border-radius:1rem;padding:0.35rem 0.7rem;font-size:0.78rem;font-family:'DM Sans',sans-serif;line-height:1.35;text-align:left;cursor:pointer;transition:background 0.2s;}
+.ia-sugestao:hover{background:#dbeef7;}
 #ia-mensagens{flex:1;overflow-y:auto;display:flex;flex-direction:column;gap:0.6rem;min-height:180px;max-height:320px;}
 .ia-msg{padding:0.6rem 0.9rem;border-radius:0.8rem;font-size:0.86rem;line-height:1.5;max-width:85%;white-space:pre-wrap;overflow-wrap:anywhere;}
 .ia-msg.assistente{white-space:normal;}
@@ -416,7 +422,7 @@
     <strong>Assistente Cuidar Seguro</strong>
     <button id="ia-fechar" onclick="iaFecharPainel()" aria-label="Fechar">✕</button>
   </div>
-  <div id="ia-aviso">Assistente educativo sobre segurança do paciente. Não substitui orientação profissional nem diagnóstico médico. Em emergência, procure atendimento imediato.</div>
+  <div id="ia-aviso">Assistente educativo sobre segurança do paciente. Não substitui orientação profissional nem diagnóstico médico. <strong>Não inclua dados que identifiquem pacientes.</strong> Em emergência, procure atendimento imediato.</div>
   <div id="ia-cadastro">
     <label for="ia-nome" style="font-size:0.82rem;font-weight:500;">Nome</label>
     <input type="text" id="ia-nome" placeholder="Seu nome">
@@ -424,9 +430,11 @@
     <input type="email" id="ia-email" placeholder="seu@email.com">
     <div id="ia-cadastro-erro"></div>
     <button onclick="iaCadastrar()">Liberar assistente →</button>
+    <p class="ia-lgpd">Seu nome e e-mail são usados apenas para liberar o acesso a este assistente. As perguntas enviadas são processadas por um serviço de inteligência artificial para gerar as respostas. Para solicitar a exclusão dos seus dados, use o <a href="#contato" onclick="iaFecharPainel()">formulário de contato</a>.</p>
   </div>
   <div id="ia-chat">
     <div id="ia-mensagens"></div>
+    <div id="ia-sugestoes"></div>
     <form id="ia-chat-form" onsubmit="iaEnviarMensagem(event)">
       <input type="text" id="ia-chat-input" placeholder="Digite sua pergunta..." autocomplete="off">
       <button type="submit" id="ia-chat-enviar">Enviar</button>
@@ -446,10 +454,50 @@
     document.getElementById('ia-painel').classList.remove('aberto');
   };
 
+  const IA_SUGESTOES = [
+    'Quais são as 6 metas internacionais de segurança do paciente?',
+    'O que é cultura justa e por que ela importa?',
+    'Quais são os 5 momentos da higienização das mãos?'
+  ];
+
+  function iaMontarSugestoes(){
+    const box = document.getElementById('ia-sugestoes');
+    if (!box) return;
+    box.innerHTML = '';
+    IA_SUGESTOES.forEach(function(pergunta){
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'ia-sugestao';
+      btn.textContent = pergunta;
+      btn.addEventListener('click', function(){
+        document.getElementById('ia-chat-input').value = pergunta;
+        iaEsconderSugestoes();
+        window.iaEnviarMensagem(new Event('submit'));
+      });
+      box.appendChild(btn);
+    });
+    box.classList.add('ativo');
+  }
+
+  function iaEsconderSugestoes(){
+    const box = document.getElementById('ia-sugestoes');
+    if (box) box.classList.remove('ativo');
+  }
+
+  function iaLerToken(){
+    try { return localStorage.getItem(IA_TOKEN_KEY); } catch (e) { return null; }
+  }
+
   function iaAtualizarView(){
-    const token = localStorage.getItem(IA_TOKEN_KEY);
+    const token = iaLerToken();
     document.getElementById('ia-cadastro').style.display = token ? 'none' : 'flex';
     document.getElementById('ia-chat').style.display = token ? 'flex' : 'none';
+    // Visitante que já se cadastrou abriria o painel numa área em branco:
+    // damos uma saudação e sugestões de pergunta.
+    if (token && document.getElementById('ia-mensagens').children.length === 0) {
+      iaAdicionarMensagem('assistente', 'Olá de novo! Posso ajudar com dúvidas sobre segurança do paciente. Escolha uma sugestão abaixo ou escreva sua pergunta.');
+      iaMontarSugestoes();
+    }
   }
 
   window.iaCadastrar = async function(){
@@ -474,9 +522,11 @@
         erroEl.style.display = 'block';
         return;
       }
-      localStorage.setItem(IA_TOKEN_KEY, data.token);
-      iaAtualizarView();
+      try { localStorage.setItem(IA_TOKEN_KEY, data.token); } catch (e) {}
+      // A saudação vem antes de iaAtualizarView para não duplicar com a de retorno.
       iaAdicionarMensagem('assistente', 'Olá, ' + nome.split(' ')[0] + '! Pode perguntar sobre segurança do paciente.');
+      iaAtualizarView();
+      iaMontarSugestoes();
     }catch(err){
       erroEl.textContent = 'Falha de conexão. Tente novamente.';
       erroEl.style.display = 'block';
@@ -534,8 +584,9 @@
     const input = document.getElementById('ia-chat-input');
     const texto = input.value.trim();
     if(!texto) return;
-    const token = localStorage.getItem(IA_TOKEN_KEY);
+    const token = iaLerToken();
     if(!token){ iaAtualizarView(); return; }
+    iaEsconderSugestoes();
     iaAdicionarMensagem('usuario', texto);
     input.value = '';
     const carregando = iaAdicionarMensagem('carregando', 'Digitando...');
@@ -548,7 +599,7 @@
       const data = await res.json();
       carregando.remove();
       if(res.status === 401){
-        localStorage.removeItem(IA_TOKEN_KEY);
+        try { localStorage.removeItem(IA_TOKEN_KEY); } catch (e) {}
         iaAtualizarView();
         iaAdicionarMensagem('assistente', 'Seu acesso expirou. Cadastre-se novamente para continuar.');
         return;
