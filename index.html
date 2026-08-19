@@ -89,7 +89,8 @@
     .sobre-quote{font-family:'Fraunces',serif;font-size:1.3rem;font-style:italic;font-weight:300;line-height:1.6;opacity:0.95;margin-bottom:1.5rem;}
     .sobre-autores{display:flex;flex-direction:column;gap:1.25rem;}
     .sobre-autor{display:flex;align-items:center;gap:1rem;}
-    .autor-avatar{width:48px;height:48px;border-radius:50%;background:rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;font-size:1.5rem;}
+    .autor-avatar{width:56px;height:56px;border-radius:50%;background:rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;font-size:1.5rem;overflow:hidden;flex-shrink:0;}
+    .autor-avatar img{width:100%;height:100%;object-fit:cover;display:block;}
     .autor-info .nome{font-weight:500;font-size:0.95rem;}
     .autor-info .cargo{font-size:0.8rem;opacity:0.75;}
     #contato{background:var(--creme);}
@@ -303,8 +304,8 @@
   <div class="sobre-visual reveal">
     <p class="sobre-quote">"Segurança não é um departamento. É uma responsabilidade de todos que cuidam."</p>
     <div class="sobre-autores">
-      <div class="sobre-autor"><div class="autor-avatar">👨‍⚕️</div><div class="autor-info"><div class="nome">Coordenador do Projeto: Prof. Luis Antonio Diego</div><div class="cargo">MBA em Gestão em Saúde · PhD em Anestesiologia (UNESP – Botucatu/SP) · Faculdade de Medicina da UFF</div></div></div>
-      <div class="sobre-autor"><div class="autor-avatar">👩‍⚕️</div><div class="autor-info"><div class="nome">Colaboradora de Conteúdo: Enf.ª Patrícia M.S. Shimabukuro, PhD</div><div class="cargo">Coordenadora do GTT de Doenças Emergentes e IRAS da Sociedade Brasileira para a Qualidade do Cuidado e Segurança do Paciente (SOBRASP)</div></div></div>
+      <div class="sobre-autor"><div class="autor-avatar"><img src="foto_diego.jpg" alt="Prof. Luis Antonio Diego" width="56" height="56" loading="lazy"></div><div class="autor-info"><div class="nome">Coordenador do Projeto: Prof. Luis Antonio Diego</div><div class="cargo">MBA em Gestão em Saúde · PhD em Anestesiologia (UNESP – Botucatu/SP) · Faculdade de Medicina da UFF</div></div></div>
+      <div class="sobre-autor"><div class="autor-avatar"><img src="foto_patricia.jpg" alt="Enf.ª Patrícia M.S. Shimabukuro" width="56" height="56" loading="lazy"></div><div class="autor-info"><div class="nome">Colaboradora de Conteúdo: Enf.ª Patrícia M.S. Shimabukuro, PhD</div><div class="cargo">Coordenadora do GTT de Doenças Emergentes e IRAS da Sociedade Brasileira para a Qualidade do Cuidado e Segurança do Paciente (SOBRASP)</div></div></div>
     </div>
   </div>
 </section>
