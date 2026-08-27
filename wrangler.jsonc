@@ -1,0 +1,22 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "cuidarseguro",
+  "compatibility_date": "2026-07-20",
+  "main": "_worker.js",
+  "observability": {
+    "enabled": true
+  },
+  "assets": {
+    "directory": ".",
+    "binding": "ASSETS"
+  },
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
+  "kv_namespaces": [
+    {
+      "binding": "LEADS_KV",
+      "id": "babf4b62414c457eab862b93bf0ac2ff"
+    }
+  ]
+}
