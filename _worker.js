@@ -2,15 +2,59 @@
 export default {
   async fetch(request, env, ctx) {
     const url = new URL(request.url);
+
+    // Preflight CORS para as rotas de API
+    if (request.method === "OPTIONS" && url.pathname.startsWith("/api/")) {
+      const originCheck = checkOrigin(request, env);
+      if (originCheck instanceof Response) return originCheck;
+      return new Response(null, {
+        status: 204,
+        headers: {
+          "Access-Control-Allow-Origin": originCheck.corsOrigin,
+          "Access-Control-Allow-Methods": "POST, OPTIONS",
+          "Access-Control-Allow-Headers": "Content-Type, X-Access-Token",
+          "Access-Control-Max-Age": "86400",
+        },
+      });
+    }
+
     if (url.pathname === "/api/signup" && request.method === "POST") {
       return handleSignup(request, env);
     }
     if (url.pathname === "/api/chat" && request.method === "POST") {
       return handleChat(request, env);
     }
-    return env.ASSETS.fetch(request);
+    return addSecurityHeaders(await env.ASSETS.fetch(request));
   },
 };
+
+function addSecurityHeaders(response) {
+  const headers = new Headers(response.headers);
+  headers.set("X-Content-Type-Options", "nosniff");
+  headers.set("X-Frame-Options", "DENY");
+  headers.set("Referrer-Policy", "strict-origin-when-cross-origin");
+  headers.set("Permissions-Policy", "camera=(), microphone=(), geolocation=()");
+  headers.set(
+    "Content-Security-Policy",
+    [
+      "default-src 'self'",
+      "script-src 'self' 'unsafe-inline' https://challenges.cloudflare.com",
+      "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+      "font-src 'self' https://fonts.gstatic.com",
+      "img-src 'self' data: https:",
+      "connect-src 'self' https://cuidarseguro.com.br https://www.cuidarseguro.com.br",
+      "frame-src https://challenges.cloudflare.com",
+      "object-src 'none'",
+      "base-uri 'self'",
+      "form-action 'self'",
+    ].join("; ")
+  );
+  return new Response(response.body, {
+    status: response.status,
+    statusText: response.statusText,
+    headers,
+  });
+}
 
 // Prompt do sistema fixo no servidor. Não é aceito nenhum valor vindo do
 // cliente para este campo — antes desta versão, o corpo da requisição podia
