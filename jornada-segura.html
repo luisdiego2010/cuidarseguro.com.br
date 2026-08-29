@@ -1,0 +1,1807 @@
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JKCHZS8M0Y"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-JKCHZS8M0Y');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jornada Segura — Jogo de Segurança do Paciente | Cuidar Seguro</title>
+<meta name="description" content="Jogo educativo interativo: acompanhe Maria pela jornada hospitalar aplicando as barreiras corretas de segurança do paciente. Para estudantes e profissionais de saúde.">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="Jornada Segura — Jogo de Segurança do Paciente">
+<meta property="og:description" content="9 cenas, 225 pontos. Você consegue aplicar todas as barreiras corretamente? Pulseiras, consentimentos, checklist cirúrgico e mais.">
+<meta property="og:url" content="https://www.cuidarseguro.com.br/jornada-segura.html">
+<meta property="og:image" content="https://www.cuidarseguro.com.br/og-image.png">
+<meta property="og:site_name" content="Cuidar Seguro">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Jornada Segura — Jogo de Segurança do Paciente">
+<meta name="twitter:description" content="9 cenas, 225 pontos. Você consegue aplicar todas as barreiras corretamente?">
+<meta name="twitter:image" content="https://www.cuidarseguro.com.br/og-image.png">
+
+<link rel="icon" type="image/png" href="logo_cuidarseguro.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=Inter:wght@400;500;600;700&display=swap">
+
+<style>
+:root {
+  --bg: #EDF2F4;
+  --surface: #FFFFFF;
+  --scene-bg: #004857;
+  --scene-deep: #002D38;
+  --scene-text: #C8E8F0;
+  --primary: #005B6E;
+  --accent: #E8A020;
+  --accent-faint: #FEF3DC;
+  --success: #1F9967;
+  --success-bg: #E8F7F0;
+  --success-dark: #0A5C3B;
+  --error: #C0392B;
+  --error-bg: #FDEEEC;
+  --error-dark: #8B1A12;
+  --text-1: #0A2330;
+  --text-2: #4A6572;
+  --text-3: #8AAABB;
+  --border: #C5D8E0;
+  --choice: #FFFFFF;
+  --choice-hover: #EEF6FA;
+  --shadow: rgba(0,72,87,0.12);
+  --heart: #E05050;
+  --bracelet-id-bg: #FFFFFF;
+  --bracelet-id-border: #005B6E;
+  --bracelet-allergy: #D93030;
+  --bracelet-fall: #D4A800;
+  --r-sm: 8px;
+  --r-md: 14px;
+  --r-lg: 22px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #091A22;
+    --surface: #112230;
+    --scene-bg: #012430;
+    --scene-deep: #010E14;
+    --scene-text: #8DCFE0;
+    --primary: #2A9AB5;
+    --accent: #F5B83A;
+    --accent-faint: #2A1D00;
+    --success: #24B870;
+    --success-bg: #071E13;
+    --success-dark: #24B870;
+    --error: #E05858;
+    --error-bg: #200808;
+    --error-dark: #E05858;
+    --text-1: #DEF0F5;
+    --text-2: #6AA5B5;
+    --text-3: #2E5A6A;
+    --border: #193244;
+    --choice: #112230;
+    --choice-hover: #163044;
+    --shadow: rgba(0,0,0,0.35);
+    --bracelet-id-bg: #1A3244;
+    --bracelet-id-border: #2A9AB5;
+    --bracelet-allergy: #E05858;
+    --bracelet-fall: #F5B83A;
+  }
+}
+
+:root[data-theme="dark"] {
+  --bg: #091A22;
+  --surface: #112230;
+  --scene-bg: #012430;
+  --scene-deep: #010E14;
+  --scene-text: #8DCFE0;
+  --primary: #2A9AB5;
+  --accent: #F5B83A;
+  --accent-faint: #2A1D00;
+  --success: #24B870;
+  --success-bg: #071E13;
+  --success-dark: #24B870;
+  --error: #E05858;
+  --error-bg: #200808;
+  --error-dark: #E05858;
+  --text-1: #DEF0F5;
+  --text-2: #6AA5B5;
+  --text-3: #2E5A6A;
+  --border: #193244;
+  --choice: #112230;
+  --choice-hover: #163044;
+  --shadow: rgba(0,0,0,0.35);
+  --bracelet-id-bg: #1A3244;
+  --bracelet-id-border: #2A9AB5;
+  --bracelet-allergy: #E05858;
+  --bracelet-fall: #F5B83A;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text-1);
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+h1, h2, h3, .display { font-family: 'Sora', system-ui, sans-serif; text-wrap: balance; }
+
+/* ── SCREENS ── */
+.screen { display: none; width: 100%; }
+.screen.active { display: flex; flex-direction: column; align-items: center; }
+
+/* ── INTRO ── */
+#screen-intro {
+  min-height: 100svh;
+  justify-content: center;
+  padding: 32px 20px;
+  gap: 0;
+  background: var(--scene-bg);
+}
+
+.intro-inner {
+  max-width: 520px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  align-items: center;
+}
+
+.intro-badge {
+  font-family: 'Sora', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: rgba(232,160,32,.12);
+  border: 1px solid rgba(232,160,32,.25);
+  padding: 5px 14px;
+  border-radius: 100px;
+}
+
+.intro-title {
+  font-family: 'Sora', sans-serif;
+  font-size: clamp(2.4rem, 7vw, 3.6rem);
+  font-weight: 800;
+  color: #FFFFFF;
+  line-height: 1.05;
+  text-align: center;
+  letter-spacing: -.02em;
+}
+
+.intro-title span { color: var(--accent); }
+
+.intro-sub {
+  font-size: 1rem;
+  color: var(--scene-text);
+  text-align: center;
+  line-height: 1.6;
+  max-width: 400px;
+}
+
+.patient-card {
+  background: var(--surface);
+  border-radius: var(--r-lg);
+  padding: 20px 24px;
+  width: 100%;
+  box-shadow: 0 8px 32px var(--shadow);
+}
+
+.patient-card-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.patient-avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--accent-faint);
+  border: 3px solid var(--accent);
+  display: grid;
+  place-items: center;
+  font-size: 24px;
+  flex-shrink: 0;
+}
+
+.patient-name {
+  font-family: 'Sora', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-1);
+}
+
+.patient-meta {
+  font-size: .82rem;
+  color: var(--text-2);
+  margin-top: 2px;
+}
+
+.patient-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.patient-detail {
+  background: var(--bg);
+  border-radius: var(--r-sm);
+  padding: 10px 12px;
+}
+
+.patient-detail-label {
+  font-size: .7rem;
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  margin-bottom: 3px;
+}
+
+.patient-detail-value {
+  font-size: .88rem;
+  font-weight: 600;
+  color: var(--text-1);
+}
+
+.patient-detail-value.allergy { color: var(--error); }
+
+.btn-primary {
+  background: var(--accent);
+  color: #1A1000;
+  font-family: 'Sora', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  border: none;
+  border-radius: var(--r-md);
+  padding: 16px 40px;
+  cursor: pointer;
+  width: 100%;
+  transition: opacity .15s, transform .12s;
+  letter-spacing: .01em;
+}
+
+.btn-primary:hover { opacity: .88; transform: translateY(-1px); }
+.btn-primary:active { transform: translateY(0); }
+
+.intro-credit {
+  font-size: .75rem;
+  color: rgba(140,200,220,.5);
+  text-align: center;
+}
+
+/* ── GAME SCREEN ── */
+#screen-game {
+  min-height: 100svh;
+  justify-content: flex-start;
+  padding: 0;
+  gap: 0;
+  max-width: 900px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* header */
+.game-header {
+  background: var(--scene-deep);
+  width: 100%;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-shrink: 0;
+  min-height: 70px;
+}
+
+.header-patient {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+  min-width: 0;
+}
+
+.header-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(232,160,32,.15);
+  border: 2px solid var(--accent);
+  display: grid;
+  place-items: center;
+  font-size: 18px;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.header-patient-info {
+  min-width: 0;
+}
+
+.header-patient-name {
+  font-family: 'Sora', sans-serif;
+  font-size: .85rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.bracelets-row {
+  display: flex;
+  gap: 5px;
+  margin-top: 4px;
+  align-items: center;
+}
+
+.bracelet-tag {
+  font-size: .62rem;
+  font-weight: 700;
+  letter-spacing: .04em;
+  padding: 2px 7px;
+  border-radius: 100px;
+  opacity: 0;
+  transform: scale(.7);
+  transition: opacity .3s, transform .3s;
+}
+
+.bracelet-tag.visible { opacity: 1; transform: scale(1); }
+
+.bracelet-tag.id {
+  background: var(--bracelet-id-bg);
+  color: var(--bracelet-id-border);
+  border: 1.5px solid var(--bracelet-id-border);
+}
+
+.bracelet-tag.allergy {
+  background: var(--bracelet-allergy);
+  color: #FFF;
+}
+
+.bracelet-tag.fall {
+  background: var(--bracelet-fall);
+  color: #1A1000;
+}
+
+.header-progress {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.progress-label {
+  font-family: 'Sora', sans-serif;
+  font-size: .65rem;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--scene-text);
+  opacity: .6;
+}
+
+.progress-track {
+  display: flex;
+  gap: 4px;
+}
+
+.progress-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.2);
+  transition: background .3s;
+}
+
+.progress-dot.done { background: var(--success); }
+.progress-dot.current { background: var(--accent); }
+
+.header-stats {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-shrink: 0;
+}
+
+.stat-score {
+  font-family: 'Sora', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+}
+
+.stat-score-label {
+  font-size: .6rem;
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--scene-text);
+  opacity: .5;
+  text-align: right;
+  margin-bottom: 1px;
+}
+
+.lives-row {
+  display: flex;
+  gap: 3px;
+}
+
+.life-icon {
+  font-size: 18px;
+  transition: opacity .3s, transform .3s;
+}
+
+.life-icon.lost {
+  opacity: .2;
+  filter: grayscale(1);
+  transform: scale(.8);
+}
+
+/* scene panel */
+.scene-panel {
+  background: var(--scene-bg);
+  width: 100%;
+  padding: 28px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  min-height: 240px;
+  position: relative;
+  overflow: hidden;
+}
+
+.scene-panel::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 0%, rgba(42,154,181,.18) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.scene-location {
+  font-family: 'Sora', sans-serif;
+  font-size: .7rem;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: rgba(232,160,32,.12);
+  border: 1px solid rgba(232,160,32,.2);
+  padding: 4px 14px;
+  border-radius: 100px;
+  align-self: flex-start;
+  position: relative;
+}
+
+.scene-icon-wrap {
+  font-size: 3rem;
+  line-height: 1;
+  filter: drop-shadow(0 4px 12px rgba(0,0,0,.3));
+  position: relative;
+}
+
+.scene-title {
+  font-family: 'Sora', sans-serif;
+  font-size: clamp(1.2rem, 3.5vw, 1.55rem);
+  font-weight: 700;
+  color: #FFFFFF;
+  text-align: center;
+  text-wrap: balance;
+  position: relative;
+}
+
+.scene-situation {
+  font-size: .92rem;
+  color: var(--scene-text);
+  text-align: center;
+  line-height: 1.65;
+  max-width: 620px;
+  position: relative;
+}
+
+.scene-situation strong { color: #FFFFFF; }
+
+/* action panel */
+.action-panel {
+  background: var(--bg);
+  width: 100%;
+  padding: 20px 20px 24px;
+  flex: 1;
+}
+
+.action-prompt {
+  font-family: 'Sora', sans-serif;
+  font-size: .78rem;
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  margin-bottom: 14px;
+}
+
+.choices-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+@media (max-width: 500px) {
+  .choices-grid { grid-template-columns: 1fr; }
+}
+
+.choice-btn {
+  background: var(--choice);
+  border: 1.5px solid var(--border);
+  border-radius: var(--r-md);
+  padding: 14px 16px;
+  cursor: pointer;
+  text-align: left;
+  transition: background .15s, border-color .15s, transform .12s, box-shadow .15s;
+  box-shadow: 0 2px 8px var(--shadow);
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-family: inherit;
+}
+
+.choice-btn:hover {
+  background: var(--choice-hover);
+  border-color: var(--primary);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px var(--shadow);
+}
+
+.choice-btn:active { transform: translateY(0); }
+
+.choice-btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.choice-btn.disabled { pointer-events: none; opacity: .5; }
+
+.choice-letter {
+  font-family: 'Sora', sans-serif;
+  font-size: .72rem;
+  font-weight: 800;
+  color: var(--primary);
+  background: var(--accent-faint);
+  border: 1.5px solid var(--border);
+  border-radius: 6px;
+  width: 26px;
+  height: 26px;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  letter-spacing: .02em;
+}
+
+.choice-text {
+  font-size: .88rem;
+  color: var(--text-1);
+  line-height: 1.45;
+  font-weight: 500;
+}
+
+/* ── FEEDBACK OVERLAY ── */
+#feedback-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,24,32,.7);
+  display: none;
+  align-items: flex-end;
+  justify-content: center;
+  z-index: 100;
+  padding: 0 16px 24px;
+  backdrop-filter: blur(4px);
+}
+
+#feedback-overlay.visible { display: flex; }
+
+.feedback-card {
+  background: var(--surface);
+  border-radius: var(--r-lg);
+  width: 100%;
+  max-width: 600px;
+  padding: 28px 28px 24px;
+  box-shadow: 0 16px 48px rgba(0,0,0,.3);
+  animation: slideUp .3s cubic-bezier(.22,1,.36,1);
+  border-top: 4px solid var(--feedback-color, var(--primary));
+}
+
+@keyframes slideUp {
+  from { transform: translateY(30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.feedback-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.feedback-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 22px;
+  flex-shrink: 0;
+}
+
+.feedback-icon.correct { background: var(--success-bg); }
+.feedback-icon.wrong { background: var(--error-bg); }
+
+.feedback-title {
+  font-family: 'Sora', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.feedback-title.correct { color: var(--success-dark); }
+.feedback-title.wrong { color: var(--error-dark); }
+
+.feedback-points {
+  margin-left: auto;
+  font-family: 'Sora', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: 100px;
+  flex-shrink: 0;
+}
+
+.feedback-points.correct { background: var(--success-bg); color: var(--success); }
+.feedback-points.wrong { background: var(--error-bg); color: var(--error); }
+
+.feedback-explanation {
+  font-size: .9rem;
+  color: var(--text-2);
+  line-height: 1.65;
+  margin-bottom: 20px;
+}
+
+.feedback-explanation strong { color: var(--text-1); }
+
+.btn-continue {
+  background: var(--primary);
+  color: #FFFFFF;
+  font-family: 'Sora', sans-serif;
+  font-size: .95rem;
+  font-weight: 700;
+  border: none;
+  border-radius: var(--r-md);
+  padding: 14px 32px;
+  cursor: pointer;
+  width: 100%;
+  transition: opacity .15s;
+}
+
+.btn-continue:hover { opacity: .88; }
+
+/* ── RESULT SCREEN ── */
+#screen-result {
+  min-height: 100svh;
+  background: var(--scene-bg);
+  justify-content: center;
+  padding: 32px 20px;
+}
+
+.result-inner {
+  max-width: 540px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  align-items: center;
+}
+
+.result-badge {
+  font-family: 'Sora', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.result-score-display {
+  text-align: center;
+}
+
+.result-score-num {
+  font-family: 'Sora', sans-serif;
+  font-size: clamp(3rem, 12vw, 5rem);
+  font-weight: 800;
+  color: var(--accent);
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.result-score-max {
+  font-family: 'Sora', sans-serif;
+  font-size: 1rem;
+  color: var(--scene-text);
+  opacity: .5;
+}
+
+.result-stars {
+  font-size: 2rem;
+  letter-spacing: .1em;
+}
+
+.result-rating {
+  font-family: 'Sora', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #FFF;
+  text-align: center;
+  text-wrap: balance;
+}
+
+.result-card {
+  background: var(--surface);
+  border-radius: var(--r-lg);
+  padding: 22px 24px;
+  width: 100%;
+}
+
+.result-card-title {
+  font-family: 'Sora', sans-serif;
+  font-size: .7rem;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  margin-bottom: 14px;
+}
+
+.result-bracelets {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.result-bracelet {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  border-radius: 100px;
+  font-size: .8rem;
+  font-weight: 600;
+}
+
+.result-bracelet.id { background: var(--accent-faint); color: var(--primary); border: 1.5px solid var(--border); }
+.result-bracelet.allergy { background: var(--error-bg); color: var(--error); }
+.result-bracelet.fall { background: #FEF9E0; color: #7A5800; }
+.result-bracelet.missing { background: var(--bg); color: var(--text-3); border: 1.5px dashed var(--border); text-decoration: line-through; }
+
+.result-scene-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.result-scene-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: .85rem;
+  color: var(--text-2);
+}
+
+.result-scene-check {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: .75rem;
+  flex-shrink: 0;
+}
+
+.result-scene-check.correct { background: var(--success-bg); color: var(--success); }
+.result-scene-check.wrong { background: var(--error-bg); color: var(--error); }
+
+.result-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.btn-secondary {
+  background: rgba(255,255,255,.1);
+  color: var(--scene-text);
+  font-family: 'Sora', sans-serif;
+  font-size: .92rem;
+  font-weight: 600;
+  border: 1.5px solid rgba(255,255,255,.15);
+  border-radius: var(--r-md);
+  padding: 13px 28px;
+  cursor: pointer;
+  width: 100%;
+  transition: background .15s;
+  text-decoration: none;
+  text-align: center;
+  display: block;
+}
+
+.btn-secondary:hover { background: rgba(255,255,255,.15); }
+
+/* ── GAME OVER ── */
+#screen-gameover {
+  min-height: 100svh;
+  background: #1A0808;
+  justify-content: center;
+  padding: 32px 20px;
+}
+
+.gameover-inner {
+  max-width: 460px;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.gameover-icon { font-size: 4rem; }
+
+.gameover-title {
+  font-family: 'Sora', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--error);
+}
+
+.gameover-sub { color: rgba(255,200,190,.6); font-size: .95rem; line-height: 1.6; }
+
+.gameover-score {
+  font-family: 'Sora', sans-serif;
+  font-size: 3rem;
+  font-weight: 800;
+  color: #FFF;
+}
+
+/* ── NAME INPUT ── */
+.name-input-wrap {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.name-input-label {
+  font-family: 'Sora', sans-serif;
+  font-size: .7rem;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--scene-text);
+  opacity: .6;
+}
+
+.name-input {
+  width: 100%;
+  background: rgba(255,255,255,.08);
+  border: 1.5px solid rgba(255,255,255,.15);
+  border-radius: var(--r-md);
+  padding: 14px 16px;
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  color: #FFFFFF;
+  outline: none;
+  transition: border-color .2s, background .2s;
+}
+
+.name-input::placeholder { color: rgba(200,232,240,.35); }
+
+.name-input:focus {
+  border-color: var(--accent);
+  background: rgba(255,255,255,.12);
+}
+
+.name-error {
+  font-size: .75rem;
+  color: #F5A0A0;
+  display: none;
+}
+
+.name-error.visible { display: block; }
+
+/* ── CERTIFICATE CARD ── */
+.result-certificate {
+  background: var(--surface);
+  border-radius: var(--r-lg);
+  padding: 24px;
+  width: 100%;
+  border-top: 4px solid var(--accent);
+  position: relative;
+  overflow: hidden;
+}
+
+.result-certificate::before {
+  content: 'JS';
+  position: absolute;
+  font-family: 'Sora', sans-serif;
+  font-size: 7rem;
+  font-weight: 800;
+  color: var(--accent);
+  opacity: .04;
+  right: -10px;
+  bottom: -20px;
+  line-height: 1;
+  pointer-events: none;
+}
+
+.cert-player {
+  font-size: .7rem;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  margin-bottom: 4px;
+}
+
+.cert-name {
+  font-family: 'Sora', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-1);
+  margin-bottom: 16px;
+}
+
+.cert-divider {
+  height: 1px;
+  background: var(--border);
+  margin-bottom: 16px;
+}
+
+.cert-code-label {
+  font-size: .68rem;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  margin-bottom: 8px;
+}
+
+.cert-code {
+  font-family: 'Sora', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--primary);
+  letter-spacing: .08em;
+  background: var(--accent-faint);
+  border: 1.5px solid var(--border);
+  border-radius: var(--r-sm);
+  padding: 10px 16px;
+  margin-bottom: 8px;
+  font-variant-numeric: tabular-nums;
+  word-break: break-all;
+}
+
+.cert-code-hint {
+  font-size: .74rem;
+  color: var(--text-3);
+  line-height: 1.5;
+}
+
+.cert-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.btn-copy {
+  flex: 1;
+  background: var(--accent);
+  color: #1A1000;
+  font-family: 'Sora', sans-serif;
+  font-size: .85rem;
+  font-weight: 700;
+  border: none;
+  border-radius: var(--r-sm);
+  padding: 11px 16px;
+  cursor: pointer;
+  transition: opacity .15s;
+}
+
+.btn-copy:hover { opacity: .85; }
+.btn-copy.copied { background: var(--success); color: #FFF; }
+
+.btn-whatsapp {
+  flex: 1;
+  background: #25D366;
+  color: #FFFFFF;
+  font-family: 'Sora', sans-serif;
+  font-size: .85rem;
+  font-weight: 700;
+  border: none;
+  border-radius: var(--r-sm);
+  padding: 11px 16px;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  transition: opacity .15s;
+  display: block;
+}
+
+.btn-whatsapp:hover { opacity: .88; color: #FFF; text-decoration: none; }
+
+/* ── RESULT PLAYER NAME ── */
+.result-player-name {
+  font-family: 'Sora', sans-serif;
+  font-size: 1rem;
+  color: rgba(200,232,240,.6);
+  text-align: center;
+}
+
+.result-player-name strong { color: #FFFFFF; }
+
+@media (max-width: 600px) {
+  .game-header { padding: 10px 14px; gap: 10px; }
+  .scene-panel { padding: 20px 16px 18px; }
+  .action-panel { padding: 16px 14px 20px; }
+  .feedback-card { padding: 22px 18px 20px; }
+  .cert-actions { flex-direction: column; }
+}
+</style>
+
+<!-- ══════════════════════════════════════════
+     INTRO SCREEN
+══════════════════════════════════════════ -->
+<div id="screen-intro" class="screen active">
+  <div class="intro-inner">
+    <div class="intro-badge">Segurança do Paciente · Jogo Educativo</div>
+
+    <h1 class="intro-title">Jornada<br><span>Segura</span></h1>
+
+    <p class="intro-sub">
+      Você é o profissional de saúde. Acompanhe Maria pela jornada hospitalar
+      e aplique as barreiras corretas de segurança do paciente.
+    </p>
+
+    <div class="patient-card">
+      <div class="patient-card-header">
+        <div class="patient-avatar">👩‍🦳</div>
+        <div>
+          <div class="patient-name">Maria da Silva</div>
+          <div class="patient-meta">65 anos · DN: 15/03/1961</div>
+        </div>
+      </div>
+      <div class="patient-details">
+        <div class="patient-detail">
+          <div class="patient-detail-label">Procedimento</div>
+          <div class="patient-detail-value">Colecistectomia Laparoscópica</div>
+        </div>
+        <div class="patient-detail">
+          <div class="patient-detail-label">Alergia</div>
+          <div class="patient-detail-value allergy">⚠ Penicilina</div>
+        </div>
+        <div class="patient-detail">
+          <div class="patient-detail-label">Leito</div>
+          <div class="patient-detail-value">Cirurgia Geral · 304B</div>
+        </div>
+        <div class="patient-detail">
+          <div class="patient-detail-label">Médico</div>
+          <div class="patient-detail-value">Dr. Carvalho</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="name-input-wrap">
+      <label class="name-input-label" for="player-name">Seu nome completo</label>
+      <input class="name-input" id="player-name" type="text"
+        placeholder="Ex.: Ana Paula Ferreira"
+        maxlength="60" autocomplete="off"
+        onkeydown="if(event.key==='Enter') startGame()">
+      <span class="name-error" id="name-error">Por favor, informe seu nome para continuar.</span>
+    </div>
+
+    <button class="btn-primary" onclick="startGame()">Iniciar a Jornada →</button>
+
+    <p class="intro-credit">Baseado em cuidarseguro.com.br · Protocolos PNSP/OMS</p>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     GAME SCREEN
+══════════════════════════════════════════ -->
+<div id="screen-game" class="screen">
+
+  <header class="game-header">
+    <div class="header-patient">
+      <div class="header-avatar">👩‍🦳</div>
+      <div class="header-patient-info">
+        <div class="header-patient-name">Maria da Silva</div>
+        <div class="bracelets-row">
+          <span class="bracelet-tag id" id="tag-id">ID</span>
+          <span class="bracelet-tag allergy" id="tag-allergy">ALERGIA</span>
+          <span class="bracelet-tag fall" id="tag-fall">QUEDA</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="header-progress">
+      <div class="progress-label">Cenas</div>
+      <div class="progress-track" id="progress-track"></div>
+    </div>
+
+    <div class="header-stats">
+      <div>
+        <div class="stat-score-label">Pontos</div>
+        <div class="stat-score" id="score-display">0</div>
+      </div>
+      <div class="lives-row" id="lives-row"></div>
+    </div>
+  </header>
+
+  <div class="scene-panel" id="scene-panel">
+    <div class="scene-location" id="scene-location"></div>
+    <div class="scene-icon-wrap" id="scene-icon"></div>
+    <h2 class="scene-title" id="scene-title"></h2>
+    <p class="scene-situation" id="scene-situation"></p>
+  </div>
+
+  <div class="action-panel">
+    <div class="action-prompt">O que você faz?</div>
+    <div class="choices-grid" id="choices-grid"></div>
+  </div>
+
+</div>
+
+<!-- ══════════════════════════════════════════
+     FEEDBACK OVERLAY
+══════════════════════════════════════════ -->
+<div id="feedback-overlay">
+  <div class="feedback-card">
+    <div class="feedback-header">
+      <div class="feedback-icon" id="fb-icon"></div>
+      <div class="feedback-title" id="fb-title"></div>
+      <div class="feedback-points" id="fb-points"></div>
+    </div>
+    <p class="feedback-explanation" id="fb-explanation"></p>
+    <button class="btn-continue" onclick="nextScene()">Continuar →</button>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     RESULT SCREEN
+══════════════════════════════════════════ -->
+<div id="screen-result" class="screen">
+  <div class="result-inner">
+    <div class="result-badge">Jornada Concluída</div>
+    <div class="result-player-name" id="result-player-name"></div>
+    <div class="result-score-display">
+      <div class="result-score-num" id="result-score">0</div>
+      <div class="result-score-max">de 225 pontos</div>
+    </div>
+    <div class="result-stars" id="result-stars"></div>
+    <div class="result-rating" id="result-rating"></div>
+
+    <!-- Certificado com código -->
+    <div class="result-certificate">
+      <div class="cert-player">Resultado de</div>
+      <div class="cert-name" id="cert-name"></div>
+      <div class="cert-divider"></div>
+      <div class="cert-code-label">Código de resultado — envie ao professor</div>
+      <div class="cert-code" id="cert-code"></div>
+      <div class="cert-code-hint">
+        Copie o código ou envie pelo WhatsApp.<br>
+        O professor usa o código para registrar sua nota.
+      </div>
+      <div class="cert-actions">
+        <button class="btn-copy" id="btn-copy" onclick="copyCode()">📋 Copiar código</button>
+        <a class="btn-whatsapp" id="btn-whatsapp" href="#" target="_blank" rel="noopener">💬 Enviar pelo WhatsApp</a>
+      </div>
+    </div>
+
+    <div class="result-card">
+      <div class="result-card-title">Pulseiras aplicadas</div>
+      <div class="result-bracelets" id="result-bracelets"></div>
+    </div>
+
+    <div class="result-card">
+      <div class="result-card-title">Etapas percorridas</div>
+      <div class="result-scene-list" id="result-scene-list"></div>
+    </div>
+
+    <div class="result-actions">
+      <button class="btn-primary" onclick="restartGame()">Jogar Novamente</button>
+      <a class="btn-secondary" href="https://www.cuidarseguro.com.br" target="_blank" rel="noopener">
+        Ver conteúdo em cuidarseguro.com.br ↗
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     GAME OVER SCREEN
+══════════════════════════════════════════ -->
+<div id="screen-gameover" class="screen">
+  <div class="gameover-inner">
+    <div class="gameover-icon">🚨</div>
+    <div class="gameover-title">Barreira Violada</div>
+    <p class="gameover-sub">Erros sucessivos colocam o paciente em risco.<br>A segurança exige atenção em cada etapa.</p>
+    <div class="gameover-score" id="gameover-score">0 pts</div>
+    <button class="btn-primary" onclick="restartGame()" style="max-width:280px;">Tentar Novamente</button>
+    <a class="btn-secondary" href="https://cuidarseguro.com.br" target="_blank" rel="noopener" style="max-width:280px;">
+      Estudar os protocolos ↗
+    </a>
+  </div>
+</div>
+
+<script>
+/* ── SCENE DATA ── */
+const SCENES = [
+  {
+    id: 1,
+    location: "Admissão · Recepção",
+    icon: "🏷️",
+    title: "Identificação do Paciente",
+    situation: "Maria chegou para internação eletiva. Antes de qualquer procedimento, você precisa confirmar a identidade dela. Como você procede?",
+    choices: [
+      {
+        text: "Pergunto apenas o nome para confirmar que é ela.",
+        correct: false,
+        feedback: "<strong>Apenas um identificador é insuficiente.</strong> Um único dado (como o nome) pode coincidir com outro paciente. Os protocolos exigem no mínimo dois identificadores independentes."
+      },
+      {
+        text: "Pergunto o nome completo e a data de nascimento — dois identificadores independentes.",
+        correct: true,
+        feedback: "<strong>Correto!</strong> O Protocolo de Identificação do Paciente (PNSP) exige no mínimo dois identificadores — nome completo e data de nascimento são os mais utilizados. O número do leito <em>não</em> é um identificador seguro."
+      },
+      {
+        text: "Confiro apenas o número do leito e o prontuário.",
+        correct: false,
+        feedback: "<strong>O número do leito não é um identificador válido.</strong> Pacientes mudam de leito. O protocolo exige dados pessoais vinculados ao indivíduo."
+      },
+      {
+        text: "Como ela veio encaminhada pelo médico, confio no encaminhamento.",
+        correct: false,
+        feedback: "<strong>A identificação ativa é sempre obrigatória.</strong> Confiar em terceiros sem confirmar com o próprio paciente é uma falha documentada como causa de eventos adversos graves."
+      }
+    ],
+    points: 20,
+    unlock: null
+  },
+  {
+    id: 2,
+    location: "Admissão · Enfermaria",
+    icon: "🤝",
+    title: "Pulseira de Identificação",
+    situation: "Você confirmou os dados de Maria: nome completo e data de nascimento conferem com o prontuário. Qual é o próximo passo obrigatório?",
+    choices: [
+      {
+        text: "Registrar os dados no prontuário e acompanhá-la ao leito.",
+        correct: false,
+        feedback: "<strong>O registro no prontuário não substitui a pulseira.</strong> A pulseira é o elemento físico que identifica o paciente junto a ele durante toda a internação."
+      },
+      {
+        text: "Colocar a pulseira de identificação no punho com nome completo e data de nascimento.",
+        correct: true,
+        feedback: "<strong>Correto!</strong> A pulseira de identificação é obrigatória desde a admissão. Ela deve conter nome completo e data de nascimento (nunca apenas o número do leito) e permanecer no paciente durante toda a internação."
+      },
+      {
+        text: "Pedir à família que acompanhe Maria o tempo todo para garantir sua identidade.",
+        correct: false,
+        feedback: "<strong>A responsabilidade de identificação é da equipe, não da família.</strong> A família pode não estar sempre presente, e a pulseira é o padrão ouro para identificação segura."
+      },
+      {
+        text: "Colocar pulseira apenas com o número do leito para simplificar.",
+        correct: false,
+        feedback: "<strong>O número do leito não é um identificador aceitável.</strong> Pacientes podem mudar de leito. A pulseira deve conter dados pessoais invariáveis."
+      }
+    ],
+    points: 20,
+    unlock: "id"
+  },
+  {
+    id: 3,
+    location: "Admissão · Anamnese",
+    icon: "⚠️",
+    title: "Alerta de Alergia",
+    situation: "Ao realizar a anamnese, Maria informa que é alérgica à <strong>penicilina</strong> — com reação grave na infância. Como você documenta e comunica essa informação?",
+    choices: [
+      {
+        text: "Anoto apenas no prontuário eletrônico e sigo a admissão.",
+        correct: false,
+        feedback: "<strong>Insuficiente.</strong> O prontuário é consultado, mas nem sempre antes de cada procedimento. A pulseira vermelha é uma barreira visual imediata, visível a qualquer profissional que interaja com a paciente."
+      },
+      {
+        text: "Oriento Maria a avisar a equipe sobre sua alergia antes de cada procedimento.",
+        correct: false,
+        feedback: "<strong>Nunca transfira a responsabilidade de segurança ao paciente.</strong> O paciente pode estar sedado, confuso ou com dor. A equipe não pode depender de um relato verbal em cada contato."
+      },
+      {
+        text: "Coloco a pulseira vermelha de alerta de alergia, registro em prontuário e comunico à equipe.",
+        correct: true,
+        feedback: "<strong>Correto!</strong> A pulseira vermelha de alergia é um alerta visual imediato. Combinada ao registro em prontuário e à comunicação verbal à equipe, forma uma barreira de segurança efetiva e multi-modal."
+      },
+      {
+        text: "Espero o médico prescrever algum medicamento para então tomar providências.",
+        correct: false,
+        feedback: "<strong>A identificação da alergia deve ocorrer na admissão, não na prescrição.</strong> Aguardar cria uma janela de vulnerabilidade: um profissional pode prescrever ou administrar penicilina sem saber da contraindicação."
+      }
+    ],
+    points: 20,
+    unlock: "allergy"
+  },
+  {
+    id: 4,
+    location: "Enfermaria · Leito 304B",
+    icon: "🛡️",
+    title: "Risco de Queda",
+    situation: "Aplicando a Escala de Morse, Maria (65 anos, com histórico de tontura, medicada com analgésicos e em pré-operatório) atinge escore de <strong>risco elevado</strong>. O que você implementa?",
+    choices: [
+      {
+        text: "Oriento verbalmente a família para não deixar Maria se levantar sozinha.",
+        correct: false,
+        feedback: "<strong>A orientação verbal à família é complementar, não suficiente.</strong> A família pode não estar presente, pode não entender ou pode esquecer. As medidas físicas e a sinalização são indispensáveis."
+      },
+      {
+        text: "Documento o escore no prontuário e reavilio amanhã.",
+        correct: false,
+        feedback: "<strong>Documentar sem agir não reduz o risco.</strong> O protocolo exige implementação imediata das medidas de prevenção quando o escore indica risco elevado."
+      },
+      {
+        text: "Coloco pulseira amarela de risco de queda, elevo as grades do leito, posiciono a campainha ao alcance e oriento paciente e família.",
+        correct: true,
+        feedback: "<strong>Correto!</strong> O pacote de medidas para risco de queda inclui: pulseira amarela (sinal visual para toda a equipe), grades elevadas, calçado antiderrapante, campainha acessível, iluminação adequada e orientação ao paciente e família — tudo documentado."
+      },
+      {
+        text: "Risco de queda só é avaliado em UTI e pós-operatório.",
+        correct: false,
+        feedback: "<strong>Incorreto.</strong> A avaliação de risco de queda é obrigatória para <em>todos</em> os pacientes internados, em <em>todos</em> os setores, desde a admissão — e reavaliada a cada mudança de condição clínica."
+      }
+    ],
+    points: 20,
+    unlock: "fall"
+  },
+  {
+    id: 5,
+    location: "Enfermaria · Administração de Medicamentos",
+    icon: "💊",
+    title: "Barreira contra Erro de Medicação",
+    situation: "O Dr. Carvalho prescreveu <strong>Amoxicilina 500mg</strong> (derivado da penicilina) para Maria. Você está prestes a administrar. O que você deve fazer antes de qualquer coisa?",
+    choices: [
+      {
+        text: "Administro — o médico prescreveu e é responsabilidade dele verificar as alergias.",
+        correct: false,
+        feedback: "<strong>A responsabilidade é compartilhada.</strong> O profissional que administra o medicamento é a última barreira antes que um erro chegue ao paciente. Delegar essa verificação anula a proteção que você representa."
+      },
+      {
+        text: "Pergunto à Maria se ela quer tomar mesmo assim, já que o médico prescreveu.",
+        correct: false,
+        feedback: "<strong>O paciente não pode ser árbitro de sua própria segurança farmacológica.</strong> Maria pode não saber que amoxicilina é uma penicilina. A verificação de alergias é responsabilidade técnica do profissional."
+      },
+      {
+        text: "Verifico a pulseira vermelha — Maria é alérgica a penicilina. <em>Não administro</em> e contacto imediatamente o médico prescritor.",
+        correct: true,
+        feedback: "<strong>Excelente! Você impediu um evento adverso grave.</strong> A verificação da pulseira de alergia antes de cada administração é obrigatória. Amoxicilina é um beta-lactâmico derivado da penicilina — contraindicado. O próximo passo é comunicar o médico e aguardar nova prescrição."
+      },
+      {
+        text: "Substituo por outro antibiótico por conta própria, sem avisar o médico.",
+        correct: false,
+        feedback: "<strong>A substituição de medicamentos sem prescrição é uma prática ilegal e perigosa.</strong> Você deve recusar a administração E comunicar o médico. A nova prescrição é de responsabilidade médica."
+      }
+    ],
+    points: 30,
+    unlock: null
+  },
+  {
+    id: 6,
+    location: "Centro Cirúrgico · Pré-operatório",
+    icon: "📋",
+    title: "Consentimento Livre e Esclarecido",
+    situation: "Maria será operada amanhã cedo. Quais termos de Consentimento Livre e Esclarecido (TCLE) são obrigatórios para a colecistectomia laparoscópica?",
+    choices: [
+      {
+        text: "Apenas o Termo de Consentimento Cirúrgico — a cirurgia foi explicada pelo médico.",
+        correct: false,
+        feedback: "<strong>Insuficiente.</strong> A explicação verbal não substitui o consentimento escrito. Além disso, a anestesia e a eventual transfusão de sangue são procedimentos distintos que exigem consentimentos próprios."
+      },
+      {
+        text: "Termo Cirúrgico + Termo Anestésico.",
+        correct: false,
+        feedback: "<strong>Quase completo, mas falta o Termo de Transfusão.</strong> Em qualquer cirurgia com potencial de sangramento, o consentimento para hemotransfusão deve ser obtido previamente — a urgência intraoperatória pode impedir o consentimento no momento."
+      },
+      {
+        text: "Termo Cirúrgico + Termo Anestésico + Termo para Transfusão de Sangue — todos assinados antes da cirurgia.",
+        correct: true,
+        feedback: "<strong>Correto!</strong> O PNSP exige três TCLEs para cirurgias: (1) Cirúrgico, (2) Anestésico e (3) Hemotransfusional. Todos devem ser obtidos com antecedência, com linguagem acessível, e o paciente tem direito a recusar. Sem consentimento, o procedimento eletivo não deve prosseguir."
+      },
+      {
+        text: "TCLEs são formalidades burocráticas — o que vale é a explicação verbal do médico.",
+        correct: false,
+        feedback: "<strong>O TCLE é um direito fundamental do paciente, não burocracia.</strong> Ele formaliza a autonomia do paciente, protege a equipe legalmente e garante que o paciente recebeu e compreendeu as informações antes de decidir."
+      }
+    ],
+    points: 25,
+    unlock: null
+  },
+  {
+    id: 7,
+    location: "Centro Cirúrgico · Sala de Cirurgia",
+    icon: "🔖",
+    title: "Cirurgia Segura · Sign In",
+    situation: "Maria está na sala cirúrgica, ainda acordada. Antes de iniciar a anestesia, o enfermeiro circulante conduz o <strong>Sign In</strong> do Checklist de Cirurgia Segura da OMS. O que é verificado nessa etapa?",
+    choices: [
+      {
+        text: "Apenas o nome da paciente e o tipo de cirurgia.",
+        correct: false,
+        feedback: "<strong>O Sign In vai muito além da identificação básica.</strong> Itens críticos como risco de via aérea, alergias e risco de sangramento precisam ser verificados neste momento, antes que a anestesia retire a capacidade de resposta da paciente."
+      },
+      {
+        text: "O cirurgião já conhece a paciente — o Sign In pode ser pulado para não atrasar.",
+        correct: false,
+        feedback: "<strong>O Checklist nunca pode ser pulado.</strong> Estudos da OMS demonstram que o checklist reduz mortalidade cirúrgica em até 47%. A familiaridade com o paciente não elimina o risco de erro — frequentemente o aumenta (viés de confiança)."
+      },
+      {
+        text: "Confirmar identidade, procedimento e sítio cirúrgico, consentimento assinado, alergias, risco de via aérea difícil e risco de sangramento > 500 mL.",
+        correct: true,
+        feedback: "<strong>Correto!</strong> O Sign In é feito antes da indução anestésica, com o paciente consciente. O circulante confirma verbalmente com a equipe: identificação, procedimento, lateralidade (se aplicável), consentimentos, alergias, risco de via aérea (com plano alternativo) e risco de sangramento significativo."
+      },
+      {
+        text: "Sign In é feito após a anestesia, enquanto a equipe se prepara.",
+        correct: false,
+        feedback: "<strong>Incorreto — o Sign In ocorre ANTES da anestesia.</strong> Isso permite que o próprio paciente confirme dados e que problemas de via aérea sejam identificados com o paciente ainda consciente e capaz de auxiliar."
+      }
+    ],
+    points: 30,
+    unlock: null
+  },
+  {
+    id: 8,
+    location: "Centro Cirúrgico · Antes da Incisão",
+    icon: "⏸️",
+    title: "Cirurgia Segura · Time Out",
+    situation: "Maria está anestesiada e posicionada. Antes da <strong>primeira incisão</strong>, o cirurgião solicita o Time Out. Toda a equipe para. O que é confirmado nesse momento?",
+    choices: [
+      {
+        text: "Apenas o cirurgião e o anestesista confirmam o procedimento entre si.",
+        correct: false,
+        feedback: "<strong>O Time Out é um ato de toda a equipe.</strong> Todos os membros presentes na sala — cirurgião, anestesista, enfermeiro circulante, instrumentador, técnicos — participam e confirmam verbalmente. Qualquer um pode levantar uma preocupação."
+      },
+      {
+        text: "O cirurgião anuncia o início da cirurgia e a equipe prossegue.",
+        correct: false,
+        feedback: "<strong>O Time Out não é um anúncio unilateral.</strong> É uma pausa estruturada e dialogada. O objetivo é detectar discrepâncias antes de serem irreversíveis — portanto, exige confirmação ativa de cada membro da equipe."
+      },
+      {
+        text: "Toda a equipe confirma: identidade, procedimento, lateralidade, profilaxia antibiótica administrada, imagens disponíveis e apresentação de todos os membros.",
+        correct: true,
+        feedback: "<strong>Correto!</strong> O Time Out é o momento de máxima atenção coletiva. A checagem inclui: identidade do paciente, procedimento e lateralidade corretos, confirmação de que o antibiótico profilático foi administrado nos últimos 60 min, imagens disponíveis se necessário, e apresentação dos membros da equipe (comunicação é uma barreira de segurança)."
+      },
+      {
+        text: "Time Out só é necessário em cirurgias cardíacas e neurológicas.",
+        correct: false,
+        feedback: "<strong>Incorreto.</strong> O Checklist de Cirurgia Segura é obrigatório em <em>todas</em> as cirurgias, independentemente do porte ou especialidade. A OMS o recomenda para todo procedimento realizado em centro cirúrgico."
+      }
+    ],
+    points: 30,
+    unlock: null
+  },
+  {
+    id: 9,
+    location: "Centro Cirúrgico · Encerrando",
+    icon: "🏁",
+    title: "Cirurgia Segura · Sign Out",
+    situation: "A colecistectomia foi concluída com sucesso. Antes de Maria ser transportada para a sala de recuperação, o circulante conduz o <strong>Sign Out</strong>. O que deve ser verificado?",
+    choices: [
+      {
+        text: "Apenas registrar o diagnóstico cirúrgico no prontuário.",
+        correct: false,
+        feedback: "<strong>O Sign Out exige muito mais.</strong> O diagnóstico é apenas uma parte. Sem a contagem de instrumentos e compressas, há risco real de corpo estranho retido — um evento sentinela evitável."
+      },
+      {
+        text: "O cirurgião fecha e a equipe se dispersa — a recuperação cuida do resto.",
+        correct: false,
+        feedback: "<strong>A dispersão antes do Sign Out é uma falha grave.</strong> A contagem de instrumentos, identificação de espécimes e comunicação do plano de recuperação devem ocorrer antes de qualquer saída da equipe cirúrgica."
+      },
+      {
+        text: "Confirmar procedimento realizado, contagem final de instrumentos e compressas, identificação e envio de espécimes, intercorrências relevantes e plano de recuperação pós-anestésica.",
+        correct: true,
+        feedback: "<strong>Correto!</strong> O Sign Out fecha o ciclo de segurança. Inclui: (1) confirmação do procedimento realizado, (2) contagem final de instrumentos, agulhas e compressas — verificação de discrepâncias, (3) identificação e rotulagem dos espécimes cirúrgicos, (4) registro de intercorrências de equipamentos, e (5) comunicação das principais preocupações para a recuperação."
+      },
+      {
+        text: "Sign Out não é obrigatório se a cirurgia foi simples e sem intercorrências.",
+        correct: false,
+        feedback: "<strong>O Sign Out é obrigatório em toda cirurgia.</strong> Corpos estranhos retidos e falhas no envio de espécimes ocorrem em cirurgias consideradas 'simples'. A percepção de baixo risco frequentemente precede incidentes."
+      }
+    ],
+    points: 30,
+    unlock: null
+  }
+];
+
+/* ── GAME STATE ── */
+let state = {
+  phase: 'intro',
+  scene: 0,
+  score: 0,
+  lives: 3,
+  playerName: '',
+  resultCode: '',
+  bracelets: { id: false, allergy: false, fall: false },
+  results: [],
+  shuffled: []
+};
+
+const MAX_SCORE = SCENES.reduce((s, sc) => s + sc.points, 0);
+
+/* ── UTILS ── */
+function shuffle(arr) {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+function showScreen(id) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
+
+/* ── GAME ENGINE ── */
+function generateCode(name, score) {
+  const now = new Date();
+  const dd = String(now.getDate()).padStart(2, '0');
+  const mm = String(now.getMonth() + 1).padStart(2, '0');
+  const yy = String(now.getFullYear()).slice(-2);
+  const scoreStr = String(score).padStart(3, '0');
+  const raw = name.toLowerCase().replace(/\s+/g, '') + dd + mm + yy + scoreStr + 'cs26';
+  let h = 0;
+  for (let i = 0; i < raw.length; i++) {
+    h = Math.imul(31, h) + raw.charCodeAt(i) | 0;
+  }
+  const suffix = Math.abs(h).toString(36).toUpperCase().slice(0, 4).padStart(4, 'X');
+  return `JS-${dd}${mm}${yy}-${scoreStr}-${suffix}`;
+}
+
+function startGame() {
+  const input = document.getElementById('player-name');
+  const errorEl = document.getElementById('name-error');
+  const name = input ? input.value.trim() : '';
+  if (!name) {
+    if (errorEl) errorEl.classList.add('visible');
+    if (input) input.focus();
+    return;
+  }
+  if (errorEl) errorEl.classList.remove('visible');
+
+  state = {
+    phase: 'game',
+    scene: 0,
+    score: 0,
+    lives: 3,
+    playerName: name,
+    resultCode: '',
+    bracelets: { id: false, allergy: false, fall: false },
+    results: [],
+    shuffled: []
+  };
+  buildProgressTrack();
+  buildLives();
+  showScreen('screen-game');
+  renderScene();
+}
+
+function buildProgressTrack() {
+  const track = document.getElementById('progress-track');
+  track.innerHTML = SCENES.map((_, i) =>
+    `<div class="progress-dot" id="dot-${i}"></div>`
+  ).join('');
+}
+
+function buildLives() {
+  const row = document.getElementById('lives-row');
+  row.innerHTML = [0,1,2].map(i => `<span class="life-icon" id="life-${i}">❤️</span>`).join('');
+}
+
+function renderScene() {
+  const sc = SCENES[state.scene];
+
+  document.getElementById('scene-location').textContent = sc.location;
+  document.getElementById('scene-icon').textContent = sc.icon;
+  document.getElementById('scene-title').textContent = sc.title;
+  document.getElementById('scene-situation').innerHTML = sc.situation;
+
+  // Progress dots
+  SCENES.forEach((_, i) => {
+    const dot = document.getElementById(`dot-${i}`);
+    dot.className = 'progress-dot' +
+      (i < state.scene ? ' done' : i === state.scene ? ' current' : '');
+  });
+
+  // Bracelets
+  ['id','allergy','fall'].forEach(b => {
+    const tag = document.getElementById(`tag-${b}`);
+    if (state.bracelets[b]) tag.classList.add('visible');
+    else tag.classList.remove('visible');
+  });
+
+  // Score
+  document.getElementById('score-display').textContent = state.score;
+
+  // Shuffle choices
+  const indexed = sc.choices.map((c, i) => ({ ...c, originalIndex: i }));
+  state.shuffled = shuffle(indexed);
+
+  const grid = document.getElementById('choices-grid');
+  const letters = ['A','B','C','D'];
+  grid.innerHTML = state.shuffled.map((c, i) => `
+    <button class="choice-btn" onclick="handleChoice(${i})">
+      <span class="choice-letter">${letters[i]}</span>
+      <span class="choice-text">${c.text}</span>
+    </button>
+  `).join('');
+}
+
+function handleChoice(idx) {
+  const sc = SCENES[state.scene];
+  const choice = state.shuffled[idx];
+  const correct = choice.correct;
+
+  // Disable all buttons
+  document.querySelectorAll('.choice-btn').forEach(b => b.classList.add('disabled'));
+
+  // Update state
+  if (correct) {
+    state.score += sc.points;
+    if (sc.unlock) state.bracelets[sc.unlock] = true;
+  } else {
+    state.lives -= 1;
+    updateLife(state.lives);
+  }
+
+  state.results.push({ title: sc.title, correct, points: correct ? sc.points : 0 });
+
+  // Show feedback
+  showFeedback(correct, choice, sc.points);
+}
+
+function updateLife(remaining) {
+  [0,1,2].forEach(i => {
+    const el = document.getElementById(`life-${i}`);
+    el.classList.toggle('lost', i >= remaining);
+  });
+}
+
+function showFeedback(correct, choice, pts) {
+  const overlay = document.getElementById('feedback-overlay');
+  const icon = document.getElementById('fb-icon');
+  const title = document.getElementById('fb-title');
+  const points = document.getElementById('fb-points');
+  const expl = document.getElementById('fb-explanation');
+
+  icon.className = `feedback-icon ${correct ? 'correct' : 'wrong'}`;
+  icon.textContent = correct ? '✅' : '❌';
+
+  title.className = `feedback-title ${correct ? 'correct' : 'wrong'}`;
+  title.textContent = correct ? 'Ação Correta!' : 'Barreira não aplicada';
+
+  points.className = `feedback-points ${correct ? 'correct' : 'wrong'}`;
+  points.textContent = correct ? `+${pts} pts` : '-1 vida';
+
+  expl.innerHTML = choice.feedback;
+
+  overlay.classList.add('visible');
+}
+
+function nextScene() {
+  document.getElementById('feedback-overlay').classList.remove('visible');
+
+  if (state.lives <= 0) {
+    document.getElementById('gameover-score').textContent = `${state.score} pts`;
+    showScreen('screen-gameover');
+    return;
+  }
+
+  state.scene += 1;
+
+  if (state.scene >= SCENES.length) {
+    showResult();
+    return;
+  }
+
+  renderScene();
+}
+
+function copyCode() {
+  const code = state.resultCode;
+  navigator.clipboard.writeText(code).catch(() => {});
+  const btn = document.getElementById('btn-copy');
+  btn.textContent = '✓ Copiado!';
+  btn.classList.add('copied');
+  setTimeout(() => {
+    btn.textContent = '📋 Copiar código';
+    btn.classList.remove('copied');
+  }, 2500);
+}
+
+function showResult() {
+  document.getElementById('result-score').textContent = state.score;
+
+  const code = generateCode(state.playerName, state.score);
+  state.resultCode = code;
+
+  // Player name
+  const playerNameEl = document.getElementById('result-player-name');
+  if (playerNameEl) playerNameEl.innerHTML = `Resultado de <strong>${state.playerName}</strong>`;
+
+  // Certificate
+  const certNameEl = document.getElementById('cert-name');
+  if (certNameEl) certNameEl.textContent = state.playerName;
+  const certCodeEl = document.getElementById('cert-code');
+  if (certCodeEl) certCodeEl.textContent = code;
+
+  // WhatsApp link
+  const now = new Date();
+  const dateStr = now.toLocaleDateString('pt-BR');
+  const msg = `🏥 *Jornada Segura — Cuidar Seguro*\n\n👤 ${state.playerName}\n⭐ Pontuação: ${state.score}/225\n📋 Código: ${code}\n📅 ${dateStr}\n\ncuidarseguro.com.br/jornada-segura.html`;
+  const waLink = document.getElementById('btn-whatsapp');
+  if (waLink) waLink.href = `https://wa.me/?text=${encodeURIComponent(msg)}`;
+
+  // Stars
+  const pct = state.score / MAX_SCORE;
+  let stars, rating;
+  if (pct >= 0.95) { stars = '⭐⭐⭐⭐⭐'; rating = 'Profissional Exemplar em Segurança do Paciente'; }
+  else if (pct >= 0.80) { stars = '⭐⭐⭐⭐'; rating = 'Muito Bom — Continue Aprimorando'; }
+  else if (pct >= 0.60) { stars = '⭐⭐⭐'; rating = 'Bom — Revise os protocolos do PNSP'; }
+  else if (pct >= 0.40) { stars = '⭐⭐'; rating = 'Em Desenvolvimento — Estude as barreiras de segurança'; }
+  else { stars = '⭐'; rating = 'Início de Jornada — Aprofunde-se nos protocolos'; }
+
+  document.getElementById('result-stars').textContent = stars;
+  document.getElementById('result-rating').textContent = rating;
+
+  // Bracelets
+  const braceletEl = document.getElementById('result-bracelets');
+  const bDefs = [
+    { key: 'id', label: '🤝 Pulseira de Identificação', cls: 'id' },
+    { key: 'allergy', label: '⚠️ Pulseira de Alergia', cls: 'allergy' },
+    { key: 'fall', label: '🛡️ Pulseira de Queda', cls: 'fall' },
+  ];
+  braceletEl.innerHTML = bDefs.map(b =>
+    `<span class="result-bracelet ${b.cls} ${state.bracelets[b.key] ? '' : 'missing'}">${b.label}</span>`
+  ).join('');
+
+  // Scene list
+  const listEl = document.getElementById('result-scene-list');
+  listEl.innerHTML = state.results.map(r =>
+    `<div class="result-scene-item">
+      <div class="result-scene-check ${r.correct ? 'correct' : 'wrong'}">${r.correct ? '✓' : '✗'}</div>
+      <span>${r.title} ${r.correct ? `<strong style="color:var(--success)">+${r.points} pts</strong>` : '<span style="color:var(--error)">não realizado</span>'}</span>
+    </div>`
+  ).join('');
+
+  showScreen('screen-result');
+}
+
+function restartGame() {
+  startGame();
+}
+</script>

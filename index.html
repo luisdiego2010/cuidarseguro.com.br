@@ -27,7 +27,7 @@
   <meta name="twitter:image" content="https://cuidarseguro.com.br/og-image.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;0,9..144,700;1,9..144,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;0,9..144,700;1,9..144,300&family=DM+Sans:wght@300;400;500&family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root{--verde:#1a5c8a;--verde-claro:#2a8fcc;--verde-suave:#dbeef7;--creme:#f0f7fc;--texto:#1c2b3a;--texto-leve:#3a5a72;--borda:#b8d8ed;--branco:#ffffff;--destaque:#f0a500;}
     *{margin:0;padding:0;box-sizing:border-box;}
@@ -212,9 +212,9 @@
 </script>
 </head>
 <body>
-<div id="aviso-cfm" role="region" aria-label="Aviso sobre a Resolução CFM nº 2.454/2026">
-  <span class="aviso-txt" id="aviso-texto"></span>
-  <a href="resolucao-cfm-2454-2026.html">Conhecer a resolução →</a>
+<div id="aviso-cfm" role="region" aria-label="Jogo educativo Jornada Segura">
+  <span class="aviso-txt">🏥 <strong>Desafio:</strong> você aplicaria todas as barreiras de segurança do paciente? Teste agora — 9 cenas, 225 pontos, 8 minutos.</span>
+  <a href="jornada-segura.html">Jogar a Jornada Segura →</a>
   <button type="button" class="aviso-fechar" onclick="fecharAvisoCFM()" aria-label="Fechar aviso">✕</button>
 </div>
 <nav>
@@ -380,6 +380,107 @@
     <div class="artigo-card"><div class="artigo-topo"><span class="cat">Cultura</span><span class="data">Mar 2026</span></div><div class="artigo-body"><h3>Notificar erros é aprender: entendendo a cultura justa nas instituições de saúde</h3><p>Como a cultura punitiva impede o aprendizado e de que forma a cultura justa transforma organizações.</p><a href="artigo3.html" class="ler-mais">Ler artigo →</a></div></div>
   </div>
 </section>
+
+<!-- ── JORNADA SEGURA CTA ── -->
+<style>
+.jornada-section{background:#004857;position:relative;overflow:hidden;font-family:'Inter',system-ui,sans-serif;container-type:inline-size;}
+.jornada-section::before{content:'MARIA';position:absolute;font-family:'Sora',sans-serif;font-size:clamp(7rem,22cqi,18rem);font-weight:800;color:rgba(255,255,255,.03);letter-spacing:-.04em;top:50%;left:50%;transform:translate(-50%,-50%);white-space:nowrap;pointer-events:none;user-select:none;z-index:0;}
+.jornada-inner{display:grid;grid-template-columns:1fr 1fr;min-height:520px;position:relative;max-width:1200px;margin:0 auto;z-index:1;}
+.jornada-stakes{padding:60px 48px 60px 52px;display:flex;flex-direction:column;justify-content:center;gap:26px;position:relative;}
+.jornada-eyebrow{font-family:'Sora',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#E8A020;display:flex;align-items:center;gap:8px;}
+.jornada-eyebrow::before{content:'';display:block;width:24px;height:2px;background:#E8A020;border-radius:2px;}
+.jornada-headline{font-family:'Sora',sans-serif;font-size:clamp(2rem,4cqi,2.9rem);font-weight:800;color:#FFFFFF;line-height:1.05;letter-spacing:-.025em;text-wrap:balance;margin:0;}
+.jornada-headline em{font-style:normal;color:#E8A020;}
+.jornada-sub{font-size:.97rem;color:rgba(200,232,240,.7);line-height:1.7;max-width:360px;margin:0;}
+.jornada-sub strong{color:rgba(200,232,240,.95);font-weight:600;}
+.jornada-patient-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:18px 20px;display:flex;align-items:center;gap:14px;backdrop-filter:blur(12px);max-width:340px;transition:border-color .25s;}
+.jornada-patient-card:hover{border-color:rgba(232,160,32,.35);}
+.jpc-avatar{width:46px;height:46px;border-radius:50%;background:rgba(232,160,32,.15);border:2px solid rgba(232,160,32,.4);display:grid;place-items:center;font-size:20px;flex-shrink:0;}
+.jpc-name{font-family:'Sora',sans-serif;font-size:.9rem;font-weight:700;color:#FFFFFF;}
+.jpc-meta{font-size:.74rem;color:rgba(200,232,240,.55);margin-top:2px;}
+.jpc-tags{display:flex;gap:5px;margin-top:8px;flex-wrap:wrap;}
+.jpc-tag{font-size:.62rem;font-weight:700;padding:2px 8px;border-radius:100px;}
+.jpc-tag.proc{background:rgba(255,255,255,.08);color:rgba(200,232,240,.7);border:1px solid rgba(255,255,255,.1);}
+.jpc-tag.allergy{background:rgba(192,57,43,.25);color:#F5A0A0;border:1px solid rgba(192,57,43,.3);}
+.jornada-divider{position:absolute;right:0;top:0;bottom:0;width:1px;background:linear-gradient(to bottom,transparent,rgba(255,255,255,.08) 30%,rgba(255,255,255,.08) 70%,transparent);}
+.jornada-cta{padding:60px 52px 60px 48px;display:flex;flex-direction:column;justify-content:center;gap:26px;}
+.jornada-cta-title{font-size:.72rem;font-weight:700;color:rgba(200,232,240,.5);letter-spacing:.04em;text-transform:uppercase;}
+.jornada-moments{display:flex;flex-direction:column;gap:11px;}
+.jornada-moment{display:flex;align-items:flex-start;gap:12px;}
+.jm-icon{width:36px;height:36px;border-radius:10px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);display:grid;place-items:center;font-size:16px;flex-shrink:0;transition:background .2s,border-color .2s;}
+.jornada-moment:hover .jm-icon{background:rgba(232,160,32,.12);border-color:rgba(232,160,32,.2);}
+.jm-title{font-family:'Sora',sans-serif;font-size:.85rem;font-weight:700;color:#FFFFFF;margin-bottom:2px;}
+.jm-desc{font-size:.76rem;color:rgba(200,232,240,.5);line-height:1.5;}
+.jornada-btn-wrap{display:flex;flex-direction:column;gap:9px;}
+.jornada-btn{display:block;background:#E8A020;color:#1A1000;font-family:'Sora',sans-serif;font-size:1rem;font-weight:700;border-radius:14px;padding:16px 28px;text-align:center;text-decoration:none;transition:background .15s,transform .12s,box-shadow .15s;box-shadow:0 4px 20px rgba(232,160,32,.3);}
+.jornada-btn:hover{background:#F5B83A;transform:translateY(-2px);box-shadow:0 8px 28px rgba(232,160,32,.4);color:#1A1000;text-decoration:none;}
+.jornada-btn-note{font-size:.71rem;color:rgba(200,232,240,.35);text-align:center;letter-spacing:.04em;}
+.jornada-stats{display:flex;border:1px solid rgba(255,255,255,.08);border-radius:12px;overflow:hidden;}
+.jornada-stat{flex:1;padding:11px 10px;text-align:center;border-right:1px solid rgba(255,255,255,.06);}
+.jornada-stat:last-child{border-right:none;}
+.js-num{font-family:'Sora',sans-serif;font-size:1.1rem;font-weight:800;color:#E8A020;line-height:1;}
+.js-label{font-size:.62rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:rgba(200,232,240,.4);margin-top:3px;}
+.jornada-footer-bar{border-top:1px solid rgba(255,255,255,.05);padding:13px 52px;display:flex;align-items:center;gap:10px;max-width:1200px;margin:0 auto;flex-wrap:wrap;}
+.jornada-footer-bar span{font-size:.72rem;color:rgba(200,232,240,.3);}
+.jornada-footer-bar a{font-size:.72rem;color:rgba(200,232,240,.35);text-decoration:none;border-bottom:1px solid rgba(200,232,240,.12);transition:color .15s;}
+.jornada-footer-bar a:hover{color:rgba(200,232,240,.6);}
+@container (max-width:720px){
+  .jornada-inner{grid-template-columns:1fr;}
+  .jornada-divider{display:none;}
+  .jornada-stakes{padding:44px 24px 28px;}
+  .jornada-cta{padding:28px 24px 48px;}
+  .jornada-footer-bar{padding:13px 24px;}
+}
+</style>
+
+<section class="jornada-section" aria-label="Jogo educativo Jornada Segura">
+  <div class="jornada-inner">
+    <div class="jornada-stakes">
+      <div class="jornada-eyebrow">Jogo Educativo Interativo</div>
+      <h2 class="jornada-headline">Maria confia<br>em <em>você.</em></h2>
+      <p class="jornada-sub">Ela está no leito, com a pulseira que você colocou — ou não colocou. Tomando o medicamento que você checou — ou não checou. <strong>9 decisões. Nenhuma segunda chance para o paciente.</strong></p>
+      <div class="jornada-patient-card" aria-hidden="true">
+        <div class="jpc-avatar">👩‍🦳</div>
+        <div>
+          <div class="jpc-name">Maria da Silva, 65 anos</div>
+          <div class="jpc-meta">Leito 304B · Cirurgia Geral</div>
+          <div class="jpc-tags">
+            <span class="jpc-tag proc">Colecistectomia Laparoscópica</span>
+            <span class="jpc-tag allergy">⚠ Penicilina</span>
+          </div>
+        </div>
+      </div>
+      <div class="jornada-divider" aria-hidden="true"></div>
+    </div>
+    <div class="jornada-cta">
+      <div class="jornada-cta-title">O que você vai enfrentar</div>
+      <div class="jornada-moments">
+        <div class="jornada-moment"><div class="jm-icon">🏷️</div><div><div class="jm-title">Identificação e pulseiras</div><div class="jm-desc">Dois identificadores, pulseira de alergia, risco de queda</div></div></div>
+        <div class="jornada-moment"><div class="jm-icon">💊</div><div><div class="jm-title">Administração de medicamentos</div><div class="jm-desc">Você conseguirá impedir o erro de prescrição de penicilina?</div></div></div>
+        <div class="jornada-moment"><div class="jm-icon">📋</div><div><div class="jm-title">Consentimento informado</div><div class="jm-desc">Três TCLEs obrigatórios antes da cirurgia</div></div></div>
+        <div class="jornada-moment"><div class="jm-icon">✅</div><div><div class="jm-title">Checklist de Cirurgia Segura</div><div class="jm-desc">Sign In · Time Out · Sign Out — as três etapas da OMS</div></div></div>
+      </div>
+      <div class="jornada-btn-wrap">
+        <a class="jornada-btn" href="jornada-segura.html">Jogar agora — a jornada começa aqui →</a>
+        <div class="jornada-btn-note">GRATUITO · SEM CADASTRO · FUNCIONA NO CELULAR</div>
+      </div>
+      <div class="jornada-stats">
+        <div class="jornada-stat"><div class="js-num">9</div><div class="js-label">Cenas</div></div>
+        <div class="jornada-stat"><div class="js-num">225</div><div class="js-label">Pontos</div></div>
+        <div class="jornada-stat"><div class="js-num">3</div><div class="js-label">Protocolos</div></div>
+        <div class="jornada-stat"><div class="js-num">~8</div><div class="js-label">Minutos</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="jornada-footer-bar">
+    <span>Baseado nos protocolos do</span>
+    <a href="https://www.gov.br/saude/pt-br/assuntos/saude-de-a-a-z/s/seguranca-do-paciente" target="_blank" rel="noopener">PNSP (Ministério da Saúde)</a>
+    <span>e</span>
+    <a href="https://www.who.int/teams/integrated-health-services/patient-safety" target="_blank" rel="noopener">OMS · Patient Safety</a>
+    <span style="margin-left:auto">cuidarseguro.com.br</span>
+  </div>
+</section>
+
 <section id="sobre">
   <div>
     <span class="section-tag">Sobre o projeto</span>
@@ -441,21 +542,12 @@
   function enviarForm(e){e.preventDefault();fetch('https://formspree.io/f/mdenbknb',{method:'POST',body:new FormData(document.getElementById('form-contato')),headers:{Accept:'application/json'}}).then(()=>{document.getElementById('form-contato').style.display='none';document.getElementById('form-sucesso').style.display='block';});}function tocarPodcast(){var capa=document.getElementById('podcast-capa');if(!capa)return;capa.outerHTML='<div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:0.5rem;"><iframe src="https://www.youtube-nocookie.com/embed/PNo3iAceivM?autoplay=1&rel=0" title="Podcast Cuidar Seguro" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>';}
   window.addEventListener('scroll',()=>{document.querySelector('nav').style.boxShadow=window.scrollY>10?'0 2px 20px rgba(0,0,0,0.08)':'none';});
 
-  // Aviso de vigência da Resolução CFM nº 2.454/2026 — troca de mensagem sozinho em 26/08/2026
+  // Banner Jornada Segura
   (function(){
-    var VIGENCIA=new Date(2026,7,26);          // 26/08/2026
-    var VALIDO_ATE=new Date(2026,10,24);       // some da tela 90 dias após a vigência
-    var CHAVE='cs_aviso_cfm2454';
+    var CHAVE='cs_banner_jornada_v1';
     var barra=document.getElementById('aviso-cfm');
-    var alvo=document.getElementById('aviso-texto');
-    if(!barra||!alvo) return;
-    var hoje=new Date(); hoje.setHours(0,0,0,0);
-    if(hoje>VALIDO_ATE) return;
+    if(!barra) return;
     try{ if(localStorage.getItem(CHAVE)==='1') return; }catch(e){}
-    var dias=Math.round((VIGENCIA-hoje)/86400000);
-    alvo.innerHTML = dias>0
-      ? '⚖️ <strong>Resolução CFM nº 2.454/2026</strong> — normatiza o uso da inteligência artificial na medicina e entra em vigor em 26/08/2026. Falta'+(dias===1?'':'m')+' '+dias+' dia'+(dias===1?'':'s')+'.'
-      : '⚖️ <strong>Resolução CFM nº 2.454/2026</strong> — em vigor desde 26/08/2026, normatiza o uso da inteligência artificial na medicina.';
     barra.classList.add('ativo');
     document.documentElement.classList.add('com-aviso');
     function medir(){document.documentElement.style.setProperty('--aviso-altura',barra.offsetHeight+'px');}
