@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JKCHZS8M0Y"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-JKCHZS8M0Y');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="logo_cuidarseguro.png">
+  <title>Eventos | Cuidar Seguro</title>
+  <meta name="description" content="Calendário de congressos e eventos de segurança do paciente no Brasil, América Latina, Europa e América do Norte — 2026/2027.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://cuidarseguro.com.br/eventos.html">
+  <meta property="og:title" content="Eventos de Segurança do Paciente 2026–2027 | Cuidar Seguro">
+  <meta property="og:description" content="Calendário de congressos e eventos de segurança do paciente no Brasil, América Latina, Europa e América do Norte.">
+  <meta property="og:image" content="https://cuidarseguro.com.br/og-image.png">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:site_name" content="Cuidar Seguro">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Eventos de Segurança do Paciente 2026–2027 | Cuidar Seguro">
+  <meta name="twitter:description" content="Calendário de congressos e eventos de segurança do paciente no Brasil, América Latina, Europa e América do Norte.">
+  <meta name="twitter:image" content="https://cuidarseguro.com.br/og-image.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;0,9..144,700;1,9..144,300&family=DM+Sans:wght@300;400;500&family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{--verde:#1a5c8a;--verde-claro:#2a8fcc;--verde-suave:#dbeef7;--creme:#f0f7fc;--texto:#1c2b3a;--texto-leve:#3a5a72;--borda:#b8d8ed;--branco:#ffffff;--destaque:#f0a500;}
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{font-family:'DM Sans',sans-serif;background:var(--creme);color:var(--texto);overflow-x:hidden;}
+
+    /* NAV */
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1rem 3rem;background:rgba(240,247,252,0.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--borda);}
+    .nav-logo{font-family:'Fraunces',serif;font-size:1.4rem;font-weight:700;color:var(--verde);letter-spacing:-0.02em;text-decoration:none;}
+    .nav-logo span{color:var(--verde-claro);}
+    .nav-links{display:flex;gap:2rem;list-style:none;}
+    .nav-links a{text-decoration:none;color:var(--texto-leve);font-size:0.9rem;font-weight:500;transition:color 0.2s;}
+    .nav-links a:hover,.nav-links a.ativo{color:var(--verde);}
+    .nav-cta{background:var(--verde);color:white;padding:0.5rem 1.2rem;border-radius:2rem;text-decoration:none;font-size:0.88rem;font-weight:500;transition:background 0.2s;}
+    .nav-cta:hover{background:var(--verde-claro);}
+    @media(max-width:768px){
+      nav{padding:1rem 1.25rem;}
+      .nav-links{display:none;}
+    }
+
+    /* HERO */
+    .ev-hero{padding:7rem 3rem 3rem;max-width:860px;margin:0 auto;}
+    .ev-hero .section-tag{display:inline-block;background:var(--verde-suave);color:var(--verde);font-size:0.75rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;padding:0.3rem 0.8rem;border-radius:2rem;border:1px solid var(--borda);margin-bottom:1rem;}
+    .ev-hero h1{font-family:'Fraunces',serif;font-size:clamp(2rem,4vw,3rem);font-weight:700;line-height:1.15;letter-spacing:-0.025em;margin-bottom:1rem;}
+    .ev-hero h1 em{font-style:italic;font-weight:300;color:var(--verde);}
+    .ev-hero p{color:var(--texto-leve);font-size:1.05rem;line-height:1.7;max-width:580px;}
+
+    /* TEMA OPAS */
+    .ev-opas{background:var(--verde);color:#fff;border-radius:1.5rem;padding:2rem 2.2rem;max-width:860px;margin:0 auto 3rem;display:grid;grid-template-columns:auto 1fr;gap:1.5rem;align-items:center;}
+    .ev-opas-icon{font-size:2.8rem;line-height:1;}
+    .ev-opas-label{font-family:'Sora',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:.35rem;}
+    .ev-opas-titulo{font-family:'Sora',sans-serif;font-size:1.05rem;font-weight:700;color:#fff;margin-bottom:.4rem;line-height:1.3;}
+    .ev-opas-desc{font-size:.88rem;color:rgba(255,255,255,.75);line-height:1.65;}
+    .ev-opas-desc strong{color:#fff;}
+    @media(max-width:540px){.ev-opas{grid-template-columns:1fr;gap:1rem;}.ev-opas-icon{font-size:2rem;}}
+
+    /* CALENDÁRIO */
+    .ev-main{max-width:860px;margin:0 auto;padding:0 3rem 5rem;}
+    @media(max-width:600px){.ev-main{padding:0 1.25rem 4rem;}.ev-hero{padding:6rem 1.25rem 2rem;}}
+
+    .ev-regiao{margin-bottom:3rem;}
+    .ev-regiao-titulo{display:flex;align-items:center;gap:.75rem;margin-bottom:1.25rem;}
+    .ev-flag{font-size:1.3rem;}
+    .ev-regiao-nome{font-family:'Sora',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--texto-leve);}
+    .ev-divider{flex:1;height:1px;background:var(--borda);}
+
+    .ev-card{background:#fff;border:1px solid var(--borda);border-radius:1.1rem;padding:1.4rem 1.5rem;display:grid;grid-template-columns:80px 1fr auto;gap:1rem;align-items:start;margin-bottom:.85rem;transition:box-shadow .2s,border-color .2s;text-decoration:none;color:inherit;}
+    .ev-card:hover{box-shadow:0 6px 22px rgba(26,92,138,.1);border-color:var(--verde-claro);}
+    .ev-card.destaque{border-color:var(--destaque);background:rgba(240,165,0,.04);}
+    .ev-card.destaque .ev-data-mes{background:var(--destaque);color:#fff;}
+
+    .ev-data{text-align:center;}
+    .ev-data-dia{font-family:'Sora',sans-serif;font-size:1.6rem;font-weight:800;color:var(--verde);line-height:1;}
+    .ev-data-mes{font-size:.62rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:var(--verde-suave);color:var(--verde);padding:.15rem .45rem;border-radius:.4rem;margin-top:.3rem;display:inline-block;}
+    .ev-data-ano{font-size:.65rem;color:var(--texto-leve);margin-top:.2rem;}
+
+    .ev-info{}
+    .ev-nome{font-family:'Fraunces',serif;font-size:1rem;font-weight:600;color:var(--texto);margin-bottom:.3rem;line-height:1.35;}
+    .ev-org{font-size:.78rem;color:var(--verde-claro);font-weight:500;margin-bottom:.4rem;}
+    .ev-local{font-size:.8rem;color:var(--texto-leve);display:flex;align-items:center;gap:.3rem;}
+    .ev-local::before{content:'📍';font-size:.75rem;}
+    .ev-aviso{display:inline-block;margin-top:.5rem;font-size:.68rem;font-weight:600;color:#b45309;background:#fef3c7;border:1px solid #fde68a;padding:.15rem .55rem;border-radius:.5rem;}
+
+    .ev-badge{align-self:center;font-size:.65rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:.25rem .65rem;border-radius:.5rem;white-space:nowrap;}
+    .badge-br{background:#dbeef7;color:#1a5c8a;}
+    .badge-eu{background:#eef2ff;color:#3730a3;}
+    .badge-us{background:#ecfdf5;color:#065f46;}
+    .badge-al{background:#fff7ed;color:#9a3412;}
+    .badge-global{background:#fdf4ff;color:#7e22ce;}
+
+    @media(max-width:540px){
+      .ev-card{grid-template-columns:60px 1fr;gap:.75rem;}
+      .ev-badge{display:none;}
+      .ev-data-dia{font-size:1.3rem;}
+    }
+
+    .ev-nota{font-size:.8rem;color:var(--texto-leve);text-align:center;padding:2rem 0 1rem;line-height:1.7;}
+    .ev-nota a{color:var(--verde-claro);text-decoration:none;border-bottom:1px solid var(--borda);}
+    .ev-nota a:hover{color:var(--verde);}
+
+    /* RODAPÉ */
+    footer{background:var(--verde);color:rgba(255,255,255,.7);text-align:center;padding:2rem;font-size:.82rem;}
+    footer a{color:rgba(255,255,255,.85);text-decoration:none;}
+    footer a:hover{color:#fff;}
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html">Cuidar <span>Seguro</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html#temas">Temas</a></li>
+    <li><a href="index.html#artigos">Artigos</a></li>
+    <li><a href="index.html#sociedades">Sociedades</a></li>
+    <li><a href="eventos.html" class="ativo">Eventos</a></li>
+    <li><a href="index.html#sobre">Sobre</a></li>
+  </ul>
+  <a class="nav-cta" href="jornada-segura.html">Jogar Jornada Segura →</a>
+</nav>
+
+<div class="ev-hero">
+  <span class="section-tag">Calendário 2026–2027</span>
+  <h1>Eventos de <em>segurança do paciente</em></h1>
+  <p>Congressos, conferências e encontros científicos no Brasil, América Latina, Europa e América do Norte. Atualizado em agosto de 2026.</p>
+</div>
+
+<!-- DESTAQUE OPAS -->
+<div class="ev-opas" style="padding-left:2.5rem;padding-right:2.5rem;max-width:800px;">
+  <div class="ev-opas-icon">🌍</div>
+  <div>
+    <div class="ev-opas-label">Tema oficial · OMS/OPAS · 17 de setembro de 2026</div>
+    <div class="ev-opas-titulo">Doenças Não Transmissíveis e Segurança do Paciente</div>
+    <div class="ev-opas-desc">As <strong>doenças crônicas não transmissíveis (DNTs)</strong> — cardiovasculares, diabetes, câncer, doenças respiratórias — são responsáveis por <strong>74% das mortes no mundo</strong>. O Dia Mundial da Segurança do Paciente 2026 destaca que erros e eventos adversos no manejo dessas condições agravam desfechos e sobrecarregam sistemas de saúde. Segurança do paciente é peça central na resposta global às DNTs.</div>
+  </div>
+</div>
+
+<main class="ev-main">
+
+  <!-- BRASIL -->
+  <div class="ev-regiao">
+    <div class="ev-regiao-titulo">
+      <span class="ev-flag">🇧🇷</span>
+      <span class="ev-regiao-nome">Brasil</span>
+      <div class="ev-divider"></div>
+    </div>
+
+    <a class="ev-card destaque" href="https://proqualis.fiocruz.br" target="_blank" rel="noopener">
+      <div class="ev-data">
+        <div class="ev-data-dia">17</div>
+        <div class="ev-data-mes">Set</div>
+        <div class="ev-data-ano">2026</div>
+      </div>
+      <div class="ev-info">
+        <div class="ev-nome">Dia Mundial da Segurança do Paciente</div>
+        <div class="ev-org">Proqualis / Fiocruz · OMS/OPAS</div>
+        <div class="ev-local">Online — webinars e ações educativas ao longo de setembro</div>
+      </div>
+      <span class="ev-badge badge-global">Global</span>
+    </a>
+
+    <a class="ev-card" href="https://sobrasp.org.br/eventos/125/4o-congresso-da-sociedade-brasileira-para-a-qualidade-do-cuidado-e-seguranca-do-paciente-sobrasp" target="_blank" rel="noopener">
+      <div class="ev-data">
+        <div class="ev-data-dia">27–29</div>
+        <div class="ev-data-mes">Set</div>
+        <div class="ev-data-ano">2026</div>
+      </div>
+      <div class="ev-info">
+        <div class="ev-nome">IV Congresso SOBRASP</div>
+        <div class="ev-org">Sociedade Brasileira para a Qualidade do Cuidado e Segurança do Paciente</div>
+        <div class="ev-local">Centro de Convenções Frei Caneca, São Paulo/SP</div>
+        <span class="ev-aviso">⚠ Confirmar data no site oficial</span>
+      </div>
+      <span class="ev-badge badge-br">Brasil</span>
+    </a>
+
+    <a class="ev-card" href="https://cba2026.com.br" target="_blank" rel="noopener">
+      <div class="ev-data">
+        <div class="ev-data-dia">26–29</div>
+        <div class="ev-data-mes">Nov</div>
+        <div class="ev-data-ano">2026</div>
+      </div>
+      <div class="ev-info">
+        <div class="ev-nome">71º Congresso Brasileiro de Anestesiologia</div>
+        <div class="ev-org">Sociedade Brasileira de Anestesiologia (SBA)</div>
+        <div class="ev-local">Centro de Eventos do Ceará, Fortaleza/CE</div>
+      </div>
+      <span class="ev-badge badge-br">Brasil</span>
+    </a>
+  </div>
+
+  <!-- EUROPA -->
+  <div class="ev-regiao">
+    <div class="ev-regiao-titulo">
+      <span class="ev-flag">🇪🇺</span>
+      <span class="ev-regiao-nome">Europa</span>
+      <div class="ev-divider"></div>
+    </div>
+
+    <a class="ev-card" href="https://www.terrapinn.com/conference/world-patient-safety-congress-europe/index.stm" target="_blank" rel="noopener">
+      <div class="ev-data">
+        <div class="ev-data-dia">23–24</div>
+        <div class="ev-data-mes">Set</div>
+        <div class="ev-data-ano">2026</div>
+      </div>
+      <div class="ev-info">
+        <div class="ev-nome">World Patient Safety Congress Europe</div>
+        <div class="ev-org">Terrapinn / IQVIA</div>
+        <div class="ev-local">Amsterdã, Holanda</div>
+      </div>
+      <span class="ev-badge badge-eu">Europa</span>
+    </a>
+
+    <a class="ev-card" href="https://conference.eupsf.org" target="_blank" rel="noopener">
+      <div class="ev-data">
+        <div class="ev-data-dia">4</div>
+        <div class="ev-data-mes">Dez</div>
+        <div class="ev-data-ano">2026</div>
+      </div>
+      <div class="ev-info">
+        <div class="ev-nome">European Patient Safety Conference</div>
+        <div class="ev-org">European Union Patient Safety Federation (EUPSF)</div>
+        <div class="ev-local">Bruxelas, Bélgica</div>
+      </div>
+      <span class="ev-badge badge-eu">Europa</span>
+    </a>
+  </div>
+
+  <!-- EUA / CANADÁ -->
+  <div class="ev-regiao">
+    <div class="ev-regiao-titulo">
+      <span class="ev-flag">🇺🇸</span>
+      <span class="ev-regiao-nome">EUA / Canadá</span>
+      <div class="ev-divider"></div>
+    </div>
+
+    <a class="ev-card" href="https://www.terrapinn.com/conference/world-patient-safety-congress-us/index.stm" target="_blank" rel="noopener">
+      <div class="ev-data">
+        <div class="ev-data-dia">15</div>
+        <div class="ev-data-mes">Out</div>
+        <div class="ev-data-ano">2026</div>
+      </div>
+      <div class="ev-info">
+        <div class="ev-nome">World Patient Safety Congress Americas</div>
+        <div class="ev-org">Terrapinn</div>
+        <div class="ev-local">Boston, Massachusetts, EUA</div>
+      </div>
+      <span class="ev-badge badge-us">EUA</span>
+    </a>
+
+    <a class="ev-card" href="https://events.ihi.org/forum" target="_blank" rel="noopener">
+      <div class="ev-data">
+        <div class="ev-data-dia">6–9</div>
+        <div class="ev-data-mes">Dez</div>
+        <div class="ev-data-ano">2026</div>
+      </div>
+      <div class="ev-info">
+        <div class="ev-nome">IHI National Forum on Quality Improvement in Health Care</div>
+        <div class="ev-org">Institute for Healthcare Improvement (IHI)</div>
+        <div class="ev-local">Phoenix, Arizona, EUA</div>
+      </div>
+      <span class="ev-badge badge-us">EUA</span>
+    </a>
+  </div>
+
+  <p class="ev-nota">
+    Calendário atualizado em agosto de 2026. Datas e locais sujeitos a alteração — confirme sempre no site oficial de cada evento.<br>
+    Sugestão de evento? <a href="index.html#contato">Entre em contato</a>.
+  </p>
+
+</main>
+
+<footer>
+  <p><a href="index.html">← Voltar à página inicial</a> &nbsp;·&nbsp; <a href="jornada-segura.html">Jogar Jornada Segura</a> &nbsp;·&nbsp; cuidarseguro.com.br</p>
+</footer>
+
+</body>
+</html>
