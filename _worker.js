@@ -42,11 +42,11 @@ function addSecurityHeaders(response) {
       "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
       "font-src 'self' https://fonts.gstatic.com",
       "img-src 'self' data: https:",
-      "connect-src 'self' https://cuidarseguro.com.br https://www.cuidarseguro.com.br https://www.google-analytics.com https://analytics.google.com",
+      "connect-src 'self' https://cuidarseguro.com.br https://www.cuidarseguro.com.br https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com https://www.googletagmanager.com https://formspree.io",
       "frame-src https://challenges.cloudflare.com",
       "object-src 'none'",
       "base-uri 'self'",
-      "form-action 'self'",
+      "form-action 'self' https://formspree.io",
     ].join("; ")
   );
   return new Response(response.body, {
