@@ -43,7 +43,7 @@ function addSecurityHeaders(response) {
       "font-src 'self' https://fonts.gstatic.com",
       "img-src 'self' data: https:",
       "connect-src 'self' https://cuidarseguro.com.br https://www.cuidarseguro.com.br https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com https://www.googletagmanager.com https://formspree.io",
-      "frame-src https://challenges.cloudflare.com",
+      "frame-src https://challenges.cloudflare.com https://formspree.io",
       "object-src 'none'",
       "base-uri 'self'",
       "form-action 'self' https://formspree.io",
