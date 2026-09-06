@@ -55,16 +55,15 @@
     .video-responsivo{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:1rem;border:1px solid var(--borda);box-shadow:0 4px 20px rgba(26,92,138,0.12);}
     .video-responsivo iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0;}
 
-    /* Card de podcast */
-    .podcast-card{display:flex;gap:2rem;align-items:flex-start;background:var(--creme);border:1px solid var(--borda);border-radius:1.2rem;padding:2rem;margin-top:3rem;}
-    .podcast-thumb{flex-shrink:0;width:280px;border-radius:0.75rem;overflow:hidden;border:1px solid var(--borda);}
-    .podcast-thumb img{width:100%;height:auto;display:block;}
-    .podcast-info{display:flex;flex-direction:column;gap:1rem;}
-    .podcast-tag{display:inline-block;background:var(--verde);color:white;font-size:0.72rem;font-weight:500;text-transform:uppercase;letter-spacing:0.06em;padding:0.3rem 0.8rem;border-radius:2rem;width:fit-content;}
-    .podcast-info h2{font-family:'Fraunces',serif;font-size:1.4rem;font-weight:600;color:var(--texto);line-height:1.3;}
-    .podcast-info p{font-size:0.97rem;line-height:1.8;color:var(--texto);}
-    .btn-podcast{display:inline-flex;align-items:center;gap:0.5rem;background:var(--verde);color:white;text-decoration:none;padding:0.75rem 1.5rem;border-radius:2rem;font-size:0.9rem;font-weight:500;transition:background 0.2s;}
-    .btn-podcast:hover{background:var(--verde-claro);}
+    /* Podcast item */
+    .podcast-item{display:flex;gap:1.2rem;align-items:center;border-top:1px solid var(--borda);padding-top:2rem;margin-top:2.5rem;}
+    .podcast-item img{width:120px;height:68px;object-fit:cover;border-radius:0.5rem;flex-shrink:0;border:1px solid var(--borda);}
+    .podcast-item-info{display:flex;flex-direction:column;gap:0.4rem;}
+    .podcast-item-tag{font-size:0.75rem;font-weight:500;color:var(--verde);text-transform:uppercase;letter-spacing:0.06em;}
+    .podcast-item-info h3{font-family:'Fraunces',serif;font-size:1.05rem;font-weight:600;color:var(--texto);line-height:1.35;}
+    .podcast-item-info p{font-size:0.88rem;color:var(--texto-leve);line-height:1.6;}
+    .podcast-link{display:inline-flex;align-items:center;gap:0.35rem;font-size:0.85rem;font-weight:500;color:var(--verde);text-decoration:none;margin-top:0.2rem;}
+    .podcast-link:hover{text-decoration:underline;}
 
     /* Footer */
     .pagina-footer{background:var(--creme);border-top:1px solid var(--borda);padding:2rem 3rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}
@@ -110,17 +109,13 @@
     </div>
   </div>
 
-  <div class="podcast-card">
-    <div class="podcast-thumb">
-      <img src="podcast_ep01.webp" alt="Cuidar Seguro Podcast — Ep. 01" width="280" height="158">
-    </div>
-    <div class="podcast-info">
-      <span class="podcast-tag">Podcast · Ep. 01</span>
-      <h2>Segurança do Paciente — uma conversa sobre cuidado</h2>
-      <p>Nosso primeiro episódio de podcast explora os fundamentos da segurança do paciente: o que significa cuidar com segurança, quais os principais riscos na prática assistencial e como a cultura de segurança transforma o cuidado em saúde. Gerado com NotebookLM a partir do conteúdo do Cuidar Seguro.</p>
-      <a href="https://www.youtube.com/watch?v=PNo3iAceivM" target="_blank" rel="noopener noreferrer" class="btn-podcast">
-        🎙 Ouvir no YouTube
-      </a>
+  <div class="podcast-item">
+    <img src="podcast_ep01.webp" alt="Cuidar Seguro Podcast — Ep. 01" width="120" height="68">
+    <div class="podcast-item-info">
+      <span class="podcast-item-tag">🎙 Podcast · Ep. 01</span>
+      <h3>Segurança do Paciente — uma conversa sobre cuidado</h3>
+      <p>Panorama sobre segurança do paciente na prática assistencial. Gerado com NotebookLM · 23 min</p>
+      <a href="https://www.youtube.com/watch?v=PNo3iAceivM" target="_blank" rel="noopener noreferrer" class="podcast-link">Ouvir no YouTube →</a>
     </div>
   </div>
 
