@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="logo_cuidarseguro.png">
+  <title>Dia Mundial da Segurança do Paciente 2026 — Cuidar Seguro</title>
+  <meta name="description" content="Em 2026, o Dia Mundial da Segurança do Paciente traz o tema 'Cuidados seguros para doenças não transmissíveis', reconhecendo os riscos ao longo de toda a jornada do paciente crônico.">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f8fafc;
+      color: #1e293b;
+      line-height: 1.75;
+    }
+
+    /* ── Navbar ── */
+    nav {
+      background: #1e40af;
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+    }
+    .nav-brand img { height: 40px; border-radius: 6px; }
+    .nav-brand span {
+      color: #fff;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+    .nav-links { display: flex; gap: 1.5rem; }
+    .nav-links a {
+      color: rgba(255,255,255,0.85);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: #fff; }
+
+    /* ── Hero ── */
+    .hero {
+      background: linear-gradient(135deg, #1e40af 0%, #1d4ed8 60%, #2563eb 100%);
+      color: #fff;
+      padding: 3rem 2rem 2.5rem;
+      text-align: center;
+    }
+    .hero .tag {
+      display: inline-block;
+      background: rgba(255,255,255,0.18);
+      border: 1px solid rgba(255,255,255,0.35);
+      border-radius: 20px;
+      padding: 0.25rem 1rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    .hero h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(1.5rem, 4vw, 2.25rem);
+      font-weight: 700;
+      line-height: 1.25;
+      max-width: 720px;
+      margin: 0 auto .75rem;
+    }
+    .hero .slogan {
+      font-size: 1.05rem;
+      font-style: italic;
+      opacity: .88;
+      margin-bottom: 1.25rem;
+    }
+    .hero .meta {
+      font-size: 0.85rem;
+      opacity: .75;
+    }
+
+    /* ── Container ── */
+    .container {
+      max-width: 800px;
+      margin: 2.5rem auto;
+      padding: 0 1.25rem;
+    }
+
+    /* ── Autoria ── */
+    .autoria {
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-left: 4px solid #1e40af;
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      margin-bottom: 2rem;
+      font-size: 0.9rem;
+      color: #475569;
+    }
+    .autoria strong { color: #1e293b; }
+
+    /* ── Corpo ── */
+    .artigo-corpo h2 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #1e40af;
+      margin: 2rem 0 .75rem;
+      padding-bottom: .35rem;
+      border-bottom: 2px solid #e0e7ff;
+    }
+
+    .artigo-corpo p {
+      margin-bottom: 1.1rem;
+      font-size: 1rem;
+      color: #334155;
+    }
+
+    /* ── Highlight box ── */
+    .highlight-box {
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-radius: 10px;
+      padding: 1.25rem 1.5rem;
+      margin: 2rem 0;
+    }
+    .highlight-box h3 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: #1e40af;
+      margin-bottom: .75rem;
+    }
+    .highlight-box p { font-size: .95rem; color: #1e3a6e; margin-bottom: .5rem; }
+    .highlight-box p:last-child { margin-bottom: 0; }
+
+    /* ── Principles box ── */
+    .principles-box {
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-radius: 10px;
+      padding: 1.25rem 1.5rem;
+      margin: 2.5rem 0;
+    }
+    .principles-box h3 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: #15803d;
+      margin-bottom: .75rem;
+    }
+    .principles-box ul {
+      list-style: none;
+      padding: 0;
+    }
+    .principles-box ul li {
+      padding: .4rem 0 .4rem 1.5rem;
+      position: relative;
+      font-size: .95rem;
+      color: #14532d;
+      border-bottom: 1px solid #dcfce7;
+    }
+    .principles-box ul li:last-child { border-bottom: none; }
+    .principles-box ul li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: #15803d;
+      font-weight: 700;
+    }
+
+    /* ── Referências ── */
+    .referencias {
+      margin-top: 2.5rem;
+      padding-top: 1.5rem;
+      border-top: 2px solid #e2e8f0;
+    }
+    .referencias h2 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: #1e40af;
+      margin-bottom: 1rem;
+    }
+    .referencias ol {
+      padding-left: 1.5rem;
+    }
+    .referencias ol li {
+      font-size: .88rem;
+      color: #475569;
+      margin-bottom: .6rem;
+      line-height: 1.55;
+    }
+    .referencias ol li a {
+      color: #2563eb;
+      word-break: break-all;
+    }
+
+    /* ── Footer ── */
+    footer {
+      background: #1e293b;
+      color: rgba(255,255,255,.65);
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: .85rem;
+      margin-top: 3rem;
+    }
+    footer a { color: rgba(255,255,255,.8); }
+
+    @media (max-width: 600px) {
+      .nav-links { display: none; }
+      .hero { padding: 2rem 1rem 1.75rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav>
+  <a href="index.html" class="nav-brand">
+    <img src="logo_cuidarseguro.png" alt="Logo Cuidar Seguro">
+    <span>Cuidar Seguro</span>
+  </a>
+  <div class="nav-links">
+    <a href="index.html">Início</a>
+    <a href="index.html#artigos">Artigos</a>
+    <a href="index.html#contato">Contato</a>
+  </div>
+</nav>
+
+<!-- Hero -->
+<div class="hero">
+  <div class="tag">Dia Mundial · 17 Set 2026</div>
+  <h1>Dia Mundial da Segurança do Paciente 2026: cuidar com segurança ao longo de toda a vida</h1>
+  <p class="slogan">"Safe care for life!" — "Cuidados seguros para a vida!"</p>
+  <p class="meta">Tema: Cuidados seguros para doenças não transmissíveis</p>
+</div>
+
+<!-- Conteúdo -->
+<div class="container">
+
+  <!-- Autoria -->
+  <div class="autoria">
+    <strong>Autoria:</strong> Patrícia M. S. Shimabukuro — Colaboradora de conteúdo do Cuidar Seguro; coordenadora do GTT de Doenças Emergentes e IRAS da Sobrasp.<br>
+    <strong>Publicado em:</strong> Setembro de 2026 · <strong>Site:</strong> cuidarseguro.com.br
+  </div>
+
+  <!-- Corpo -->
+  <div class="artigo-corpo">
+
+    <p>Em 17 de setembro, o mundo celebra o Dia Mundial da Segurança do Paciente, uma iniciativa da Organização Mundial da Saúde (OMS) que mobiliza governos, profissionais de saúde, instituições, pacientes, familiares e comunidades em torno de um compromisso essencial: reduzir os danos evitáveis relacionados ao cuidado em saúde.</p>
+
+    <p>Em 2026, a campanha traz como tema <strong>"Cuidados seguros para doenças não transmissíveis"</strong>, acompanhado do slogan <em>"Safe <strong>care</strong> for <strong>life</strong>!"</em> — "Cuidados seguros para a vida!". A escolha reconhece um desafio cada vez mais presente nos sistemas de saúde: pessoas que vivem com doenças não transmissíveis frequentemente necessitam de cuidados contínuos, complexos e integrados durante longos períodos.</p>
+
+    <div class="highlight-box">
+      <h3>📌 Em números</h3>
+      <p>Segundo a OMS, as doenças não transmissíveis são responsáveis por aproximadamente <strong>74% das mortes no mundo</strong>. Doenças cardiovasculares, câncer, diabetes e doenças respiratórias crônicas estão entre as principais causas.</p>
+    </div>
+
+    <h2>Por que falar de segurança no cuidado das doenças não transmissíveis?</h2>
+
+    <p>As doenças cardiovasculares, câncer, diabetes e doenças respiratórias crônicas representam uma parcela importante da população, onerando os serviços de saúde e gerando aumento da morbimortalidade.</p>
+
+    <p>O impacto dessas doenças não está relacionado apenas à própria condição clínica. A trajetória de uma pessoa portadora de uma doença crônica pode envolver consultas frequentes, exames, diferentes profissionais, medicamentos, internações, serviços de emergência, cuidados domiciliares e acompanhamento na atenção primária.</p>
+
+    <p>Quanto mais longa e fragmentada a trajetória, maior a possibilidade de ocorrer falhas de comunicação, problemas na transição do cuidado, erros relacionados a medicamentos, atrasos diagnósticos, perda de informações clínicas e dificuldades de acesso a cuidados seguros.</p>
+
+    <p>Por isso, a segurança precisa estar presente em todos os momentos da jornada do paciente — e não apenas durante uma consulta ou internação.</p>
+
+    <h2>A segurança começa antes do tratamento</h2>
+
+    <p>Com a proposta da campanha deste ano, espera-se ampliação, compreensão e ressaltar a importância da segurança do paciente, tendo em vista a característica da população acometida pelas doenças crônicas não transmissíveis.</p>
+
+    <p>Os riscos para as pessoas, em geral, podem surgir desde a fase da prevenção, rastreamento e detecção precoce, passando pelo diagnóstico e tratamento, incluindo o acompanhamento de longo prazo e o autocuidado. Esses riscos também podem estar presentes fora dos serviços de saúde, no cotidiano das pessoas, em suas casas e comunidades.</p>
+
+    <p>A garantia da segurança significa a construção de uma rede de cuidado que acompanhe o paciente de maneira integrada, evitando atendimento isolado — ou seja, é necessária a integração entre as Redes de Atenção à Saúde (RAS).</p>
+
+    <p>Uma informação que não chega ao próximo profissional, uma alteração clínica que não é reconhecida oportunamente ou uma orientação que não é compreendida pelo paciente pode representar uma oportunidade perdida de prevenção de danos.</p>
+
+    <h2>Pessoas com doenças crônicas devem ser parceiras do cuidado</h2>
+
+    <p>O paciente não deve ser considerado apenas como receptor de cuidados. A sua experiência, conhecimento sobre a própria condição, dificuldades cotidianas e percepção sobre os riscos, além da aceitação da doença crônica, devem fazer parte da construção de soluções mais seguras.</p>
+
+    <p>Essa participação pode ocorrer por meio de decisões compartilhadas, educação em saúde, comunicação clara, incentivo ao relato de dúvidas e riscos e participação na definição das estratégias de cuidado. Desta forma, cuidar com segurança também significa escutar.</p>
+
+    <h2>O papel dos profissionais e das organizações de saúde</h2>
+
+    <p>A segurança das pessoas que vivem com doenças não transmissíveis depende de sistemas de saúde organizados, integrados e preparados para oferecer continuidade do cuidado.</p>
+
+    <p>As prioridades são o fortalecimento da atenção primária, a melhoria da comunicação entre os diferentes pontos da rede, a segurança no uso de medicamentos, o aprimoramento dos processos diagnósticos e o desenvolvimento de estratégias que favoreçam a participação ativa de pacientes e comunidades.</p>
+
+    <p>Para os <strong>profissionais de saúde</strong>, significa incorporar a segurança nas atividades cotidianas: avaliando riscos, comunicando de maneira efetiva, confirmando informações, reconhecendo sinais de alerta, prevenindo erros, aprendendo com incidentes e trabalhando de forma colaborativa.</p>
+
+    <p>Para as <strong>organizações</strong>, significa o desenvolvimento de uma cultura de segurança ativa, na qual os riscos são identificados antes de gerarem danos e os incidentes são utilizados como oportunidades de aprendizagem e melhoria.</p>
+
+    <h2>Segurança também é responsabilidade compartilhada</h2>
+
+    <p>Esta campanha envolve gestores, profissionais de saúde, pacientes, familiares, cuidadores, entidades governamentais, instituições e comunidades.</p>
+
+    <p>É necessário criar ambientes em que as pessoas possam falar sobre riscos, fazer perguntas, esclarecer dúvidas e participar das decisões sobre seu cuidado sem receio ou medo.</p>
+
+    <p>O reconhecimento de fatores sociais, culturais e estruturais — tais como pobreza, discriminação e dificuldades de acesso — pode aumentar a exposição aos riscos e dificultar o acesso a cuidados seguros. Promover segurança significa também trabalhar pela equidade.</p>
+
+    <h2>"Cuidados seguros para a vida!"</h2>
+
+    <p>O slogan da campanha de 2026, <em>"Safe <strong>care</strong> for <strong>life</strong>!"</em>, traduz uma mensagem poderosa: pessoas com doenças não transmissíveis precisam de cuidados seguros não apenas em momentos de crise, mas durante toda a sua trajetória de vida.</p>
+
+    <p>Desta forma, entendemos que a segurança deve acompanhar o indivíduo na prevenção, no diagnóstico, no tratamento, no acompanhamento e no autocuidado. O Dia Mundial da Segurança do Paciente é, portanto, mais do que uma data de conscientização. É uma oportunidade para que serviços de saúde avaliem seus processos, identifiquem vulnerabilidades, fortaleçam suas equipes e ampliem a participação das pessoas no cuidado.</p>
+
+    <p><strong>Cuidar com qualidade é fundamental. Cuidar com segurança é indispensável.</strong></p>
+
+    <p>Em 17 de setembro de 2026, o convite da OMS é para que todos façam parte desse movimento global e transformem a segurança do paciente em uma prática permanente — pois a segurança não deve ser um momento do cuidado, devendo acompanhar a vida.</p>
+
+    <!-- Caixa editorial -->
+    <div class="principles-box">
+      <h3>Por que este tema importa para a segurança do paciente</h3>
+      <ul>
+        <li>Pacientes crônicos acumulam riscos ao longo de toda a trajetória assistencial — não apenas nas internações. Reconhecer isso amplia o escopo da gestão de segurança.</li>
+        <li>A fragmentação do cuidado é um dos principais vetores de erros em doenças não transmissíveis: reconciliação medicamentosa inadequada, falhas na transição e perda de informações clínicas são eventos evitáveis.</li>
+        <li>A participação ativa do paciente no cuidado — por meio de decisão compartilhada e educação em saúde — é uma estratégia efetiva de prevenção de danos, especialmente em condições crônicas.</li>
+        <li>A integração entre os pontos da Rede de Atenção à Saúde (RAS) é condição essencial para garantir continuidade e segurança — e um campo fértil para iniciativas de melhoria em hospitais e serviços ambulatoriais.</li>
+        <li>Equidade e segurança caminham juntas: fatores sociais e estruturais amplificam os riscos e precisam ser considerados nas estratégias de segurança do paciente.</li>
+      </ul>
+    </div>
+
+    <!-- Referências -->
+    <div class="referencias">
+      <h2>Referências</h2>
+      <ol>
+        <li>World Health Organization. World Patient Safety Day, 17 September 2026: "Safe care for noncommunicable diseases" [Internet]. Geneva: WHO; 2026 [cited 2026 Sep 8]. Available from: <a href="https://www.who.int/news-room/events/detail/2026/09/17/default-calendar/world-patient-safety-day--17-september-2026---noncommunicable-diseases" target="_blank" rel="noopener">https://www.who.int/news-room/events/detail/2026/09/17/...</a></li>
+        <li>World Health Organization. Noncommunicable diseases [Internet]. Geneva: WHO; 2025 Sep 25 [cited 2026 Sep 8]. Available from: <a href="https://www.who.int/news-room/fact-sheets/detail/noncommunicable-diseases" target="_blank" rel="noopener">https://www.who.int/news-room/fact-sheets/detail/noncommunicable-diseases</a></li>
+        <li>World Health Organization. Global patient safety action plan 2021–2030: towards eliminating avoidable harm in health care. Geneva: WHO; 2021. 86 p.</li>
+        <li>World Health Organization. Global patient safety report 2024. Geneva: WHO; 2024.</li>
+        <li>World Health Organization. Multimorbidity: technical series on safer primary care. Geneva: WHO; 2016.</li>
+      </ol>
+    </div>
+
+  </div><!-- /artigo-corpo -->
+</div><!-- /container -->
+
+<footer>
+  <p>© 2026 Cuidar Seguro · <a href="index.html">cuidarseguro.com.br</a> · Conteúdo educacional sobre segurança do paciente</p>
+  <p style="margin-top:.5rem; font-size:.8rem;">Coordenação: Prof. Dr. Luís Antônio Diego — Faculdade de Medicina, UFF</p>
+</footer>
+
+</body>
+</html>
