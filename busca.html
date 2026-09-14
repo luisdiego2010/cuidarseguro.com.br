@@ -119,7 +119,7 @@
       .filter(function(d){return d&&(!filtroAtivo||d.type===filtroAtivo);});
 
     if(!filtrados.length){
-      cont.innerHTML='<div class="estado-vazio"><div class="ico">😕</div><p>Nenhum resultado para <strong>'+esc(q)+'</strong>'+(filtroAtivo?' ('+esc(filtroAtivo)+')')+'.<br>Tente outros termos ou remova o filtro.</p></div>';
+      cont.innerHTML='<div class="estado-vazio"><div class="ico">😕</div><p>Nenhum resultado para <strong>'+esc(q)+'</strong>'+(filtroAtivo?' ('+esc(filtroAtivo)+')':'')+'.<br>Tente outros termos ou remova o filtro.</p></div>';
       count.textContent='';return;
     }
     count.textContent=filtrados.length+' resultado'+(filtrados.length>1?'s':'');
