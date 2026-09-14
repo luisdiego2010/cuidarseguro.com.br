@@ -100,7 +100,22 @@
     .footer-link{color:rgba(255,255,255,0.7);text-decoration:none;}
     .footer-link:hover{color:white;}
     @media(max-width:768px){nav{padding:1rem 1.5rem;}.artigo-hero{padding:6rem 1.5rem 2rem;}.artigo-corpo{padding:0 1.5rem 4rem;}.transicoes{grid-template-columns:1fr;}}
-  </style>
+  
+  .art-share{margin:2.5rem 0 1.5rem;padding:1.25rem 1.5rem;background:#f8fafc;border:1px solid #e5e7eb;border-radius:1rem;display:flex;flex-direction:column;gap:1rem;}
+  .art-share-row{display:flex;align-items:center;gap:0.75rem;flex-wrap:wrap;}
+  .art-share-label,.art-util-label{font-size:0.82rem;font-weight:600;color:#4b5563;white-space:nowrap;}
+  .art-share-btn{display:inline-flex;align-items:center;gap:0.4rem;padding:0.45rem 1rem;border-radius:2rem;font-size:0.82rem;font-weight:500;text-decoration:none;border:1.5px solid transparent;cursor:pointer;font-family:inherit;transition:all 0.15s;}
+  .art-share-wa{background:#25d366;color:white;}
+  .art-share-wa:hover{background:#1ebe5c;}
+  .art-share-li{background:#0077b5;color:white;}
+  .art-share-li:hover{background:#005e90;}
+  .art-share-copy{background:white;color:#374151;border-color:#d1d5db;}
+  .art-share-copy:hover{border-color:#6b7280;}
+  .art-util{display:flex;align-items:center;gap:0.6rem;flex-wrap:wrap;}
+  .art-util-btn{background:none;border:1.5px solid #d1d5db;border-radius:2rem;padding:0.35rem 0.9rem;font-size:1rem;cursor:pointer;transition:all 0.15s;font-family:inherit;}
+  .art-util-btn:hover{border-color:#374151;background:#f3f4f6;}
+  .art-util-thanks{font-size:0.82rem;color:#15803d;font-weight:500;}
+</style>
 </head>
 <body>
 <nav>
@@ -279,7 +294,57 @@
     <span class="tag">Alta Hospitalar</span>
   </div>
 
-  <a href="index.html" class="voltar-btn">← Voltar ao início</a>
+  <div class="art-share">
+  <div class="art-share-row">
+    <span class="art-share-label">Compartilhar</span>
+    <a class="art-share-btn art-share-wa" id="share-wa" href="#" target="_blank" rel="noopener noreferrer">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.118 1.524 5.847L0 24l6.327-1.501A11.95 11.95 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.893 0-3.667-.52-5.184-1.427l-.37-.22-3.753.891.93-3.671-.242-.38A9.96 9.96 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+      WhatsApp
+    </a>
+    <a class="art-share-btn art-share-li" id="share-li" href="#" target="_blank" rel="noopener noreferrer">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      LinkedIn
+    </a>
+    <button class="art-share-btn art-share-copy" id="share-copy">Copiar link</button>
+  </div>
+  <div class="art-util">
+    <span class="art-util-label">Este artigo foi útil?</span>
+    <button class="art-util-btn" data-val="sim" aria-label="Sim, foi útil">👍</button>
+    <button class="art-util-btn" data-val="nao" aria-label="Não foi útil">👎</button>
+    <span class="art-util-thanks" hidden>Obrigado pelo feedback!</span>
+  </div>
+</div>
+<script>
+(function(){
+  var url=window.location.href;
+  var title=document.title.replace(' | Cuidar Seguro','');
+  var wa=document.getElementById('share-wa');
+  var li=document.getElementById('share-li');
+  if(wa) wa.href='https://api.whatsapp.com/send?text='+encodeURIComponent(title+' — '+url);
+  if(li) li.href='https://www.linkedin.com/sharing/share-offsite/?url='+encodeURIComponent(url);
+  var copyBtn=document.getElementById('share-copy');
+  if(copyBtn) copyBtn.addEventListener('click',function(){
+    navigator.clipboard.writeText(url).then(function(){
+      copyBtn.textContent='✓ Copiado!';
+      setTimeout(function(){copyBtn.textContent='Copiar link';},2000);
+    }).catch(function(){});
+  });
+  var CHAVE='cs_util_'+window.location.pathname;
+  var saved; try{saved=localStorage.getItem(CHAVE);}catch(e){}
+  var utilBtns=document.querySelectorAll('.art-util-btn');
+  var thanks=document.querySelector('.art-util-thanks');
+  if(saved&&thanks){thanks.hidden=false;utilBtns.forEach(function(b){b.hidden=true;});}
+  utilBtns.forEach(function(btn){
+    btn.addEventListener('click',function(){
+      try{localStorage.setItem(CHAVE,btn.dataset.val);}catch(e){}
+      if(thanks) thanks.hidden=false;
+      utilBtns.forEach(function(b){b.hidden=true;});
+    });
+  });
+})();
+</script>
+
+<a href="index.html" class="voltar-btn">← Voltar ao início</a>
 
 </div>
 
