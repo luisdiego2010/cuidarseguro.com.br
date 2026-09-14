@@ -61,6 +61,12 @@
     .btn-primary:hover{background:var(--verde-claro);transform:translateY(-2px);box-shadow:0 8px 20px rgba(26,122,94,0.25);}
     .btn-secondary{border:1.5px solid var(--borda);color:var(--texto-leve);padding:0.85rem 2rem;border-radius:2rem;text-decoration:none;font-weight:500;transition:all 0.2s;display:inline-flex;align-items:center;gap:0.5rem;}
     .btn-secondary:hover{border-color:var(--verde);color:var(--verde);}
+    .hero-tasks{display:grid;grid-template-columns:repeat(2,1fr);gap:0.75rem;margin-top:2rem;animation:fadeUp 0.7s 0.3s ease both;}
+    .hero-task{display:flex;flex-direction:column;gap:0.2rem;padding:0.9rem 1.1rem;border:1.5px solid var(--borda);border-radius:1rem;text-decoration:none;color:var(--texto);background:white;transition:all 0.2s;}
+    .hero-task:hover{border-color:var(--verde);background:var(--creme);transform:translateY(-2px);box-shadow:0 6px 18px rgba(26,92,138,0.1);}
+    .task-ico{font-size:1.3rem;line-height:1;margin-bottom:0.15rem;}
+    .hero-task strong{font-size:0.9rem;font-weight:600;color:var(--texto);}
+    .hero-task span{font-size:0.78rem;color:var(--texto-leve);line-height:1.3;}
     .hero-visual{display:flex;align-items:center;justify-content:center;position:relative;animation:fadeUp 0.8s 0.2s ease both;}
     .stats-bar{background:var(--verde);padding:2rem 3rem;display:flex;justify-content:center;gap:4rem;flex-wrap:wrap;}
     .stat-item{text-align:center;color:white;}
@@ -271,17 +277,28 @@
     <span class="hero-tag">🩺 Para quem cuida</span>
     <h1>Cuidar bem começa com <em>segurança</em></h1>
     <p>Conteúdo educacional sobre segurança do paciente para estudantes, profissionais e educadores da área da saúde. Aprenda a prevenir danos e transformar a cultura do cuidado.</p>
-    <div class="hero-btns">
-      <a href="#temas" class="btn-primary">Explorar temas →</a>
-      <a href="#recursos" class="btn-secondary">📄 Ver materiais</a>
+    <div class="hero-tasks">
+      <a href="#temas" class="hero-task">
+        <span class="task-ico">📚</span>
+        <strong>Estudar</strong>
+        <span>Temas e metas de segurança</span>
+      </a>
+      <a href="#recursos" class="hero-task">
+        <span class="task-ico">📋</span>
+        <strong>Consultar</strong>
+        <span>Protocolos e checklists</span>
+      </a>
+      <a href="quiz.html" class="hero-task">
+        <span class="task-ico">🎮</span>
+        <strong>Praticar</strong>
+        <span>Quiz e Jornada Segura</span>
+      </a>
+      <a href="#artigos" class="hero-task">
+        <span class="task-ico">📰</span>
+        <strong>Atualizar-se</strong>
+        <span>Artigos e leituras recentes</span>
+      </a>
     </div>
-    <a href="artigo8.html" style="display:inline-flex;align-items:center;gap:0.75rem;margin-top:1.5rem;padding:0.75rem 1.2rem;background:var(--verde-suave);border:1.5px solid var(--borda);border-radius:0.9rem;text-decoration:none;max-width:440px;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--verde)'" onmouseout="this.style.borderColor='var(--borda)'">
-      <span style="background:var(--destaque);color:white;font-size:0.65rem;font-weight:700;letter-spacing:0.08em;padding:0.2rem 0.55rem;border-radius:1rem;flex-shrink:0;">NOVO</span>
-      <div>
-        <div style="font-size:0.85rem;font-weight:500;color:var(--texto);line-height:1.3;">Sepse: reconhecer precocemente para proteger vidas</div>
-        <div style="font-size:0.75rem;color:var(--texto-leve);margin-top:0.2rem;">Patrícia Shimabukuro · Set 2026 →</div>
-      </div>
-    </a>
   </div>
   <div class="hero-visual">
     <img src="logo_cuidarseguro.webp" alt="Cuidar Seguro" style="width:100%;max-width:420px;border-radius:1.5rem;box-shadow:0 12px 40px rgba(26,92,138,0.18);display:block;margin:auto;">
