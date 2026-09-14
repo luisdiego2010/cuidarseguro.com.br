@@ -46,6 +46,8 @@
     .nav-dropdown:hover .dropdown-menu,.nav-dropdown:focus-within .dropdown-menu{display:block;}
     .dropdown-menu li a{display:block;padding:0.55rem 1rem;border-radius:0.5rem;color:var(--texto-leve);font-size:0.88rem;white-space:nowrap;transition:background 0.15s,color 0.15s;}
     .dropdown-menu li a:hover{background:var(--creme);color:var(--verde);}
+    .nav-busca{display:flex;align-items:center;justify-content:center;padding:0.4rem;color:var(--texto-leve);transition:color 0.2s;border-radius:50%;}
+    .nav-busca:hover{color:var(--verde);}
     .nav-hamburger{display:none;background:none;border:none;cursor:pointer;padding:0.4rem;color:var(--texto);line-height:0;}
     .nav-cta{background:var(--verde);color:white;padding:0.5rem 1.2rem;border-radius:2rem;text-decoration:none;font-size:0.88rem;font-weight:500;transition:background 0.2s,transform 0.2s;}
     .nav-cta:hover{background:var(--verde-claro);transform:translateY(-1px);}
@@ -263,6 +265,9 @@
       </ul>
     </li>
   </ul>
+  <a href="busca.html" class="nav-busca" aria-label="Buscar" title="Buscar no site">
+    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="7.5" cy="7.5" r="5"/><line x1="11.5" y1="11.5" x2="16" y2="16"/></svg>
+  </a>
   <button class="nav-hamburger" id="nav-toggle" aria-label="Menu" aria-expanded="false" aria-controls="nav-menu">
     <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
       <line x1="2" y1="6" x2="20" y2="6"/>
