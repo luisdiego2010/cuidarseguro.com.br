@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JKCHZS8M0Y"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-JKCHZS8M0Y');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="logo_cuidarseguro.png">
+  <title>Hierarquização, empoderamento e segurança do paciente | Cuidar Seguro</title>
+  <meta name="description" content="Como transformar preocupações farmacoterapêuticas em ação segura: hierarquia funcional, speaking up, SBAR, CUS, Two-Challenge Rule e limites profissionais do farmacêutico clínico.">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Hierarquização, empoderamento e segurança do paciente">
+  <meta property="og:description" content="Como transformar preocupações farmacoterapêuticas em ação segura em ambientes com gradientes de autoridade. SBAR, CUS, speaking up e cultura justa.">
+  <meta property="og:url" content="https://www.cuidarseguro.com.br/artigo10.html">
+  <meta property="og:image" content="https://www.cuidarseguro.com.br/og-image.png">
+  <meta property="og:site_name" content="Cuidar Seguro">
+  <meta property="og:locale" content="pt_BR">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Hierarquização, empoderamento e segurança do paciente">
+  <meta name="twitter:description" content="Como transformar preocupações farmacoterapêuticas em ação segura em ambientes com gradientes de autoridade.">
+  <meta name="twitter:image" content="https://www.cuidarseguro.com.br/og-image.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f8fafc;
+      color: #1e293b;
+      line-height: 1.75;
+    }
+
+    nav {
+      background: #1a5c8a;
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+    }
+    .nav-brand img { height: 40px; border-radius: 6px; }
+    .nav-brand span {
+      color: #fff;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+    .nav-links { display: flex; gap: 1.5rem; }
+    .nav-links a {
+      color: rgba(255,255,255,0.85);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: #fff; }
+
+    .hero {
+      background: linear-gradient(135deg, #1a5c8a 0%, #1e6fa3 60%, #2a8fcc 100%);
+      color: #fff;
+      padding: 3rem 2rem 2.5rem;
+      text-align: center;
+    }
+    .hero .tag {
+      display: inline-block;
+      background: rgba(255,255,255,0.18);
+      border: 1px solid rgba(255,255,255,0.35);
+      border-radius: 20px;
+      padding: 0.25rem 1rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    .hero h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(1.5rem, 4vw, 2.2rem);
+      font-weight: 700;
+      line-height: 1.25;
+      max-width: 760px;
+      margin: 0 auto .75rem;
+    }
+    .hero .slogan {
+      font-size: 1rem;
+      font-style: italic;
+      opacity: .88;
+      max-width: 680px;
+      margin: 0 auto 1.25rem;
+    }
+    .hero .meta {
+      font-size: 0.85rem;
+      opacity: .75;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 2.5rem auto;
+      padding: 0 1.25rem;
+    }
+
+    .autoria {
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-left: 4px solid #1a5c8a;
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      margin-bottom: 2rem;
+      font-size: 0.9rem;
+      color: #475569;
+    }
+    .autoria strong { color: #1e293b; }
+
+    .artigo-corpo h2 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #1a5c8a;
+      margin: 2rem 0 .75rem;
+      padding-bottom: .35rem;
+      border-bottom: 2px solid #dbeafe;
+    }
+
+    .artigo-corpo p {
+      margin-bottom: 1.1rem;
+      font-size: 1rem;
+      color: #334155;
+    }
+
+    .artigo-corpo ul, .artigo-corpo ol {
+      margin: 0 0 1.1rem 1.5rem;
+      color: #334155;
+      font-size: 1rem;
+    }
+    .artigo-corpo li { margin-bottom: .4rem; line-height: 1.7; }
+
+    .artigo-corpo strong { color: #1e293b; }
+    .artigo-corpo em { font-style: italic; }
+
+    .seq-box {
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-radius: 10px;
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0;
+      font-size: 1rem;
+      color: #1e3a6e;
+      font-weight: 500;
+      text-align: center;
+      line-height: 1.7;
+    }
+
+    .tabela-wrap { overflow-x: auto; margin: 1.5rem 0; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: .93rem;
+      color: #334155;
+      min-width: 520px;
+    }
+    thead th {
+      background: #1a5c8a;
+      color: white;
+      padding: .65rem .9rem;
+      text-align: left;
+      font-weight: 600;
+      font-family: 'Poppins', sans-serif;
+    }
+    tbody td {
+      padding: .6rem .9rem;
+      border-bottom: 1px solid #e2e8f0;
+      vertical-align: top;
+    }
+    tbody tr:last-child td { border-bottom: none; }
+    tbody tr:nth-child(even) { background: #f8fafc; }
+
+    .highlight-box {
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-radius: 10px;
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0;
+    }
+    .highlight-box p { font-size: .95rem; color: #1e3a6e; margin-bottom: .5rem; }
+    .highlight-box p:last-child { margin-bottom: 0; }
+
+    .sbar-box {
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-radius: 10px;
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0;
+    }
+    .sbar-box p { font-size: .93rem; color: #14532d; margin-bottom: .5rem; }
+    .sbar-box p:last-child { margin-bottom: 0; }
+    .sbar-box strong { color: #166534; }
+
+    .cus-box {
+      background: #fff7ed;
+      border: 1px solid #fed7aa;
+      border-radius: 10px;
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0;
+    }
+    .cus-box p { font-size: .93rem; color: #7c2d12; margin-bottom: .5rem; }
+    .cus-box p:last-child { margin-bottom: 0; }
+
+    .tcr-box {
+      background: #fdf4ff;
+      border: 1px solid #e9d5ff;
+      border-radius: 10px;
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0;
+    }
+    .tcr-box p { font-size: .93rem; color: #581c87; margin-bottom: .5rem; }
+    .tcr-box p:last-child { margin-bottom: 0; }
+
+    sup a {
+      color: #1a5c8a;
+      text-decoration: none;
+      font-size: .75em;
+      font-weight: 600;
+    }
+    sup a:hover { text-decoration: underline; }
+
+    .referencias {
+      margin-top: 2.5rem;
+      padding-top: 1.5rem;
+      border-top: 2px solid #e2e8f0;
+    }
+    .referencias h2 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: #1a5c8a;
+      margin-bottom: 1rem;
+    }
+    .referencias ol { padding-left: 1.5rem; }
+    .referencias ol li {
+      font-size: .85rem;
+      color: #475569;
+      margin-bottom: .7rem;
+      line-height: 1.55;
+    }
+    .referencias ol li a { color: #1a5c8a; word-break: break-all; }
+
+    .art-share{margin:2.5rem 0 1.5rem;padding:1.25rem 1.5rem;background:#f8fafc;border:1px solid #e5e7eb;border-radius:1rem;display:flex;flex-direction:column;gap:1rem;}
+    .art-share-row{display:flex;align-items:center;gap:0.75rem;flex-wrap:wrap;}
+    .art-share-label,.art-util-label{font-size:0.82rem;font-weight:600;color:#4b5563;white-space:nowrap;}
+    .art-share-btn{display:inline-flex;align-items:center;gap:0.4rem;padding:0.45rem 1rem;border-radius:2rem;font-size:0.82rem;font-weight:500;text-decoration:none;border:1.5px solid transparent;cursor:pointer;font-family:inherit;transition:all 0.15s;}
+    .art-share-wa{background:#25d366;color:white;} .art-share-wa:hover{background:#1ebe5c;}
+    .art-share-li{background:#0077b5;color:white;} .art-share-li:hover{background:#005e90;}
+    .art-share-copy{background:white;color:#374151;border-color:#d1d5db;} .art-share-copy:hover{border-color:#6b7280;}
+    .art-util{display:flex;align-items:center;gap:0.6rem;flex-wrap:wrap;}
+    .art-util-btn{background:none;border:1.5px solid #d1d5db;border-radius:2rem;padding:0.35rem 0.9rem;font-size:1rem;cursor:pointer;transition:all 0.15s;font-family:inherit;} .art-util-btn:hover{border-color:#374151;background:#f3f4f6;}
+    .art-util-thanks{font-size:0.82rem;color:#15803d;font-weight:500;}
+
+    footer {
+      background: #1e293b;
+      color: rgba(255,255,255,.65);
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: .85rem;
+      margin-top: 3rem;
+    }
+    footer a { color: rgba(255,255,255,.8); }
+
+    @media (max-width: 600px) {
+      .nav-links { display: none; }
+      .hero { padding: 2rem 1rem 1.75rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-brand">
+    <img src="logo_cuidarseguro.png" alt="Logo Cuidar Seguro" width="40" height="40">
+    <span>Cuidar Seguro</span>
+  </a>
+  <div class="nav-links">
+    <a href="index.html">Início</a>
+    <a href="index.html#artigos">Artigos</a>
+    <a href="index.html#contato">Contato</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="tag">Comunicação em Saúde · Set 2026</div>
+  <h1>Hierarquização, empoderamento e segurança do paciente</h1>
+  <p class="slogan">Da preocupação farmacoterapêutica à ação segura em ambientes com gradientes de autoridade</p>
+  <p class="meta">Texto de apoio elaborado a partir da apresentação revisada do GAFAR/UFF</p>
+</div>
+
+<div class="container">
+
+  <div class="autoria">
+    <strong>Autor:</strong> Prof. Luis Antonio Diego — Coordenador do Cuidar Seguro; MBA em Gestão em Saúde; PhD em Anestesiologia (UNESP – Botucatu/SP); Faculdade de Medicina da UFF.<br>
+    <strong>Publicado em:</strong> Setembro de 2026 · <strong>Site:</strong> cuidarseguro.com.br
+  </div>
+
+  <div class="artigo-corpo">
+
+    <p>A segurança do paciente depende da capacidade de reconhecer riscos e transformar informações clínicas em decisões oportunas. Esse processo não ocorre apenas no plano técnico. Ele é influenciado pela organização do trabalho, pelos papéis profissionais, pelas relações de poder, pela forma como dúvidas são recebidas e pela existência de canais para escalonamento. A Organização Mundial da Saúde compreende a segurança do paciente como uma questão sistêmica, condicionada por processos, tecnologias, comunicação, trabalho em equipe e condições organizacionais.<sup><a href="#ref1">[1]</a></sup> Por isso, diante de uma preocupação farmacoterapêutica, não basta perguntar se o profissional possuía conhecimento. Também é necessário investigar se a informação chegou a quem poderia agir, se foi compreendida, se houve resposta e se o sistema aprendeu com a situação.</p>
+
+    <p>O ponto central é que <strong>hierarquia, empoderamento e segurança não são conceitos opostos</strong>. A hierarquia pode organizar responsabilidades e oferecer coordenação. O empoderamento não elimina os limites profissionais. A segurança resulta da combinação entre competência, voz, escuta, autoridade reconhecida, supervisão, escalada e aprendizagem. Assim, o desafio prático consiste em transformar uma preocupação em uma sequência verificável:</p>
+
+    <div class="seq-box">
+      <strong>nomear a dúvida → confirmar os dados → declarar o risco → pedir uma ação → confirmar a resposta → escalar quando necessário → registrar → aprender</strong>
+    </div>
+
+    <h2>Hierarquia funcional, gradiente de autoridade e silêncio</h2>
+
+    <p>A <strong>hierarquia funcional</strong> distribui responsabilidade, autoridade decisória e coordenação. Em serviços complexos, essas funções são necessárias para evitar decisões fragmentadas. Uma equipe pode ser formalmente hierarquizada e ainda funcionar com segurança quando todos sabem quem decide, as decisões podem ser questionadas com base em evidências, a dúvida é tratada como parte legítima do trabalho e existe um fluxo conhecido de escalonamento. O problema aparece quando a assimetria impede a correção necessária.</p>
+
+    <p>O <strong>gradiente de autoridade</strong> corresponde à distância percebida entre pessoas ou posições. Ele se torna excessivo quando o status de quem fala passa a pesar mais do que a qualidade da informação apresentada. Nessa condição, profissionais em posições menos prestigiadas podem antecipar ridicularização, retaliação ou perda de pertencimento. Revisões sobre <em>speaking up</em> em saúde identificam hierarquia, medo de consequências, receio de parecer incompetente e ameaça à autoridade sênior como barreiras recorrentes.<sup><a href="#ref2">[2]</a></sup> Entretanto, a literatura é heterogênea e não sustenta uma porcentagem causal universal entre hierarquia, silêncio e dano.<sup><a href="#ref3">[3]</a></sup> A formulação mais adequada é que o gradiente de autoridade <strong>pode contribuir para o risco</strong> ao dificultar a circulação de informação material, tempestiva e acionável.</p>
+
+    <p>O <strong>silêncio organizacional</strong> ocorre quando uma informação potencialmente útil não chega a quem pode agir. Nem todo silêncio, porém, representa falha. Pode ser apropriado aguardar um dado indispensável, escolher um canal não interruptivo para um tema sem urgência ou evitar repetir uma informação cujo encaminhamento já foi confirmado. A análise deve considerar se o conteúdo poderia mudar a decisão, se ainda havia tempo para agir e se existia um responsável claro pelo fechamento do ciclo.</p>
+
+    <p>Também é necessário distinguir quatro ações que frequentemente são tratadas como equivalentes:</p>
+
+    <div class="tabela-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Ação</th>
+            <th>Finalidade principal</th>
+            <th>Momento típico</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong><em>Speaking up</em></strong></td>
+            <td>Tornar uma preocupação visível e acionável para alguém capaz de intervir.</td>
+            <td>Durante a decisão ou o cuidado.</td>
+          </tr>
+          <tr>
+            <td><strong>Escalada</strong></td>
+            <td>Mobilizar outro nível de competência ou autoridade quando a primeira resposta não resolve o risco.</td>
+            <td>Diante de resposta insuficiente, atraso ou risco elevado.</td>
+          </tr>
+          <tr>
+            <td><strong>Registro clínico</strong></td>
+            <td>Preservar continuidade, justificativa, decisão e rastreabilidade.</td>
+            <td>Durante ou após a intervenção.</td>
+          </tr>
+          <tr>
+            <td><strong>Notificação</strong></td>
+            <td>Encaminhar um incidente ao fluxo institucional ou regulatório para análise e aprendizagem.</td>
+            <td>Conforme critérios e protocolo do serviço.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>Falar não é o mesmo que notificar. Escalar não substitui documentar. A notificação retrospectiva não protege, por si só, o paciente que necessita de uma decisão imediata. A RDC Anvisa nº 36/2013 determina a implantação do Núcleo de Segurança do Paciente e do Plano de Segurança do Paciente, incluindo ações de gestão de riscos, comunicação e segurança no uso de medicamentos.<sup><a href="#ref4">[4]</a></sup> Esse marco sustenta a aprendizagem institucional, mas não transforma toda discordância clínica em notificação automática.</p>
+
+    <h2>Trajetória da farmácia clínica e limites profissionais</h2>
+
+    <p>A inserção clínica do farmacêutico no Brasil resultou de uma trajetória gradual. A Lei nº 11.129/2005 situou as residências em área profissional da saúde como pós-graduação em serviço, com supervisão docente-assistencial.<sup><a href="#ref5">[5]</a></sup> A RDC nº 7/2010 estabeleceu requisitos sanitários mínimos para unidades de terapia intensiva e reconheceu a assistência farmacêutica no cuidado multiprofissional.<sup><a href="#ref6">[6]</a></sup> Em 2013, a Portaria nº 529 instituiu o Programa Nacional de Segurança do Paciente, com ênfase em cultura, aprendizagem, identificação de riscos e inclusão da segurança na formação profissional.<sup><a href="#ref7">[7]</a></sup> No mesmo ano, a RDC nº 36 estruturou a governança institucional da segurança, enquanto as Resoluções CFF nº 585 e nº 586 regulamentaram atribuições clínicas e condições para a prescrição farmacêutica.<sup><a href="#ref4">[4]</a><a href="#ref8">[8]</a><a href="#ref9">[9]</a></sup></p>
+
+    <p>A Lei nº 13.021/2014 caracterizou a farmácia como estabelecimento de saúde e reforçou o acompanhamento farmacoterapêutico.<sup><a href="#ref10">[10]</a></sup> As Diretrizes Curriculares Nacionais de Farmácia, instituídas pela Resolução CNE/CES nº 6/2017, orientaram a formação para cuidado, tomada de decisão, comunicação e trabalho interprofissional.<sup><a href="#ref11">[11]</a></sup> A Resolução CFF nº 675/2019, por sua vez, tratou das atribuições do farmacêutico clínico em unidades de terapia intensiva.<sup><a href="#ref12">[12]</a></sup></p>
+
+    <div class="highlight-box">
+      <p>Esses documentos devem ser lidos em camadas. Uma lei organiza direitos e deveres no ordenamento jurídico. Uma norma sanitária define requisitos do serviço. Uma resolução profissional delimita atribuições e responsabilidades. Uma diretriz curricular orienta a formação. <strong>Nenhum desses instrumentos isoladamente criou toda a farmácia clínica, aboliu o gradiente de autoridade ou autorizou o farmacêutico a alterar unilateralmente qualquer conduta.</strong> O residente possui responsabilidade para reconhecer riscos, analisar prescrições, comunicar intervenções e buscar supervisão, mas deve respeitar o escopo, os protocolos e a autoridade decisória aplicável.</p>
+    </div>
+
+    <p>Diante de uma preocupação, cinco perguntas ajudam a organizar o raciocínio: quem possui a informação relevante; quem tem competência e autoridade para agir; quem deve ouvir e fechar o ciclo; o que será feito se a primeira resposta não resolver; e o que precisa ser documentado e convertido em aprendizagem. Essas perguntas deslocam o foco de "quem é superior?" para "como a informação chegará a uma decisão segura?".</p>
+
+    <h2>Dúvida, empoderamento e assertividade</h2>
+
+    <p>A dúvida profissional não deve terminar automaticamente em silêncio. Ela pode iniciar um processo de verificação. O profissional pode reconhecer o que sabe, explicitar o que ainda precisa confirmar, declarar o risco que pretende evitar e solicitar apoio antes de um prazo clínico relevante. Essa postura também evita que experiências de insegurança sejam confundidas com incompetência.</p>
+
+    <p>O chamado <strong>fenômeno do impostor</strong> descreve dificuldade persistente de internalizar competência e conquistas, acompanhada do medo de ser exposto como incapaz. Ele não é diagnóstico psiquiátrico nem indicador de perigo clínico. Revisões mostram estimativas muito variáveis entre estudantes e profissionais de saúde, com forte heterogeneidade de instrumentos e populações.<sup><a href="#ref13">[13]</a></sup> Em residentes de farmácia dos Estados Unidos, sentimentos de impostor foram frequentes, mas o estudo não avaliou erros, notificações ou dano ao paciente.<sup><a href="#ref14">[14]</a></sup> Portanto, não se deve afirmar que o fenômeno causa silêncio ou eventos adversos. É mais seguro tratá-lo como uma experiência que pode aumentar o custo percebido de pedir ajuda, especialmente em ambientes punitivos. Ao mesmo tempo, reconhecer a incerteza e solicitar supervisão pode funcionar como barreira de segurança.</p>
+
+    <p>O <strong>empoderamento profissional</strong> é distribuído em três dimensões:</p>
+    <ul>
+      <li><strong>Individual:</strong> conhecimento clínico, acesso a dados, consciência dos próprios limites, assertividade e registro.</li>
+      <li><strong>Coletiva:</strong> escuta, linguagem comum, clareza de papéis, <em>briefing</em>, <em>debriefing</em> e feedback horizontal.</li>
+      <li><strong>Institucional:</strong> preceptoria, definição de escopo, cadeia de comando, Núcleo de Segurança do Paciente, proteção contra retaliação e retorno sobre as providências adotadas.</li>
+    </ul>
+    <p>Empoderar, portanto, não significa conceder autoridade irrestrita. Significa tornar a contribuição profissional possível, audível, protegida e responsável.</p>
+
+    <p>A <strong>assertividade</strong> ocupa posição intermediária entre passividade e agressividade. A passividade reduz a probabilidade de a preocupação alcançar quem decide. A agressividade personaliza o conflito e tende a aumentar a defesa. A comunicação assertiva descreve o dado, delimita o risco, formula um pedido e protege limites sem atacar a identidade do interlocutor. Quatro princípios organizam essa postura:</p>
+    <ul>
+      <li><strong>Autorregulação:</strong> não responder no mesmo tom; diminuir o ritmo da fala.</li>
+      <li><strong>Delimitação:</strong> nomear o limite; não confundir respeito com passividade; evitar justificativas excessivas.</li>
+      <li><strong>Focalização:</strong> questionar generalizações; redirecionar a conversa para o problema; usar frases curtas.</li>
+      <li><strong>Proteção:</strong> encerrar uma conversa improdutiva quando for possível fazê-lo com segurança; preservar a dignidade sem transformar o encontro em disputa pela última palavra.</li>
+    </ul>
+
+    <p>Revisões indicam que treinamentos estruturados de comunicação assertiva podem melhorar comportamentos de <em>speaking up</em>, mas os estudos concentram-se em enfermeiros e estudantes e avaliam sobretudo desfechos intermediários.<sup><a href="#ref15">[15]</a></sup> Treinar apenas quem fala também é insuficiente. Quem recebe a preocupação deve reconhecê-la, verificar os dados, decidir, atribuir uma ação e um prazo e realizar o fechamento do ciclo.</p>
+
+    <h2>SBAR, CUS e <em>Two-Challenge Rule</em></h2>
+
+    <p>O <strong>SBAR</strong> estrutura a mensagem em quatro componentes: <em>Situation</em>, <em>Background</em>, <em>Assessment</em> e <em>Recommendation/Request</em> — em português, Situação, Contexto, Avaliação e Recomendação ou Pedido.<sup><a href="#ref16">[16]</a></sup></p>
+    <ul>
+      <li><strong>Situação:</strong> declara concisamente o problema atual.</li>
+      <li><strong>Contexto:</strong> seleciona o histórico que altera a decisão.</li>
+      <li><strong>Avaliação:</strong> apresenta a interpretação clínica ou processual, incluindo incertezas.</li>
+      <li><strong>Recomendação:</strong> explicita o que precisa ocorrer, por quem e até quando.</li>
+    </ul>
+
+    <div class="sbar-box">
+      <p><strong>Exemplo sintético:</strong> "Identifiquei uma possível incompatibilidade entre a dose prescrita e a função renal atual. A função renal piorou desde a última revisão e ainda preciso confirmar o peso atualizado. Minha avaliação é de risco potencial de exposição excessiva. Solicito revisão do esquema antes da próxima administração. Quem fará a avaliação e em que horário confirmaremos o plano?"</p>
+      <p><strong>Fechamento (<em>check-back</em>):</strong> "Confirmando: a administração ficará aguardando a revisão prevista no protocolo?"</p>
+    </div>
+
+    <p>O SBAR organiza a conversa, mas não substitui competência, supervisão, julgamento ou escopo profissional. Uma revisão sistemática encontrou resultados favoráveis em parte dos desfechos, porém com heterogeneidade e carência de estudos de alta qualidade.<sup><a href="#ref17">[17]</a></sup> No Brasil, o instrumento também foi adaptado e validado para passagem de plantão de enfermagem, o que sustenta sua utilidade como linguagem estruturada, sem provar efeito universal sobre dano clínico.<sup><a href="#ref18">[18]</a></sup></p>
+
+    <p>Quando uma mensagem organizada não torna o risco suficientemente audível, pode-se usar o <strong>CUS</strong> — uma progressão de três afirmações:<sup><a href="#ref19">[19]</a></sup></p>
+
+    <div class="cus-box">
+      <p><strong>C — <em>Concerned</em>:</strong> "Estou preocupado com a próxima administração."</p>
+      <p><strong>U — <em>Uncomfortable</em>:</strong> "Estou desconfortável porque a dose não corresponde ao protocolo e a função renal mudou."</p>
+      <p><strong>S — <em>Safety issue</em>:</strong> "Isto é um problema de segurança e precisamos pausar para revisão."</p>
+    </div>
+
+    <p>Se a preocupação não for reconhecida, a orientação da AHRQ é buscar supervisão imediatamente.</p>
+
+    <p>A <strong><em>Two-Challenge Rule</em></strong> orienta que uma preocupação de alto risco seja apresentada assertivamente pelo menos uma segunda vez quando a primeira fala foi ignorada ou não resolveu o problema.<sup><a href="#ref20">[20]</a></sup></p>
+
+    <div class="tcr-box">
+      <p><strong>Segunda fala:</strong> "Preciso insistir: o risco permanece e não considero seguro prosseguir sem revisão. Vou acionar o preceptor ou supervisor agora."</p>
+    </div>
+
+    <p>Persistindo resposta inadequada, deve-se procurar uma autoridade adicional e subir a cadeia de comando. O receptor também deve reconhecer que ouviu e compreendeu a preocupação. Em ameaça essencial e iminente, a proteção do paciente não deve aguardar um ritual de duas frases — a ação precisa ser imediata e proporcional.</p>
+
+    <h2>Do ato individual à aprendizagem do sistema</h2>
+
+    <p>Ferramentas de comunicação são barreiras, mas não funcionam isoladamente. São necessários diferentes tipos de suporte em cada nível:</p>
+    <ul>
+      <li><strong>Individual:</strong> preparo, mentoria, consciência de limites, assertividade e registro.</li>
+      <li><strong>Equipe:</strong> <em>briefings</em>, <em>huddles</em>, <em>check-backs</em>, feedback e <em>debriefings</em>.</li>
+      <li><strong>Institucional:</strong> cadeia de comando conhecida, NSP com capacidade de atuação, proteção contra retaliação, resposta às notificações e reavaliação das ações corretivas.</li>
+      <li><strong>Formativo:</strong> simulação, observação estruturada, repetição distribuída e transferência supervisionada.</li>
+    </ul>
+
+    <p>A avaliação também precisa ser sistêmica. Contar apenas notificações pode produzir interpretações equivocadas: um aumento pode representar mais incidentes, mas também maior detecção ou confiança no sistema; uma redução pode representar melhoria ou silêncio. O painel deve combinar indicadores de processo, resposta, dano, cultura e equilíbrio — como proporção de comunicações com pedido e prazo, tempo até reconhecimento, frequência de fechamento do ciclo, percepção de segurança psicológica e carga de trabalho.</p>
+
+    <p>Em síntese, a hierarquia não precisa ser abolida para que o cuidado seja seguro. Ela precisa ser permeável à evidência, à dúvida e à contribuição de diferentes profissionais. O empoderamento não consiste em vencer uma discussão, mas em agir com competência e limites dentro de uma rede que escuta e responde.</p>
+
+    <div class="seq-box">
+      <strong>Sequência operacional: verifique → comunique → peça → confirme → escale → registre → aprenda</strong>
+    </div>
+
+    <p>Quando cada etapa possui responsáveis e caminhos claros, a preocupação farmacoterapêutica deixa de depender apenas da coragem individual e passa a integrar a governança da segurança do paciente.</p>
+
+    <!-- Referências -->
+    <div class="referencias">
+      <h2>Referências</h2>
+      <ol>
+        <li id="ref1">World Health Organization. Patient safety [Internet]. Geneva: WHO; 2024 [citado 2026 set 14]. Disponível em: <a href="https://www.who.int/news-room/fact-sheets/detail/patient-safety" target="_blank" rel="noopener noreferrer">https://www.who.int/news-room/fact-sheets/detail/patient-safety</a></li>
+        <li id="ref2">van Dongen D, Guldenmund F, Grossmann I, Groeneweg J. Classification of influencing factors of speaking-up behaviour in hospitals: a systematic review. BMC Health Serv Res. 2024;24(1):1585. <a href="https://doi.org/10.1186/s12913-024-12138-x" target="_blank" rel="noopener noreferrer">https://doi.org/10.1186/s12913-024-12138-x</a></li>
+        <li id="ref3">Lainidi O, Jendeby MK, Montgomery A, Mouratidis C, Paitaridou K, Cook C, et al. An integrative systematic review of employee silence and voice in healthcare: what are we really measuring? Front Psychiatry. 2023;14:1111579. <a href="https://doi.org/10.3389/fpsyt.2023.1111579" target="_blank" rel="noopener noreferrer">https://doi.org/10.3389/fpsyt.2023.1111579</a></li>
+        <li id="ref4">Brasil. Agência Nacional de Vigilância Sanitária. Resolução RDC nº 36, de 25 de julho de 2013. Institui ações para a segurança do paciente em serviços de saúde e dá outras providências. Brasília: ANVISA; 2013. Disponível em: <a href="https://bvsms.saude.gov.br/bvs/saudelegis/anvisa/2013/rdc0036_25_07_2013.html" target="_blank" rel="noopener noreferrer">https://bvsms.saude.gov.br/bvs/saudelegis/anvisa/2013/rdc0036_25_07_2013.html</a></li>
+        <li id="ref5">Brasil. Lei nº 11.129, de 30 de junho de 2005. Institui o Programa Nacional de Inclusão de Jovens — ProJovem; cria o Conselho Nacional da Juventude — CNJ e a Secretaria Nacional de Juventude. Diário Oficial da União. 2005 jul 1. Disponível em: <a href="https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2005/lei/l11129.htm" target="_blank" rel="noopener noreferrer">https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2005/lei/l11129.htm</a></li>
+        <li id="ref6">Brasil. Agência Nacional de Vigilância Sanitária. Resolução RDC nº 7, de 24 de fevereiro de 2010. Dispõe sobre os requisitos mínimos para funcionamento de Unidades de Terapia Intensiva e dá outras providências. Brasília: ANVISA; 2010. Disponível em: <a href="https://anvisalegis.datalegis.net/action/ActionDatalegis.php?acao=abrirTextoAto&link=S&tipo=RDC&numeroAto=00000007&seqAto=000&valorAno=2010&orgao=RDC/DC/ANVISA/MS&cod_modulo=310&cod_menu=8542" target="_blank" rel="noopener noreferrer">Acesso via ANVISA Legis</a></li>
+        <li id="ref7">Brasil. Ministério da Saúde. Portaria nº 529, de 1º de abril de 2013. Institui o Programa Nacional de Segurança do Paciente (PNSP). Brasília: MS; 2013. Disponível em: <a href="https://bvsms.saude.gov.br/bvs/saudelegis/gm/2013/prt0529_01_04_2013.html" target="_blank" rel="noopener noreferrer">https://bvsms.saude.gov.br/bvs/saudelegis/gm/2013/prt0529_01_04_2013.html</a></li>
+        <li id="ref8">Conselho Federal de Farmácia. Resolução CFF nº 585, de 29 de agosto de 2013. Regulamenta as atribuições clínicas do farmacêutico e dá outras providências. Brasília: CFF; 2013. Disponível em: <a href="https://www.cff.org.br/userfiles/file/resolucoes/585.pdf" target="_blank" rel="noopener noreferrer">https://www.cff.org.br/userfiles/file/resolucoes/585.pdf</a></li>
+        <li id="ref9">Conselho Federal de Farmácia. Resolução CFF nº 586, de 29 de agosto de 2013. Regula a prescrição farmacêutica e dá outras providências. Brasília: CFF; 2013. Disponível em: <a href="https://www.cff.org.br/userfiles/file/resolucoes/586.pdf" target="_blank" rel="noopener noreferrer">https://www.cff.org.br/userfiles/file/resolucoes/586.pdf</a></li>
+        <li id="ref10">Brasil. Lei nº 13.021, de 8 de agosto de 2014. Dispõe sobre o exercício e a fiscalização das atividades farmacêuticas. Diário Oficial da União. 2014 ago 11. Disponível em: <a href="https://www.planalto.gov.br/ccivil_03/_ato2011-2014/2014/lei/l13021.htm" target="_blank" rel="noopener noreferrer">https://www.planalto.gov.br/ccivil_03/_ato2011-2014/2014/lei/l13021.htm</a></li>
+        <li id="ref11">Brasil. Ministério da Educação. Conselho Nacional de Educação. Resolução CNE/CES nº 6, de 19 de outubro de 2017. Institui as Diretrizes Curriculares Nacionais dos Cursos de Graduação em Farmácia. Diário Oficial da União. 2017 out 20. Disponível em: <a href="https://www.in.gov.br/materia/-/asset_publisher/Kujrw0TZC2Mb/content/id/19363913/do1-2017-10-20-resolucao-n-6-de-19-de-outubro-de-2017-19363904" target="_blank" rel="noopener noreferrer">Acesso via Diário Oficial</a></li>
+        <li id="ref12">Conselho Federal de Farmácia. Resolução CFF nº 675, de 31 de outubro de 2019. Dispõe sobre as atribuições do farmacêutico clínico em unidades de terapia intensiva. Brasília: CFF; 2019. Disponível em: <a href="https://www.cff.org.br/userfiles/file/resolucoes/675.pdf" target="_blank" rel="noopener noreferrer">https://www.cff.org.br/userfiles/file/resolucoes/675.pdf</a></li>
+        <li id="ref13">Bravata DM, Watts SA, Keefer AL, Madhusudhan DK, Taylor KT, Clark DM, et al. Prevalence, predictors, and treatment of impostor syndrome: a systematic review. J Gen Intern Med. 2020;35(4):1252–75. <a href="https://doi.org/10.1007/s11606-019-05364-1" target="_blank" rel="noopener noreferrer">https://doi.org/10.1007/s11606-019-05364-1</a></li>
+        <li id="ref14">Sullivan JB, Ryba NL. Prevalence of impostor phenomenon and assessment of well-being in pharmacy residents. Am J Health Syst Pharm. 2020;77(10):796–801. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/32201891/" target="_blank" rel="noopener noreferrer">32201891</a></li>
+        <li id="ref15">Chen HW, Wu JC, Kang YN, Chiu YJ, Hu SH. Assertive communication training for nurses to speak up in cases of medical errors: a systematic review and meta-analysis. Nurse Educ Today. 2023;126:105819. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/37121073/" target="_blank" rel="noopener noreferrer">37121073</a></li>
+        <li id="ref16">Agency for Healthcare Research and Quality. TeamSTEPPS 3.0 — Tool: SBAR [Internet]. Rockville: AHRQ; 2023 [citado 2026 set 14]. Disponível em: <a href="https://www.ahrq.gov/teamstepps-program/curriculum/communication/tools/sbar.html" target="_blank" rel="noopener noreferrer">https://www.ahrq.gov/teamstepps-program/curriculum/communication/tools/sbar.html</a></li>
+        <li id="ref17">Müller M, Jürgens J, Redaèlli M, Klingberg K, Hautz WE, Stock S. Impact of the communication and patient hand-off tool SBAR on patient safety: a systematic review. BMJ Open. 2018;8(8):e022202. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/30139905/" target="_blank" rel="noopener noreferrer">30139905</a></li>
+        <li id="ref18">Felipe TRL, Spiri WC, Juliani CMCM, Mutro MEG. Nursing staff's instrument for change-of-shift reporting — SBAR: validation and application. Rev Bras Enferm. 2022;75(7):e20210608. <a href="https://doi.org/10.1590/0034-7167-2021-0608" target="_blank" rel="noopener noreferrer">https://doi.org/10.1590/0034-7167-2021-0608</a></li>
+        <li id="ref19">Agency for Healthcare Research and Quality. TeamSTEPPS 3.0 — Tool: CUS [Internet]. Rockville: AHRQ; 2023 [citado 2026 set 14]. Disponível em: <a href="https://www.ahrq.gov/teamstepps-program/curriculum/mutual/tools/cus.html" target="_blank" rel="noopener noreferrer">https://www.ahrq.gov/teamstepps-program/curriculum/mutual/tools/cus.html</a></li>
+        <li id="ref20">Agency for Healthcare Research and Quality. TeamSTEPPS 3.0 — Tool: Two-Challenge Rule [Internet]. Rockville: AHRQ; 2023 [citado 2026 set 14]. Disponível em: <a href="https://www.ahrq.gov/teamstepps-program/curriculum/mutual/tools/rule.html" target="_blank" rel="noopener noreferrer">https://www.ahrq.gov/teamstepps-program/curriculum/mutual/tools/rule.html</a></li>
+      </ol>
+    </div>
+
+  </div><!-- /artigo-corpo -->
+</div><!-- /container -->
+
+<div class="container" style="padding-top:0;">
+<div class="art-share">
+  <div class="art-share-row">
+    <span class="art-share-label">Compartilhar</span>
+    <a class="art-share-btn art-share-wa" id="share-wa" href="#" target="_blank" rel="noopener noreferrer">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.118 1.524 5.847L0 24l6.327-1.501A11.95 11.95 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.893 0-3.667-.52-5.184-1.427l-.37-.22-3.753.891.93-3.671-.242-.38A9.96 9.96 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+      WhatsApp
+    </a>
+    <a class="art-share-btn art-share-li" id="share-li" href="#" target="_blank" rel="noopener noreferrer">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      LinkedIn
+    </a>
+    <button class="art-share-btn art-share-copy" id="share-copy">Copiar link</button>
+  </div>
+  <div class="art-util">
+    <span class="art-util-label">Este artigo foi útil?</span>
+    <button class="art-util-btn" data-val="sim" aria-label="Sim, foi útil">👍</button>
+    <button class="art-util-btn" data-val="nao" aria-label="Não foi útil">👎</button>
+    <span class="art-util-thanks" hidden>Obrigado pelo feedback!</span>
+  </div>
+</div>
+</div>
+
+<script>
+(function(){
+  var url=window.location.href;
+  var title=document.title.replace(' | Cuidar Seguro','');
+  var wa=document.getElementById('share-wa');
+  var li=document.getElementById('share-li');
+  if(wa) wa.href='https://api.whatsapp.com/send?text='+encodeURIComponent(title+' — '+url);
+  if(li) li.href='https://www.linkedin.com/sharing/share-offsite/?url='+encodeURIComponent(url);
+  var copyBtn=document.getElementById('share-copy');
+  if(copyBtn) copyBtn.addEventListener('click',function(){
+    navigator.clipboard.writeText(url).then(function(){
+      copyBtn.textContent='✓ Copiado!';
+      setTimeout(function(){copyBtn.textContent='Copiar link';},2000);
+    }).catch(function(){});
+  });
+  var CHAVE='cs_util_'+window.location.pathname;
+  var saved; try{saved=localStorage.getItem(CHAVE);}catch(e){}
+  var utilBtns=document.querySelectorAll('.art-util-btn');
+  var thanks=document.querySelector('.art-util-thanks');
+  if(saved&&thanks){thanks.hidden=false;utilBtns.forEach(function(b){b.hidden=true;});}
+  utilBtns.forEach(function(btn){
+    btn.addEventListener('click',function(){
+      try{localStorage.setItem(CHAVE,btn.dataset.val);}catch(e){}
+      if(thanks) thanks.hidden=false;
+      utilBtns.forEach(function(b){b.hidden=true;});
+    });
+  });
+})();
+</script>
+
+<footer>
+  <p>© 2026 Cuidar Seguro · <a href="index.html">cuidarseguro.com.br</a> · Conteúdo educacional sobre segurança do paciente</p>
+  <p style="margin-top:.5rem; font-size:.8rem;">Coordenação: Prof. Dr. Luís Antônio Diego — Faculdade de Medicina, UFF</p>
+</footer>
+
+</body>
+</html>
