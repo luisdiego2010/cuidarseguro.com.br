@@ -1,0 +1,7 @@
+# Alterações consideradas na apresentação revisada
+
+Fonte: `/home/ubuntu/upload/Apresentacao_GAFAR_Hierarquizacao_Empoderamento_Seguranca_do_Paciente.pptx`, 14 slides, revisada em 14 de setembro de 2026.
+
+A versão alterada reforça os seguintes eixos: diferentes olhares sobre o mesmo problema; definição do gradiente de autoridade como distância percebida; perguntas diagnósticas sobre decisão, contestação baseada em evidências, dúvida e escalonamento; natureza sistêmica da segurança do paciente; distinção operacional entre *speaking up*, escalada, registro e notificação; leitura em camadas dos marcos brasileiros; sequência da dúvida à decisão segura; cinco perguntas diante de uma preocupação; empoderamento individual, coletivo e institucional; dez estratégias práticas de assertividade e controle emocional; SBAR com *check-back*; CUS e *Two-Challenge Rule*; mitigação nos níveis individual, equipe, instituição e formação.
+
+Na revisão visual dos slides 10–14, os quadros de empoderamento, SBAR, CUS e mitigação aparecem legíveis e consistentes. O slide de assertividade apresenta a primeira estratégia na renderização estática, enquanto a extração textual do PPTX contém dez estratégias; o texto final deverá considerar o conjunto completo. As estratégias de assertividade serão tratadas como recomendações práticas coerentes com comunicação assertiva, e não como protocolo clínico validado ou garantia de redução de eventos adversos.
