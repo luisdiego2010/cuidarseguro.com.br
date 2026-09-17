@@ -665,7 +665,7 @@
           if(a){a.href='mailto:'+u+'@'+d;a.textContent=u+'@'+d;}
         })();
       </script>
-      <iframe name="form-target-iframe" style="display:none" onload="iframeFormCarregado()"></iframe>
+      <iframe name="form-target-iframe" style="display:none" onload="if(typeof iframeFormCarregado==='function') iframeFormCarregado()"></iframe>
     </div>
   </div>
 </section>
