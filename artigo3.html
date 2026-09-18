@@ -171,6 +171,113 @@
 
             <p>A Cultura Justa (do inglês, <em>Just Culture</em>) baseia-se na premissa de que a maioria dos erros na área da saúde não resulta de negligência ou má intenção, mas sim de falhas latentes nos processos, sistemas e condições de trabalho [2]. Esse modelo não isenta os profissionais de responsabilidade, mas diferencia claramente o erro humano não intencional de comportamentos de risco injustificados ou atos imprudentes. Em uma Cultura Justa, os profissionais sentem-se seguros para relatar incidentes, quase falhas (<em>near misses</em>) e condições inseguras, sabendo que a instituição focará na análise sistêmica do problema, e não na punição individual [1].</p>
 
+            <figure style="margin:2rem 0;overflow-x:auto;">
+              <svg viewBox="0 0 800 530" xmlns="http://www.w3.org/2000/svg" width="100%" style="min-width:580px;display:block;" role="img" aria-label="Infográfico: Classificação de Incidentes em Saúde — da condição insegura ao evento sentinela">
+                <defs>
+                  <linearGradient id="bgGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#f0f7fc"/><stop offset="100%" stop-color="#dbeef7"/></linearGradient>
+                  <linearGradient id="sentGrad" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#b91c1c"/><stop offset="100%" stop-color="#dc2626"/></linearGradient>
+                  <linearGradient id="advGrad" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#c2710c"/><stop offset="100%" stop-color="#f0a500"/></linearGradient>
+                  <linearGradient id="nmGrad" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#1a5c8a"/><stop offset="100%" stop-color="#2a8fcc"/></linearGradient>
+                  <linearGradient id="ciGrad" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#4b7a9e"/><stop offset="100%" stop-color="#7aadcc"/></linearGradient>
+                  <filter id="cs-sombra"><feDropShadow dx="0" dy="2" stdDeviation="4" flood-opacity="0.09"/></filter>
+                </defs>
+                <!-- Fundo -->
+                <rect width="800" height="530" fill="url(#bgGrad)" rx="16"/>
+                <rect x="0" y="0" width="800" height="5" fill="#1a5c8a"/>
+                <!-- Título -->
+                <text x="400" y="40" text-anchor="middle" font-family="'DM Sans','Inter',sans-serif" font-size="18" font-weight="700" fill="#1a5c8a">Classificação de Incidentes em Saúde</text>
+                <text x="400" y="58" text-anchor="middle" font-family="'DM Sans','Inter',sans-serif" font-size="11" fill="#3a5a72">Baseado na Classificação Internacional de Segurança do Paciente — OMS / ANVISA</text>
+                <!-- Barra de gravidade -->
+                <rect x="60" y="74" width="680" height="7" fill="#cce0f0" rx="3"/>
+                <polygon points="740,71 760,77.5 740,84" fill="#3a5a72"/>
+                <text x="64" y="69" font-family="'DM Sans','Inter',sans-serif" font-size="9.5" fill="#3a5a72">← Menor gravidade / maior frequência</text>
+                <text x="736" y="69" text-anchor="end" font-family="'DM Sans','Inter',sans-serif" font-size="9.5" fill="#3a5a72">Maior gravidade / menor frequência →</text>
+
+                <!-- CARD 1: Condição Insegura -->
+                <rect x="30" y="92" width="165" height="390" fill="white" rx="12" filter="url(#cs-sombra)"/>
+                <rect x="30" y="92" width="165" height="46" fill="url(#ciGrad)" rx="12"/>
+                <rect x="30" y="126" width="165" height="12" fill="url(#ciGrad)"/>
+                <text x="112" y="115" text-anchor="middle" font-family="'DM Sans','Inter',sans-serif" font-size="12.5" font-weight="700" fill="white">Condição Insegura</text>
+                <text x="112" y="184" text-anchor="middle" font-size="26">⚠️</text>
+                <text x="44" y="212" font-family="'DM Sans','Inter',sans-serif" font-size="10" font-weight="700" fill="#1a5c8a">O que é:</text>
+                <text x="44" y="228" font-family="'DM Sans','Inter',sans-serif" font-size="9.5" fill="#374151"><tspan x="44" dy="0">Situação com potencial de</tspan><tspan x="44" dy="14">causar dano, mas ainda sem</tspan><tspan x="44" dy="14">incidente ocorrido.</tspan></text>
+                <line x1="40" y1="278" x2="185" y2="278" stroke="#e5e7eb" stroke-width="1"/>
+                <text x="44" y="296" font-family="'DM Sans','Inter',sans-serif" font-size="10" font-weight="700" fill="#1a5c8a">Exemplos:</text>
+                <text x="44" y="312" font-family="'DM Sans','Inter',sans-serif" font-size="9.5" fill="#374151">• Piso molhado sem sinal</text>
+                <text x="44" y="326" font-family="'DM Sans','Inter',sans-serif" font-size="9.5" fill="#374151">• Equipamento defeituoso</text>
+                <text x="44" y="340" font-family="'DM Sans','Inter',sans-serif" font-size="9.5" fill="#374151">• Rótulo ilegível</text>
+                <rect x="40" y="392" width="145" height="20" fill="#e8f4fd" rx="6"/>
+                <text x="112" y="406" text-anchor="middle" font-family="'DM Sans','Inter',sans-serif" font-size="9" font-weight="700" fill="#1a5c8a">Dano ao paciente: Não</text>
+                <rect x="40" y="418" width="145" height="20" fill="#f0f9ff" rx="6"/>
+                <text x="112" y="432" text-anchor="middle" font-family="'DM Sans','Inter',sans-serif" font-size="9" fill="#1a5c8a">Notificação: recomendada</text>
+
+                <!-- CARD 2: Near-miss -->
+                <rect x="208" y="92" width="165" height="390" fill="white" rx="12" filter="url(#cs-sombra)"/>
+                <rect x="208" y="92" width="165" height="46" fill="url(#nmGrad)" rx="12"/>
+                <rect x="208" y="126" width="165" height="12" fill="url(#nmGrad)"/>
+                <text x="290" y="108" text-anchor="middle" font-family="'DM Sans','Inter',sans-serif" font-size="12.5" font-weight="700" fill="white">Near-miss</text>
+                <text x="290" y="124" text-anchor="middle" font-family="'DM Sans','Inter',sans-serif" font-size="9.5" fill="rgba(255,255,255,0.88)">Quase falha</text>
+                <text x="290" y="184" text-anchor="middle" font-size="26">🎯</text>
+                <text x="222" y="212" font-family="'DM Sans','Inter',sans-serif" font-size="10" font-weight="700" fill="#1a5c8a">O que é:</text>
+                <text x="222" y="228" font-family="'DM Sans','Inter',sans-serif" font-size="9.5" fill="#374151"><tspan x="222" dy="0">Incidente interceptado a</tspan><tspan x="222" dy="14">tempo — chegou ao paciente</tspan><tspan x="222" dy="14">mas não causou dano.</tspan></text>
+                <line x1="218" y1="278" x2="363" y2="278" stroke="#e5e7eb" stroke-width="1"/>
+                <text x="222" y="296" font-family="'DM Sans','Inter',sans-serif" font-size="10" font-weight="700" fill="#1a5c8a">Exemplos:</text>
+                <text x="222" y="312" font-family="'DM Sans','Inter',sans-serif" font-size="9.5" fill="#374151">• Medicamento errado,</text>
+                <text x="222" y="326" font-family="'DM Sans','Inter',sans-serif" font-size="9.5" fill="#374151">  detectado antes da infusão</text>
+                <text x="222" y="340" font-family="'DM Sans','Inter',sans-serif" font-size="9.5" fill="#374151">• Queda evitada no último</text>
+                <text x="222" y="354" font-family="'DM Sans','Inter',sans-serif" font-size="9.5" fill="#374151">  momento</text>
+                <rect x="218" y="392" width="145" height="20" fill="#dbeef7" rx="6"/>
+                <text x="290" y="406" text-anchor="middle" font-family="'DM Sans','Inter',sans-serif" font-size="9" font-weight="700" fill="#1a5c8a">Dano ao paciente: Não</text>
+                <rect x="218" y="418" width="145" height="20" fill="#f0f9ff" rx="6"/>
+                <text x="290" y="432" text-anchor="middle" font-family="'DM Sans','Inter',sans-serif" font-size="9" fill="#1a5c8a">Notificação: obrigatória</text>
+
+                <!-- CARD 3: Evento Adverso -->
+                <rect x="386" y="92" width="165" height="390" fill="white" rx="12" filter="url(#cs-sombra)"/>
+                <rect x="386" y="92" width="165" height="46" fill="url(#advGrad)" rx="12"/>
+                <rect x="386" y="126" width="165" height="12" fill="url(#advGrad)"/>
+                <text x="468" y="108" text-anchor="middle" font-family="'DM Sans','Inter',sans-serif" font-size="12.5" font-weight="700" fill="white">Evento Adverso</text>
+                <text x="468" y="124" text-anchor="middle" font-family="'DM Sans','Inter',sans-serif" font-size="9.5" fill="rgba(255,255,255,0.9)">Dano relacionado ao cuidado</text>
+                <text x="468" y="184" text-anchor="middle" font-size="26">🏥</text>
+                <text x="400" y="212" font-family="'DM Sans','Inter',sans-serif" font-size="10" font-weight="700" fill="#92400e">O que é:</text>
+                <text x="400" y="228" font-family="'DM Sans','Inter',sans-serif" font-size="9.5" fill="#374151"><tspan x="400" dy="0">Incidente que resultou em</tspan><tspan x="400" dy="14">dano — não pela doença,</tspan><tspan x="400" dy="14">mas pelo cuidado prestado.</tspan></text>
+                <line x1="396" y1="278" x2="541" y2="278" stroke="#e5e7eb" stroke-width="1"/>
+                <text x="400" y="296" font-family="'DM Sans','Inter',sans-serif" font-size="10" font-weight="700" fill="#92400e">Exemplos:</text>
+                <text x="400" y="312" font-family="'DM Sans','Inter',sans-serif" font-size="9.5" fill="#374151">• Infecção hospitalar</text>
+                <text x="400" y="326" font-family="'DM Sans','Inter',sans-serif" font-size="9.5" fill="#374151">• Reação transfusional</text>
+                <text x="400" y="340" font-family="'DM Sans','Inter',sans-serif" font-size="9.5" fill="#374151">• Erro de dose com dano</text>
+                <text x="400" y="354" font-family="'DM Sans','Inter',sans-serif" font-size="9.5" fill="#374151">• Queda com fratura</text>
+                <rect x="396" y="392" width="145" height="20" fill="#fef3c7" rx="6"/>
+                <text x="468" y="406" text-anchor="middle" font-family="'DM Sans','Inter',sans-serif" font-size="9" font-weight="700" fill="#92400e">Dano ao paciente: Sim</text>
+                <rect x="396" y="418" width="145" height="20" fill="#fffbeb" rx="6"/>
+                <text x="468" y="432" text-anchor="middle" font-family="'DM Sans','Inter',sans-serif" font-size="9" fill="#92400e">Notificação: obrigatória</text>
+
+                <!-- CARD 4: Evento Sentinela -->
+                <rect x="564" y="92" width="206" height="390" fill="white" rx="12" filter="url(#cs-sombra)"/>
+                <rect x="564" y="92" width="206" height="46" fill="url(#sentGrad)" rx="12"/>
+                <rect x="564" y="126" width="206" height="12" fill="url(#sentGrad)"/>
+                <text x="667" y="108" text-anchor="middle" font-family="'DM Sans','Inter',sans-serif" font-size="12.5" font-weight="700" fill="white">Evento Sentinela</text>
+                <text x="667" y="124" text-anchor="middle" font-family="'DM Sans','Inter',sans-serif" font-size="9.5" fill="rgba(255,255,255,0.9)">Requer análise imediata</text>
+                <text x="667" y="184" text-anchor="middle" font-size="26">🚨</text>
+                <text x="578" y="212" font-family="'DM Sans','Inter',sans-serif" font-size="10" font-weight="700" fill="#991b1b">O que é:</text>
+                <text x="578" y="228" font-family="'DM Sans','Inter',sans-serif" font-size="9.5" fill="#374151"><tspan x="578" dy="0">Evento grave e inesperado —</tspan><tspan x="578" dy="14">morte, dano permanente ou</tspan><tspan x="578" dy="14">"sinal" que exige investigação</tspan><tspan x="578" dy="14">imediata da causa-raiz.</tspan></text>
+                <line x1="574" y1="292" x2="760" y2="292" stroke="#e5e7eb" stroke-width="1"/>
+                <text x="578" y="308" font-family="'DM Sans','Inter',sans-serif" font-size="10" font-weight="700" fill="#991b1b">Exemplos:</text>
+                <text x="578" y="324" font-family="'DM Sans','Inter',sans-serif" font-size="9.5" fill="#374151">• Cirurgia em local errado</text>
+                <text x="578" y="338" font-family="'DM Sans','Inter',sans-serif" font-size="9.5" fill="#374151">• Morte inesperada</text>
+                <text x="578" y="352" font-family="'DM Sans','Inter',sans-serif" font-size="9.5" fill="#374151">• Suicídio em internação</text>
+                <text x="578" y="366" font-family="'DM Sans','Inter',sans-serif" font-size="9.5" fill="#374151">• Troca de identidade</text>
+                <rect x="574" y="392" width="186" height="20" fill="#fee2e2" rx="6"/>
+                <text x="667" y="406" text-anchor="middle" font-family="'DM Sans','Inter',sans-serif" font-size="9" font-weight="700" fill="#991b1b">Dano ao paciente: Grave / Óbito</text>
+                <rect x="574" y="418" width="186" height="20" fill="#fef2f2" rx="6"/>
+                <text x="667" y="432" text-anchor="middle" font-family="'DM Sans','Inter',sans-serif" font-size="9" fill="#991b1b">Notificação: obrigatória e urgente</text>
+
+                <!-- Rodapé -->
+                <text x="400" y="498" text-anchor="middle" font-family="'DM Sans','Inter',sans-serif" font-size="9" fill="#6b7280">Fonte: Classificação Internacional de Segurança do Paciente — OMS (2009) · RDC ANVISA nº 36/2013</text>
+                <text x="766" y="516" text-anchor="end" font-family="'DM Sans','Inter',sans-serif" font-size="8.5" fill="#1a5c8a" font-weight="600">cuidarseguro.com.br</text>
+              </svg>
+              <figcaption style="text-align:center;font-size:0.82rem;color:#6b7280;margin-top:0.5rem;">Classificação dos incidentes em saúde — do potencial risco ao evento mais grave</figcaption>
+            </figure>
+
             <p>A notificação de eventos é o motor que impulsiona o aprendizado dentro dessa cultura. Ao relatar um erro, a equipe fornece dados cruciais para que a instituição identifique vulnerabilidades nos seus processos e implemente barreiras de segurança. Sem a notificação, os mesmos erros tendem a se repetir, colocando novos pacientes em risco [3].</p>
 
             <div class="highlight-box">
