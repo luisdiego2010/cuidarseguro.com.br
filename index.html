@@ -107,8 +107,9 @@
     .link-item .link-ico{flex-shrink:0;font-size:1rem;margin-top:0.05rem;}
     #artigos{background:white;}
     .artigos-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.5rem;margin-top:3rem;}
-    .artigo-card{border:1px solid var(--borda);border-radius:1.2rem;overflow:hidden;transition:all 0.25s;cursor:pointer;}
-    .artigo-card:hover{transform:translateY(-4px);box-shadow:0 12px 30px rgba(26,122,94,0.12);}
+    .artigo-card{border:1px solid var(--borda);border-radius:1.2rem;overflow:hidden;transition:opacity 0.6s ease,transform 0.6s ease,box-shadow 0.25s;cursor:pointer;opacity:0;transform:translateY(22px);}
+    .artigo-card.visible{opacity:1;transform:translateY(0);}
+    .artigo-card.visible:hover{transform:translateY(-4px);box-shadow:0 12px 30px rgba(26,122,94,0.12);}
     .artigo-topo{background:var(--verde-suave);padding:1.5rem;display:flex;align-items:center;gap:0.8rem;}
     .artigo-topo .cat{font-size:0.72rem;font-weight:500;text-transform:uppercase;letter-spacing:0.06em;background:var(--verde);color:white;padding:0.2rem 0.6rem;border-radius:0.5rem;}
     .artigo-topo .data{font-size:0.78rem;color:var(--texto-leve);}
@@ -429,7 +430,7 @@
   <div class="section-tag">Publicações recentes</div>
   <h2 class="section-title">Artigos e <em>leituras</em><br>recomendadas</h2>
   <p class="section-subtitle">Textos educacionais, resumos de evidências e reflexões sobre segurança do paciente. Atualizado regularmente com novos artigos.</p>
-  <div class="artigos-grid reveal">
+  <div class="artigos-grid">
     <div class="artigo-card" style="border-color:#2a8fcc;"><div class="artigo-topo" style="background:linear-gradient(135deg,#1a5c8a 0%,#2a8fcc 100%);"><span class="cat" style="background:#dbeef7;color:#1a5c8a;">📊 Infográfico</span><span class="data" style="color:rgba(255,255,255,0.85);">Set 2026</span></div><div class="artigo-body"><h3>Como classificar incidentes em saúde: do near-miss ao evento sentinela</h3><p>Infográfico com as quatro categorias da Classificação Internacional da OMS/ANVISA — condição insegura, near-miss, evento adverso e evento sentinela — com exemplos práticos e critérios de notificação.</p><a href="artigo3.html" class="ler-mais">Ver infográfico →</a></div></div>
     <div class="artigo-card" style="border-color:#1a5c8a;background:linear-gradient(135deg,#f0f7fc 0%,#fff 100%);"><div class="artigo-topo" style="background:linear-gradient(135deg,#1a5c8a 0%,#2a8fcc 100%);"><span class="cat" style="background:var(--destaque);color:#1c2b3a;">🎙 Podcast</span><span class="data" style="color:rgba(255,255,255,0.85);">Set 2026</span></div><div class="artigo-body"><h3>Dia Mundial da Segurança do Paciente — Conversa com a Profª Aline Albuquerque</h3><p>O que o Estatuto do Paciente muda na prática? 13 minutos com uma das principais especialistas brasileiras em direitos humanos na saúde.</p><a href="podcast-dia-mundial-17set2026.html" class="ler-mais">Ouvir episódio →</a></div></div>
     <div class="artigo-card" style="border-color:#1a5c8a;"><div class="artigo-topo" style="background:#1a5c8a;"><span class="cat" style="background:var(--destaque);color:#1c2b3a;">Novo</span><span class="data" style="color:rgba(255,255,255,0.8);">Set 2026</span></div><div class="artigo-body"><h3>Hierarquização, empoderamento e segurança do paciente</h3><p>SBAR, CUS, Two-Challenge Rule e <em>speaking up</em>: como transformar uma preocupação farmacoterapêutica em ação segura em ambientes com gradiente de autoridade.</p><p style="font-size:0.78rem;color:var(--texto-leve);margin-top:0.5rem;">✍️ Prof. Luis Antonio Diego</p><a href="artigo10.html" class="ler-mais">Ler artigo →</a></div></div>
@@ -689,6 +690,9 @@
   const reveals=document.querySelectorAll('.reveal');
   const observer=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:0.1});
   reveals.forEach(r=>observer.observe(r));
+  const artCards=document.querySelectorAll('.artigo-card');
+  const artObs=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.style.transitionDelay=e.target.dataset.sd||'0s';e.target.classList.add('visible');artObs.unobserve(e.target);}});},{threshold:0.08});
+  artCards.forEach((c,i)=>{c.dataset.sd=(i%3*0.12)+'s';artObs.observe(c);});
 function tocarPodcast(){var capa=document.getElementById('podcast-capa');if(!capa)return;capa.outerHTML='<div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:0.5rem;"><iframe src="https://www.youtube-nocookie.com/embed/PNo3iAceivM?autoplay=1&rel=0" title="Podcast Cuidar Seguro" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>';}
   var formContatoEnviando=false;
   function prepararEnvioForm(){var btn=document.querySelector('#form-contato .btn-enviar');btn.disabled=true;btn.textContent='Enviando...';document.getElementById('form-erro').style.display='none';formContatoEnviando=true;return true;}
