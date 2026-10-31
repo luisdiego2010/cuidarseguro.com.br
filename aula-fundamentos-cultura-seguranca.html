@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="logo_cuidarseguro.png">
+    <title>Fundamentos para uma Cultura de Segurança — Cuidar Seguro</title>
+    <meta name="description" content="Aula do webinário de 31/10/2026 (SBA): taxonomia da OMS, indicadores em anestesia, níveis de maturidade da cultura de segurança, cultura justa, Segurança-I e II, segunda vítima e disclosure.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: #ffffff;
+            padding: 2rem;
+        }
+
+        .container { max-width: 800px; margin: 0 auto; }
+
+        .voltar {
+            display: inline-block;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #15803d;
+            text-decoration: none;
+        }
+        .voltar:hover { text-decoration: underline; }
+
+        .categoria {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            background: #1e40af;
+            color: #ffffff;
+            padding: 0.25rem 0.75rem;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.3;
+            color: #1e40af;
+        }
+
+        h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 3rem 0 1.5rem 0;
+            padding-top: 2rem;
+            border-top: 1px solid #e5e5e5;
+            color: #1e40af;
+        }
+
+        h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 0.6rem;
+            color: #1e40af;
+        }
+
+        article p {
+            margin-bottom: 1.5rem;
+            text-align: justify;
+            line-height: 1.8;
+            font-size: 1rem;
+        }
+
+        .highlight-box {
+            background: #f0fdf4;
+            border-left: 4px solid #15803d;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+        .highlight-box h2 {
+            margin-top: 0; padding-top: 0; border-top: none;
+            font-size: 1.3rem; color: #15803d;
+        }
+        .highlight-box p { margin-bottom: 0.6rem; font-size: 0.95rem; text-align: left; }
+        .highlight-box p:last-child { margin-bottom: 0; }
+
+        .principles-box {
+            background: #f0f9ff;
+            border-left: 4px solid #1e40af;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+        .principles-box h2 {
+            margin-top: 0; padding-top: 0; border-top: none;
+            font-size: 1.3rem;
+        }
+        .principles-box ul { list-style: none; margin: 0; padding: 0; }
+        .principles-box li { margin-bottom: 0.75rem; font-size: 0.95rem; line-height: 1.6; }
+        .principles-box li:last-child { margin-bottom: 0; }
+        .principles-box strong { color: #1e40af; }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin: 1.5rem 0 2rem 0;
+        }
+        .stat {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 0.75rem;
+            padding: 1.25rem 1rem;
+            text-align: center;
+        }
+        .stat .num {
+            display: block;
+            font-family: 'Poppins', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            line-height: 1.2;
+            color: #1e40af;
+        }
+        .stat .lbl {
+            display: block;
+            margin-top: 0.4rem;
+            font-size: 0.88rem;
+            line-height: 1.45;
+            color: #374151;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin: 1.5rem 0 2rem 0;
+        }
+        .cards.dois { grid-template-columns: repeat(2, 1fr); }
+        .card {
+            border: 1px solid #e2e8f0;
+            border-radius: 0.75rem;
+            padding: 1.25rem;
+            background: #ffffff;
+        }
+        .card .etapa {
+            display: block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #15803d;
+            margin-bottom: 0.25rem;
+        }
+        .card .quando {
+            display: block;
+            font-size: 0.85rem;
+            color: #4b5563;
+            margin-bottom: 0.75rem;
+        }
+        .card ul { margin-left: 1.1rem; }
+        .card li { margin-bottom: 0.5rem; font-size: 0.92rem; line-height: 1.55; }
+        .card li:last-child { margin-bottom: 0; }
+
+        ul.lista { margin: 0 0 1.5rem 1.5rem; }
+        ul.lista li { margin-bottom: 0.5rem; font-size: 0.98rem; line-height: 1.6; }
+
+        .fonte {
+            font-size: 0.85rem;
+            color: #4b5563;
+            margin-top: -0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .pergunta {
+            background: #f8fafc;
+            border-left: 4px solid #94a3b8;
+            padding: 1rem 1.25rem;
+            margin: 1rem 0;
+            font-size: 0.98rem;
+            line-height: 1.7;
+        }
+
+        ol.refs { margin-left: 1.5rem; margin-bottom: 1.5rem; }
+        ol.refs li { margin-bottom: 1rem; font-size: 0.92rem; line-height: 1.6; }
+        a { color: #1e40af; }
+
+        @media (max-width: 700px) {
+            body { padding: 1.25rem; }
+            h1 { font-size: 1.7rem; }
+            article p { text-align: left; }
+            .stats, .cards, .cards.dois { grid-template-columns: 1fr; }
+        }
+    
+        .btn-slides{display:inline-flex;align-items:center;gap:0.5rem;margin-top:0.8rem;background:#1e40af;color:#fff;font-weight:600;font-size:0.95rem;padding:0.7rem 1.2rem;border-radius:2rem;text-decoration:none;}
+        .btn-slides:hover{background:#15803d;}
+        .niveis{list-style:none;margin:1rem 0 2rem;padding:0;}
+        .niveis li{display:flex;gap:0.9rem;align-items:baseline;padding:0.7rem 1rem;border:1px solid #e2e8f0;border-radius:0.6rem;margin-bottom:0.5rem;background:#f8fafc;font-size:0.95rem;}
+        .niveis b{color:#1e40af;min-width:7.5rem;}
+
+</style>
+</head>
+<body>
+    <div class="container">
+        <a class="voltar" href="index.html#temas">← Voltar aos temas</a>
+        <div><span class="categoria">Aula · Fundamentos e Cultura</span></div>
+        <h1>Fundamentos para uma Cultura de Segurança</h1>
+
+        <div class="highlight-box">
+            <h2>Sobre esta aula</h2>
+            <p><strong>Evento:</strong> webinário do Programa de Aprimoramento em Anestesiologia Perioperatória e Sedação Segura (SBA), 31 de outubro de 2026.</p>
+            <p><strong>Palestrante:</strong> Luis Antonio Diego, TSA-SBA, docente da Faculdade de Medicina da UFF.</p>
+            <p><strong>Objetivo:</strong> relacionar indicadores, cultura de segurança e análise de eventos adversos como partes de um mesmo ciclo de aprendizagem e melhoria, e aplicá-lo à prática anestésica.</p>
+            <p><a class="btn-slides" href="fundamentos-cultura-seguranca-sba-2026.pdf" target="_blank" rel="noopener">📊 Ver os slides (PDF · 99 slides · 5,9 MB)</a></p>
+        </div>
+
+        <article>
+            <h2>Roteiro</h2>
+            <div class="cards dois">
+                <div class="card"><span class="etapa">Módulo 1</span><h3>Segurança e taxonomia</h3><ul><li>Segurança como dimensão da qualidade</li><li>Taxonomia da OMS</li><li>Erro e violação</li><li>Evento adverso, incidente, <em>near miss</em> e dano</li></ul></div>
+                <div class="card"><span class="etapa">Módulo 2</span><h3>Indicadores em anestesia</h3><ul><li>Tríade de Donabedian</li><li>Gestão guiada por dados</li><li>Indicadores de estrutura, processo e resultado</li></ul></div>
+                <div class="card"><span class="etapa">Módulo 3</span><h3>Cultura de segurança</h3><ul><li>Cinco níveis de maturidade</li><li>Cultura justa</li><li>De Segurança-I para Segurança-II</li></ul></div>
+                <div class="card"><span class="etapa">Módulo 4</span><h3>Síntese e debates</h3><ul><li>Qualidade e segurança são a mesma coisa?</li><li>Segunda vítima</li><li><em>Disclosure</em> ao paciente</li></ul></div>
+            </div>
+
+            <h2>Segurança como dimensão da qualidade</h2>
+            <p>Pela Classificação Internacional de Segurança do Paciente (ICPS) da OMS, adotada na RDC 36/2013 da Anvisa, segurança do paciente é a redução, a um mínimo aceitável, do risco de dano desnecessário associado à assistência à saúde. Nas dimensões da qualidade de Donabedian e do Institute of Medicine (2001), ela aparece ao lado de efetividade, eficiência, equidade, oportunidade e cuidado centrado no paciente.</p>
+            <p>Um ponto central da aula: mais cuidado nem sempre é melhor. O benefício de exames e monitorizações (radiografia de tórax pré-operatória, pressão arterial invasiva, cateter de artéria pulmonar, BIS) depende do risco do paciente e do porte da cirurgia. Além de um ponto ótimo, acrescentar intervenções não traz ganho e pode comprometer a segurança.</p>
+
+            <h2>Taxonomia: erro, violação e evento adverso</h2>
+            <p>O erro pertence ao processo; o evento adverso pertence ao desfecho. A Portaria MS nº 529/2013 define incidente como evento ou circunstância que poderia ter resultado, ou resultou, em dano desnecessário, e evento adverso como incidente que resulta em dano.</p>
+            <ul class="lista">
+                <li><strong>Circunstância notificável:</strong> risco de dano, sem incidente.</li>
+                <li><strong>Quase evento (<em>near miss</em>):</strong> interceptado antes de atingir o paciente.</li>
+                <li><strong>Incidente sem dano:</strong> atinge o paciente, sem causar dano.</li>
+                <li><strong>Evento adverso:</strong> atinge o paciente e causa dano. O evento sentinela (morte ou dano grave) exige investigação imediata; os <em>never events</em> são evitáveis e inaceitáveis.</li>
+                <li><strong>Violação:</strong> desvio deliberado de norma, e não erro. Na saúde, costuma nascer de restrições operacionais e falhas do sistema (violações de rotina, de otimização, excepcionais e situacionais).</li>
+            </ul>
+
+            <h2>Indicadores em anestesia</h2>
+            <p>Indicadores são medidas capazes de revelar uma situação não aparente. A tríade de Donabedian organiza o monitoramento em estrutura (pessoal, equipamentos e fármacos conforme a Res. CFM 2.174/2017, salas e RPA), processo (avaliação pré-anestésica, TCLE, <em>time-out</em>, protocolos, auditorias) e resultado (eventos adversos, mortalidade em 48 horas, reintubação, dor, satisfação).</p>
+            <div class="principles-box">
+                <h2>Exemplo de ficha de indicador: avaliação pré-anestésica</h2>
+                <ul>
+                    <li><strong>Numerador:</strong> casos com avaliação pré-anestésica e plano registrados, com data e hora, antes do início da anestesia.</li>
+                    <li><strong>Denominador:</strong> total de procedimentos anestésicos iniciados no período.</li>
+                    <li><strong>Exclusões:</strong> procedimentos cancelados antes da anestesia; urgências incluídas, mas analisadas à parte.</li>
+                    <li><strong>Fonte e frequência:</strong> ficha anestésica ou prontuário, com auditoria mensal.</li>
+                </ul>
+            </div>
+            <p>Um bom indicador mede algo frequente e importante, é fácil de registrar e é influenciado pela qualidade da assistência. A aula apresenta ainda os indicadores recomendados pelo Anesthesia Quality Institute (ASA) e a lista de desfechos clínicos críticos em anestesia.</p>
+
+            <h2>Cultura de segurança</h2>
+            <p>Cultura de segurança são os valores, crenças e padrões compartilhados que influenciam as ações dos profissionais em relação à segurança. A Portaria 529/2013 a descreve por cinco características: responsabilidade de todos, prioridade da segurança sobre metas financeiras e operacionais, estímulo à notificação, aprendizado organizacional a partir dos incidentes e recursos para mantê-la.</p>
+            <ul class="niveis">
+                <li><b>1 · Patológica</b> A culpa é dos trabalhadores.</li>
+                <li><b>2 · Reativa</b> Ações corretivas só depois dos incidentes.</li>
+                <li><b>3 · Calculada</b> Gestão por dados; melhorias impostas.</li>
+                <li><b>4 · Proativa</b> A equipe antecipa riscos e melhora processos.</li>
+                <li><b>5 · Participativa</b> Todos participam; segurança faz parte do negócio.</li>
+            </ul>
+            <div class="cards">
+                <div class="card"><span class="etapa">Erro humano</span><p style="text-align:left;margin:0;font-size:0.92rem;">Falha não intencional. Sem culpa: corrigir o sistema e apoiar a equipe.</p></div>
+                <div class="card"><span class="etapa">Comportamento de risco</span><p style="text-align:left;margin:0;font-size:0.92rem;">Desvio de rotina que virou hábito. Orientar, reforçar e acompanhar.</p></div>
+                <div class="card"><span class="etapa">Comportamento imprudente</span><p style="text-align:left;margin:0;font-size:0.92rem;">Risco ignorado de forma consciente. Sanção proporcional.</p></div>
+            </div>
+            <p>Na cultura justa, a resposta é proporcional ao comportamento, e não ao resultado. Para medir a cultura, o HSPSC tem adaptação transcultural e validação para o português (Reis et al., 2023): 40 itens, 10 dimensões, útil para diagnóstico, monitoramento e comparação.</p>
+
+            <h2>De Segurança-I para Segurança-II</h2>
+            <p>A Segurança-I busca minimizar o que dá errado, investigando falhas e comparando o trabalho com o prescrito. A Segurança-II busca entender como o trabalho dá certo na maioria das vezes e vê a variabilidade como capacidade de adaptação. Exemplos como Piper Alpha mostram o paradoxo das barreiras: a proteção também pode gerar o incidente. A Segurança-II complementa, e não substitui, a Segurança-I.</p>
+
+            <h2>Síntese: segunda vítima e <em>disclosure</em></h2>
+            <p>Qualidade e segurança se sobrepõem, mas não são iguais (Vincent e Amalberti, 2016). O profissional envolvido em um evento adverso pode se tornar a segunda vítima, com culpa, insônia, ansiedade e isolamento; apoio imediato e entre pares faz parte da segurança do paciente. A comunicação do evento ao paciente e à família deve ser rápida, clara, empática e com seguimento: explicar o que houve sem especular, reconhecer o dano, pedir desculpas e dizer o que será feito.</p>
+
+            <div class="principles-box">
+                <h2>Pontos para levar</h2>
+                <ul>
+                    <li><strong>Erro é do processo, evento adverso é do desfecho:</strong> a taxonomia comum é o ponto de partida da notificação e do aprendizado.</li>
+                    <li><strong>Medir para melhorar:</strong> indicadores de estrutura, processo e resultado com ficha, definição operacional e devolutiva à equipe.</li>
+                    <li><strong>Cultura justa:</strong> resposta proporcional ao comportamento, nunca ao resultado.</li>
+                    <li><strong>Segurança-I e II juntas:</strong> aprender com as falhas e também com o que dá certo.</li>
+                    <li><strong>Cuidar de quem cuida:</strong> apoio à segunda vítima e <em>disclosure</em> honesto ao paciente.</li>
+                </ul>
+            </div>
+
+            <p style="text-align:left;"><a class="btn-slides" href="fundamentos-cultura-seguranca-sba-2026.pdf" target="_blank" rel="noopener">📊 Ver os slides completos (PDF)</a></p>
+            <p style="text-align:left;margin-top:1.5rem;">Leia também: <a href="cultura-seguranca.html">Cultura de segurança</a> · <a href="cultura-justa.html">Cultura justa</a> · <a href="artigo3.html">Como classificar incidentes em saúde</a>. Mais conteúdo em <a href="index.html">cuidarseguro.com.br</a>.</p>
+        </article>
+    </div>
+</body>
+</html>

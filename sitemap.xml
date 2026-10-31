@@ -3,7 +3,7 @@
 
   <url>
     <loc>https://www.cuidarseguro.com.br/</loc>
-    <lastmod>2026-09-23</lastmod>
+    <lastmod>2026-10-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -136,7 +136,7 @@
 
   <url>
     <loc>https://www.cuidarseguro.com.br/artigo7.html</loc>
-    <lastmod>2026-09-23</lastmod>
+    <lastmod>2026-10-31</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -150,7 +150,7 @@
 
   <url>
     <loc>https://www.cuidarseguro.com.br/artigo9.html</loc>
-    <lastmod>2026-09-23</lastmod>
+    <lastmod>2026-10-31</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -207,6 +207,20 @@
   <url>
     <loc>https://www.cuidarseguro.com.br/jornada-segura.html</loc>
     <lastmod>2026-09-23</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.cuidarseguro.com.br/aula-fundamentos-cultura-seguranca.html</loc>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.cuidarseguro.com.br/aula-cbc-2026-cirurgia-segura.html</loc>
+    <lastmod>2026-10-16</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
