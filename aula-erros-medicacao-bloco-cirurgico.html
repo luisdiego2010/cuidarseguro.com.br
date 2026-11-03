@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="logo_cuidarseguro.png">
+    <title>Erros de Medicação no Bloco Cirúrgico — Cuidar Seguro</title>
+    <meta name="description" content="Aula do Simpósio de Assistência Farmacêutica (05/11/2026): por que os erros de medicação ocorrem no bloco cirúrgico, barreiras de segurança, rotulagem, notificação e o papel da farmácia hospitalar.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: #ffffff;
+            padding: 2rem;
+        }
+
+        .container { max-width: 800px; margin: 0 auto; }
+
+        .voltar {
+            display: inline-block;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #15803d;
+            text-decoration: none;
+        }
+        .voltar:hover { text-decoration: underline; }
+
+        .categoria {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            background: #1e40af;
+            color: #ffffff;
+            padding: 0.25rem 0.75rem;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.3;
+            color: #1e40af;
+        }
+
+        h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 3rem 0 1.5rem 0;
+            padding-top: 2rem;
+            border-top: 1px solid #e5e5e5;
+            color: #1e40af;
+        }
+
+        h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 0.6rem;
+            color: #1e40af;
+        }
+
+        article p {
+            margin-bottom: 1.5rem;
+            text-align: justify;
+            line-height: 1.8;
+            font-size: 1rem;
+        }
+
+        .highlight-box {
+            background: #f0fdf4;
+            border-left: 4px solid #15803d;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+        .highlight-box h2 {
+            margin-top: 0; padding-top: 0; border-top: none;
+            font-size: 1.3rem; color: #15803d;
+        }
+        .highlight-box p { margin-bottom: 0.6rem; font-size: 0.95rem; text-align: left; }
+        .highlight-box p:last-child { margin-bottom: 0; }
+
+        .principles-box {
+            background: #f0f9ff;
+            border-left: 4px solid #1e40af;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+        .principles-box h2 {
+            margin-top: 0; padding-top: 0; border-top: none;
+            font-size: 1.3rem;
+        }
+        .principles-box ul { list-style: none; margin: 0; padding: 0; }
+        .principles-box li { margin-bottom: 0.75rem; font-size: 0.95rem; line-height: 1.6; }
+        .principles-box li:last-child { margin-bottom: 0; }
+        .principles-box strong { color: #1e40af; }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin: 1.5rem 0 2rem 0;
+        }
+        .stat {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 0.75rem;
+            padding: 1.25rem 1rem;
+            text-align: center;
+        }
+        .stat .num {
+            display: block;
+            font-family: 'Poppins', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            line-height: 1.2;
+            color: #1e40af;
+        }
+        .stat .lbl {
+            display: block;
+            margin-top: 0.4rem;
+            font-size: 0.88rem;
+            line-height: 1.45;
+            color: #374151;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin: 1.5rem 0 2rem 0;
+        }
+        .cards.dois { grid-template-columns: repeat(2, 1fr); }
+        .card {
+            border: 1px solid #e2e8f0;
+            border-radius: 0.75rem;
+            padding: 1.25rem;
+            background: #ffffff;
+        }
+        .card .etapa {
+            display: block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #15803d;
+            margin-bottom: 0.25rem;
+        }
+        .card .quando {
+            display: block;
+            font-size: 0.85rem;
+            color: #4b5563;
+            margin-bottom: 0.75rem;
+        }
+        .card ul { margin-left: 1.1rem; }
+        .card li { margin-bottom: 0.5rem; font-size: 0.92rem; line-height: 1.55; }
+        .card li:last-child { margin-bottom: 0; }
+
+        ul.lista { margin: 0 0 1.5rem 1.5rem; }
+        ul.lista li { margin-bottom: 0.5rem; font-size: 0.98rem; line-height: 1.6; }
+
+        .fonte {
+            font-size: 0.85rem;
+            color: #4b5563;
+            margin-top: -0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .pergunta {
+            background: #f8fafc;
+            border-left: 4px solid #94a3b8;
+            padding: 1rem 1.25rem;
+            margin: 1rem 0;
+            font-size: 0.98rem;
+            line-height: 1.7;
+        }
+
+        ol.refs { margin-left: 1.5rem; margin-bottom: 1.5rem; }
+        ol.refs li { margin-bottom: 1rem; font-size: 0.92rem; line-height: 1.6; }
+        a { color: #1e40af; }
+
+        @media (max-width: 700px) {
+            body { padding: 1.25rem; }
+            h1 { font-size: 1.7rem; }
+            article p { text-align: left; }
+            .stats, .cards, .cards.dois { grid-template-columns: 1fr; }
+        }
+    
+        .btn-slides{display:inline-flex;align-items:center;gap:0.5rem;margin-top:0.8rem;background:#1e40af;color:#fff;font-weight:600;font-size:0.95rem;padding:0.7rem 1.2rem;border-radius:2rem;text-decoration:none;}
+        .btn-slides:hover{background:#15803d;}
+        .niveis{list-style:none;margin:1rem 0 2rem;padding:0;}
+        .niveis li{display:flex;gap:0.9rem;align-items:baseline;padding:0.7rem 1rem;border:1px solid #e2e8f0;border-radius:0.6rem;margin-bottom:0.5rem;background:#f8fafc;font-size:0.95rem;}
+        .niveis b{color:#1e40af;min-width:7.5rem;}
+
+</style>
+</head>
+<body>
+    <div class="container">
+        <a class="voltar" href="index.html#temas">← Voltar aos temas</a>
+        <div><span class="categoria">Aula · Segurança Medicamentosa</span></div>
+        <h1>Segurança do Paciente no Bloco Cirúrgico: Erros de Medicação em Alta Pressão</h1>
+
+        <div class="highlight-box">
+            <h2>Sobre esta aula</h2>
+            <p><strong>Evento:</strong> Simpósio de Assistência Farmacêutica: Conectando Tecnologia, Clínica e Segurança em Farmácia Hospitalar, 5 de novembro de 2026.</p>
+            <p><strong>Palestrante:</strong> Luis Antonio Diego, Professor Associado da Faculdade de Medicina da UFF.</p>
+            <p><strong>Tema:</strong> barreiras contra erros de medicação no centro cirúrgico.</p>
+            <p><a class="btn-slides" href="erros-medicacao-bloco-cirurgico-into-2026.pdf" target="_blank" rel="noopener">📊 Ver os slides (PDF · 41 slides · 4,0 MB)</a></p>
+        </div>
+
+        <article>
+            <h2>Roteiro</h2>
+            <div class="cards dois">
+                <div class="card"><span class="etapa">Parte 1</span><h3>O cenário</h3><ul><li>Dinâmica da sala de operações</li><li>Fluxo seguro dos medicamentos</li><li>Estágios de administração</li></ul></div>
+                <div class="card"><span class="etapa">Parte 2</span><h3>Por que o erro acontece</h3><ul><li>Causas mais comuns</li><li>Situações que favorecem o erro</li><li>Fatores desencadeantes e latentes</li></ul></div>
+                <div class="card"><span class="etapa">Parte 3</span><h3>Como melhorar</h3><ul><li>Rotulagem e embalagens primárias</li><li>Identificação de seringas</li><li>Alta vigilância e seringas pré-preenchidas</li></ul></div>
+                <div class="card"><span class="etapa">Parte 4</span><h3>Sistema e cultura</h3><ul><li>Notificação de eventos adversos</li><li>Inteligência artificial</li><li>Paradigma STPC e farmácia hospitalar</li></ul></div>
+            </div>
+
+            <h2>Por que o bloco cirúrgico é diferente</h2>
+            <p>O bloco alterna rotina e eventos críticos, com muitos fármacos potentes, diversas vias, doses diferenciadas, intervalos reduzidos e várias bombas de infusão. Na enfermaria, prescrição, validação farmacêutica e administração passam por pessoas diferentes. No bloco, não: o anestesiologista costuma escolher, preparar e administrar, muitas vezes sem conferência independente.</p>
+
+            <h2>Causas e fatores associados</h2>
+            <ul class="lista">
+                <li><strong>Causas comuns:</strong> dispensário desorganizado, seringa sem rótulo ou com rótulo incorreto, dose ou concentração erradas, distração e pressão de produção.</li>
+                <li><strong>Fatores desencadeantes:</strong> inexperiência, fadiga, equipe insuficiente, supervisão e comunicação deficientes, procedimento complexo.</li>
+                <li><strong>Fatores latentes:</strong> hierarquia rígida, desvalorização do ato de prescrever, falta de treinamento e de <em>feedback</em>, pouca integração entre médico e farmacêutico.</li>
+            </ul>
+
+            <h2>Barreiras: rótulo, seringa e processo</h2>
+            <p>A identificação segura combina rotulagem legível, diferenciação de nomes semelhantes com <em>Tall Man Lettering</em> e rótulos de seringa com código de cores por classe (ISO 26825). A cor ajuda, mas não substitui a leitura do rótulo da ampola e o da seringa antes de injetar.</p>
+            <div class="principles-box">
+                <h2>Regras para a seringa</h2>
+                <ul>
+                    <li><strong>Rotule no momento do preparo,</strong> nunca depois.</li>
+                    <li><strong>Uma seringa, um fármaco:</strong> sem reaproveitar.</li>
+                    <li><strong>Seringa sem rótulo</strong> vai para o descarte.</li>
+                </ul>
+            </div>
+            <p class="fonte" style="margin-top:0;">No Brasil, a rotulagem é regida pela RDC nº 768/2022 e pelas IN nº 198/2022 (alterada pela IN nº 456/2026) e nº 199/2022, da Anvisa.</p>
+
+            <h2>Por que o erro não chega ao NSP</h2>
+            <div class="stats">
+                <div class="stat"><span class="num">70,1%</span><span class="lbl">relatam que alguns erros de medicação não são notificados por medo da equipe</span></div>
+                <div class="stat"><span class="num">51%</span><span class="lbl">desconheciam o setor de gerenciamento de risco do próprio hospital</span></div>
+                <div class="stat"><span class="num">21,8%</span><span class="lbl">não notificaram um erro por julgá-lo pouco sério</span></div>
+            </div>
+            <p class="fonte">Alves MFT, Carvalho DS, Albuquerque GSC. Ciênc Saúde Coletiva. 2019;24(8):2895-908.</p>
+            <p>No bloco, muitas vezes só o anestesiologista viu a troca de seringa. Sem notificação, o NSP e a farmácia não ficam sabendo, e a barreira não muda. Notificar tem de ser fácil, sem hierarquia e com retorno à equipe.</p>
+
+            <h2>O que a farmácia hospitalar pode fazer</h2>
+            <ul class="lista">
+                <li><strong>Seringas prontas:</strong> pré-preenchidas ou preparadas pela farmácia, com rótulo padronizado.</li>
+                <li><strong>Farmácia satélite:</strong> no centro cirúrgico, com kits por procedimento e reposição rápida.</li>
+                <li><strong>Farmacêutico na equipe:</strong> no planejamento, nas bibliotecas das bombas e na análise de incidentes.</li>
+                <li><strong>Comprar pela segurança:</strong> nome destacado, embalagens distintas e menos risco de confusão entre nomes e aparências (LASA).</li>
+                <li><strong>Concentrações padrão:</strong> as mesmas em todos os setores.</li>
+                <li><strong>Conciliação pré-operatória:</strong> anticoagulantes, hipoglicemiantes e antibioticoprofilaxia.</li>
+            </ul>
+
+            <div class="principles-box">
+                <h2>Pontos para levar</h2>
+                <ul>
+                    <li><strong>O problema é do sistema:</strong> as causas são multifatoriais e pedem barreiras em várias etapas.</li>
+                    <li><strong>A leitura do rótulo continua indispensável:</strong> cor e tecnologia ajudam, mas não a substituem.</li>
+                    <li><strong>Tecnologia também cria riscos:</strong> a prescrição eletrônica reduz erros, mas exige capacitação.</li>
+                    <li><strong>Sem notificação não há aprendizado:</strong> cultura justa e retorno à equipe são parte da barreira.</li>
+                    <li><strong>Farmácia dentro do processo:</strong> padronização, seringas prontas e farmacêutico na equipe.</li>
+                </ul>
+            </div>
+
+            <h2>Referências principais</h2>
+            <ol class="refs">
+                <li>Tully MP, Ashcroft DM, Dornan T, Lewis PJ, Taylor D, Wass V. The causes of and factors associated with prescribing errors in hospital inpatients: a systematic review. Drug Saf. 2009;32(10):819-36.</li>
+                <li>Mahomedradja RF, Schinkel M, Sigaloff KCE, et al. Factors influencing in-hospital prescribing errors: a systematic review. Br J Clin Pharmacol. 2023;89(6):1724-35.</li>
+                <li>Alves MFT, Carvalho DS, Albuquerque GSC. Motivos para a não notificação de incidentes de segurança do paciente por profissionais de saúde: revisão integrativa. Ciênc Saúde Coletiva. 2019;24(8):2895-908.</li>
+                <li>Kinsella SM, Boaden B, El-Ghazali S, et al. Handling injectable medications in anaesthesia: guidelines from the Association of Anaesthetists. Anaesthesia. 2023;78(10):1285-94.</li>
+                <li>Eichhorn JH. APSF hosts medication safety conference: consensus group defines challenges and opportunities for improved practice. APSF Newsletter. 2010;25(1).</li>
+            </ol>
+            <p style="text-align:left;">A lista completa está nos slides.</p>
+
+            <p style="text-align:left;"><a class="btn-slides" href="erros-medicacao-bloco-cirurgico-into-2026.pdf" target="_blank" rel="noopener">📊 Ver os slides completos (PDF)</a></p>
+            <p style="text-align:left;margin-top:1.5rem;">Leia também: <a href="cultura-justa.html">Cultura justa</a> · <a href="caso_clinico_erro_medicacao_retardo_sala_cirurgica_cuidar_seguro.pdf">Caso clínico sobre erro de medicação</a>. Mais conteúdo em <a href="index.html">cuidarseguro.com.br</a>.</p>
+        </article>
+    </div>
+</body>
+</html>
