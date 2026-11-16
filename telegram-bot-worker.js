@@ -4,6 +4,8 @@
 // Variáveis de ambiente necessárias (Settings → Variables):
 //   TELEGRAM_TOKEN   → token do BotFather
 //   ANTHROPIC_KEY    → sk-ant-...
+//   WEBHOOK_SECRET   → segredo combinado com o Telegram no setWebhook
+//                      (parâmetro secret_token). Sem ele o bot recusa tudo.
 // ============================================================
 
 const SYSTEM_PROMPT = `Você é o assistente virtual do site CuidarSeguro.com.br, 
@@ -46,6 +48,14 @@ export default {
       return new Response("OK", { status: 200 });
     }
 
+    // Só o Telegram conhece o segredo: ele o envia neste cabeçalho em toda
+    // chamada do webhook. Qualquer outra origem é recusada antes de gastar
+    // uma chamada à API da Anthropic. Falha fechada se o segredo não existir.
+    const segredo = request.headers.get("X-Telegram-Bot-Api-Secret-Token") || "";
+    if (!env.WEBHOOK_SECRET || segredo !== env.WEBHOOK_SECRET) {
+      return new Response("Forbidden", { status: 403 });
+    }
+
     let update;
     try {
       update = await request.json();
@@ -60,7 +70,8 @@ export default {
     }
 
     const chatId = message.chat.id;
-    const userText = message.text.trim();
+    // Limita o tamanho da pergunta para conter custo por mensagem.
+    const userText = message.text.trim().slice(0, 2000);
     const firstName = message.from?.first_name || "usuário";
 
     // Comando /start
