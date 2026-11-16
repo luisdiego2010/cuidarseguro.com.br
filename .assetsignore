@@ -4,3 +4,5 @@ telegram-bot-worker.js
 README.md
 .env.example
 .gitignore
+.git
+.assetsignore
