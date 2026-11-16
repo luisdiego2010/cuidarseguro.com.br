@@ -24,6 +24,9 @@ export default {
     if (url.pathname === "/api/chat" && request.method === "POST") {
       return handleChat(request, env);
     }
+    if (url.pathname === "/api/contato" && request.method === "POST") {
+      return handleContato(request, env);
+    }
     return addSecurityHeaders(await env.ASSETS.fetch(request));
   },
 };
@@ -283,6 +286,83 @@ async function handleChat(request, env) {
     console.error("Erro inesperado:", err.message);
     return jsonResponse({ error: "Falha ao consultar a IA. Tente novamente." }, 502, ALLOWED_ORIGIN);
   }
+}
+
+// Formulário de contato: confere o Turnstile e só então repassa a mensagem ao
+// webhook do n8n. O endereço do webhook fica no segredo CONTATO_WEBHOOK_URL,
+// conhecido apenas por este Worker, para que robôs não possam enviar direto.
+async function handleContato(request, env) {
+  const originCheck = checkOrigin(request, env);
+  if (originCheck instanceof Response) return originCheck;
+  const ALLOWED_ORIGIN = originCheck.corsOrigin;
+
+  if (!env.CONTATO_WEBHOOK_URL) {
+    return jsonResponse({ error: "Servidor mal configurado." }, 500, ALLOWED_ORIGIN);
+  }
+
+  let body;
+  try {
+    body = await request.json();
+  } catch {
+    return jsonResponse({ error: "JSON inválido." }, 400, ALLOWED_ORIGIN);
+  }
+
+  const nome = (body?.nome || "").toString().trim();
+  const email = (body?.email || "").toString().trim();
+  const perfil = (body?.perfil || "").toString().trim();
+  const mensagem = (body?.mensagem || "").toString().trim();
+  const turnstileToken = (body?.turnstileToken || "").toString();
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  if (nome.length < 2 || nome.length > 120) {
+    return jsonResponse({ error: "Informe seu nome." }, 400, ALLOWED_ORIGIN);
+  }
+  if (!emailRegex.test(email) || email.length > 200) {
+    return jsonResponse({ error: "Informe um e-mail válido." }, 400, ALLOWED_ORIGIN);
+  }
+  if (perfil.length > 80) {
+    return jsonResponse({ error: "Perfil inválido." }, 400, ALLOWED_ORIGIN);
+  }
+  if (mensagem.length < 2 || mensagem.length > 5000) {
+    return jsonResponse(
+      { error: "Escreva sua mensagem (até 5000 caracteres)." },
+      400,
+      ALLOWED_ORIGIN
+    );
+  }
+
+  const turnstile = await verificarTurnstile(turnstileToken, request, env);
+  if (!turnstile.ok) {
+    return jsonResponse({ error: turnstile.motivo }, 400, ALLOWED_ORIGIN);
+  }
+
+  try {
+    // Mesmo formato (formulário) que o n8n já recebia do navegador, para o
+    // workflow continuar lendo nome, email, perfil e mensagem sem alterações.
+    const dados = new URLSearchParams({ nome, email, perfil, mensagem });
+    const resp = await fetch(env.CONTATO_WEBHOOK_URL, {
+      method: "POST",
+      headers: { "content-type": "application/x-www-form-urlencoded" },
+      body: dados.toString(),
+    });
+    if (!resp.ok) {
+      console.error("Webhook de contato respondeu", resp.status);
+      return jsonResponse(
+        { error: "Não foi possível enviar sua mensagem agora. Tente novamente em instantes." },
+        502,
+        ALLOWED_ORIGIN
+      );
+    }
+  } catch (err) {
+    console.error("Erro ao repassar contato:", err.message);
+    return jsonResponse(
+      { error: "Não foi possível enviar sua mensagem agora. Tente novamente em instantes." },
+      502,
+      ALLOWED_ORIGIN
+    );
+  }
+
+  return jsonResponse({ ok: true }, 200, ALLOWED_ORIGIN);
 }
 
 function jsonResponse(obj, status, allowedOrigin) {

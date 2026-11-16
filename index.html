@@ -19,7 +19,21 @@
   <meta name="twitter:image" content="https://cuidarseguro.com.br/og-image.png">
   <link rel="stylesheet" href="css/fonts.css">
   <link rel="stylesheet" href="css/styles.css?v=20261031">
-  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+  <script>
+    // Dois widgets do Turnstile na página (formulário de contato e cadastro do
+    // assistente): renderização explícita, guardando o id de cada um.
+    window.csTurnstile = {};
+    window.csTurnstilePronto = function(){
+      var chave = '0x4AAAAAAEVYoFUkd_vkTisK';
+      ['contato','ia'].forEach(function(nome){
+        var el = document.getElementById('turnstile-' + nome);
+        if (el && window.turnstile) {
+          window.csTurnstile[nome] = turnstile.render(el, {sitekey: chave, theme: 'light'});
+        }
+      });
+    };
+  </script>
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=csTurnstilePronto" async defer></script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -447,20 +461,19 @@
       <a href="https://www.facebook.com/CuidarSeguro" target="_blank" style="display:inline-flex;align-items:center;gap:0.6rem;margin-top:1.2rem;background:#1877f2;color:white;padding:0.75rem 1.5rem;border-radius:2rem;text-decoration:none;font-weight:500;font-size:0.9rem;">📘 Siga no Facebook</a>
     </div>
     <div>
-      <form id="form-contato" action="https://n8n.cuidarseguro.com.br/webhook/contact-form" method="POST" target="form-target-iframe" onsubmit="return prepararEnvioForm()">
+      <form id="form-contato" onsubmit="return enviarContato(event)">
         <div class="form-row">
           <div class="form-group"><label for="nome">Nome completo</label><input type="text" id="nome" name="nome" placeholder="Seu nome" required></div>
           <div class="form-group"><label for="email">E-mail</label><input type="email" id="email" name="email" placeholder="seu@email.com" required></div>
         </div>
         <div class="form-group"><label for="perfil">Você é...</label><select id="perfil" name="perfil"><option value="">Selecione seu perfil</option><option>Estudante de graduação</option><option>Estudante de pós-graduação</option><option>Professor / Docente</option><option>Médico</option><option>Enfermeiro</option><option>Farmacêutico</option><option>Outro profissional de saúde</option></select></div>
         <div class="form-group"><label for="mensagem">Mensagem</label><textarea id="mensagem" name="mensagem" placeholder="Escreva sua mensagem..." required></textarea></div>
+        <div id="turnstile-contato" style="margin-bottom:1rem;"></div>
         <button type="submit" class="btn-enviar">Enviar mensagem →</button>
         <p style="margin-top:0.8rem;font-size:0.8rem;line-height:1.5;color:var(--texto-leve);">Seus dados são usados apenas para responder a esta mensagem. Não inclua informações que identifiquem pacientes. Saiba mais na <a href="privacidade.html" style="color:var(--verde);">Política de Privacidade</a>.</p>
       </form>
       <div id="form-sucesso">✅ Mensagem enviada! Responderemos em breve.</div>
-      <div id="form-erro">⚠️ Não foi possível enviar sua mensagem agora. Tente novamente em instantes ou escreva para <a id="email-fallback" href="#">contato<!-- bot -->@<!-- scraper -->cuidarseguro<!-- trap -->.com.br</a>.</div>
-      
-      <iframe name="form-target-iframe" style="display:none" onload="if(typeof iframeFormCarregado==='function') iframeFormCarregado()"></iframe>
+      <div id="form-erro">⚠️ <span id="form-erro-msg">Não foi possível enviar sua mensagem agora.</span> Se o problema continuar, escreva para <a id="email-fallback" href="#">contato<!-- bot -->@<!-- scraper -->cuidarseguro<!-- trap -->.com.br</a>.</div>
     </div>
   </div>
 </section>
@@ -497,7 +510,7 @@
     <input type="text" id="ia-nome" placeholder="Seu nome">
     <label for="ia-email" style="font-size:0.82rem;font-weight:500;">E-mail</label>
     <input type="email" id="ia-email" placeholder="seu@email.com">
-    <div class="cf-turnstile" data-sitekey="0x4AAAAAAEVYoFUkd_vkTisK" data-theme="light"></div>
+    <div id="turnstile-ia"></div>
     <div id="ia-cadastro-erro"></div>
     <button onclick="iaCadastrar()">Liberar assistente →</button>
     <p class="ia-lgpd">Seu nome e e-mail são usados apenas para liberar o acesso a este assistente. As perguntas enviadas são processadas por um serviço de inteligência artificial para gerar as respostas. O cadastro é apagado automaticamente após 12 meses sem uso. Para solicitar a exclusão antes disso, use o <a href="#contato" onclick="iaFecharPainel()">formulário de contato</a>. Veja a <a href="privacidade.html">Política de Privacidade</a>.</p>

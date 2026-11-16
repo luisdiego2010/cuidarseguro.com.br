@@ -13,9 +13,44 @@ const reveals=document.querySelectorAll('.reveal');
   const artObs=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.style.transitionDelay=e.target.dataset.sd||'0s';e.target.classList.add('visible');artObs.unobserve(e.target);}});},{threshold:0.08});
   artCards.forEach((c,i)=>{c.dataset.sd=(i%3*0.12)+'s';artObs.observe(c);});
 function tocarPodcast(){var capa=document.getElementById('podcast-capa');if(!capa)return;capa.outerHTML='<div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:0.5rem;"><iframe src="https://www.youtube-nocookie.com/embed/PNo3iAceivM?autoplay=1&rel=0" title="Podcast Cuidar Seguro" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>';}
-  var formContatoEnviando=false;
-  function prepararEnvioForm(){var btn=document.querySelector('#form-contato .btn-enviar');btn.disabled=true;btn.textContent='Enviando...';document.getElementById('form-erro').style.display='none';formContatoEnviando=true;return true;}
-  function iframeFormCarregado(){if(!formContatoEnviando)return;formContatoEnviando=false;document.getElementById('form-contato').style.display='none';document.getElementById('form-sucesso').style.display='block';}
+  // Formulário de contato: envia para /api/contato (Worker), que confere o
+  // Turnstile e repassa a mensagem. Mostra sucesso ou erro de verdade.
+  function enviarContato(ev){
+    ev.preventDefault();
+    var form=document.getElementById('form-contato');
+    var btn=form.querySelector('.btn-enviar');
+    var erro=document.getElementById('form-erro');
+    var textoErro=document.getElementById('form-erro-msg');
+    function mostrarErro(msg){
+      if(textoErro)textoErro.textContent=msg;
+      erro.style.display='block';
+      btn.disabled=false;btn.textContent='Enviar mensagem →';
+      try{if(window.turnstile&&window.csTurnstile.contato!==undefined)turnstile.reset(window.csTurnstile.contato);}catch(e){}
+    }
+    erro.style.display='none';
+    var token='';
+    try{if(window.turnstile&&window.csTurnstile.contato!==undefined)token=turnstile.getResponse(window.csTurnstile.contato)||'';}catch(e){}
+    if(!token){mostrarErro('Confirme a verificação de segurança antes de enviar.');return false;}
+    btn.disabled=true;btn.textContent='Enviando...';
+    fetch('/api/contato',{
+      method:'POST',
+      headers:{'content-type':'application/json'},
+      body:JSON.stringify({
+        nome:form.nome.value.trim(),
+        email:form.email.value.trim(),
+        perfil:form.perfil.value,
+        mensagem:form.mensagem.value.trim(),
+        turnstileToken:token
+      })
+    }).then(function(res){
+      return res.json().catch(function(){return {};}).then(function(data){
+        if(!res.ok){mostrarErro(data.error||'Não foi possível enviar sua mensagem agora.');return;}
+        form.style.display='none';
+        document.getElementById('form-sucesso').style.display='block';
+      });
+    }).catch(function(){mostrarErro('Falha de conexão. Tente novamente em instantes.');});
+    return false;
+  }
   window.addEventListener('scroll',()=>{document.querySelector('nav').style.boxShadow=window.scrollY>10?'0 2px 20px rgba(0,0,0,0.08)':'none';});
 
   // hamburger menu
@@ -129,7 +164,8 @@ function tocarPodcast(){var capa=document.getElementById('podcast-capa');if(!cap
       erroEl.style.display = 'block';
       return;
     }
-    const turnstileToken = (window.turnstile && turnstile.getResponse()) || '';
+    let turnstileToken = '';
+    try { if (window.turnstile && window.csTurnstile.ia !== undefined) turnstileToken = turnstile.getResponse(window.csTurnstile.ia) || ''; } catch (e) {}
     if(!turnstileToken){
       erroEl.textContent = 'Confirme a verificação de segurança antes de continuar.';
       erroEl.style.display = 'block';
@@ -145,7 +181,7 @@ function tocarPodcast(){var capa=document.getElementById('podcast-capa');if(!cap
       if(!res.ok){
         erroEl.textContent = data.error || 'Não foi possível concluir o cadastro.';
         erroEl.style.display = 'block';
-        if (window.turnstile) turnstile.reset();
+        try { if (window.turnstile && window.csTurnstile.ia !== undefined) turnstile.reset(window.csTurnstile.ia); } catch (e) {}
         return;
       }
       try { localStorage.setItem(IA_TOKEN_KEY, data.token); } catch (e) {}
@@ -156,7 +192,7 @@ function tocarPodcast(){var capa=document.getElementById('podcast-capa');if(!cap
     }catch(err){
       erroEl.textContent = 'Falha de conexão. Tente novamente.';
       erroEl.style.display = 'block';
-      if (window.turnstile) turnstile.reset();
+      try { if (window.turnstile && window.csTurnstile.ia !== undefined) turnstile.reset(window.csTurnstile.ia); } catch (e) {}
     }
   };
 
