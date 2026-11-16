@@ -84,6 +84,10 @@ const SYSTEM_PROMPT =
 
 const RATE_LIMIT_POR_DIA = 5;
 
+// Cadastros do assistente expiram sozinhos após 12 meses sem uso (LGPD:
+// retenção limitada). O prazo é renovado a cada mensagem respondida.
+const CADASTRO_TTL_SEGUNDOS = 365 * 24 * 60 * 60;
+
 function getAllowedOrigins(env) {
   if (env.ALLOWED_ORIGIN) {
     return [env.ALLOWED_ORIGIN];
@@ -180,7 +184,8 @@ async function handleSignup(request, env) {
       criadoEm: new Date().toISOString(),
       usoData: "",
       usoContagem: 0,
-    })
+    }),
+    { expirationTtl: CADASTRO_TTL_SEGUNDOS }
   );
 
   return jsonResponse({ token }, 200, ALLOWED_ORIGIN);
@@ -269,7 +274,9 @@ async function handleChat(request, env) {
 
     // Só conta a mensagem contra o limite diário depois de uma resposta bem-sucedida.
     lead.usoContagem += 1;
-    await env.LEADS_KV.put(`lead:${token}`, JSON.stringify(lead));
+    await env.LEADS_KV.put(`lead:${token}`, JSON.stringify(lead), {
+      expirationTtl: CADASTRO_TTL_SEGUNDOS,
+    });
 
     return jsonResponse({ reply: text }, 200, ALLOWED_ORIGIN);
   } catch (err) {

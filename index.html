@@ -1,14 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JKCHZS8M0Y"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-JKCHZS8M0Y');
-  </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" href="logo_cuidarseguro.png">
@@ -25,9 +17,7 @@
   <meta name="twitter:title" content="Cuidar Seguro — Segurança do Paciente para Quem Cuida">
   <meta name="twitter:description" content="Conteúdo educacional gratuito sobre segurança do paciente para estudantes, profissionais e educadores da área da saúde. Materiais alinhados às diretrizes da OMS e protocolos do Ministério da Saúde.">
   <meta name="twitter:image" content="https://cuidarseguro.com.br/og-image.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;0,9..144,700;1,9..144,300&family=DM+Sans:wght@300;400;500&family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/fonts.css">
   <link rel="stylesheet" href="css/styles.css?v=20261031">
   <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 <script type="application/ld+json">
@@ -465,6 +455,7 @@
         <div class="form-group"><label for="perfil">Você é...</label><select id="perfil" name="perfil"><option value="">Selecione seu perfil</option><option>Estudante de graduação</option><option>Estudante de pós-graduação</option><option>Professor / Docente</option><option>Médico</option><option>Enfermeiro</option><option>Farmacêutico</option><option>Outro profissional de saúde</option></select></div>
         <div class="form-group"><label for="mensagem">Mensagem</label><textarea id="mensagem" name="mensagem" placeholder="Escreva sua mensagem..." required></textarea></div>
         <button type="submit" class="btn-enviar">Enviar mensagem →</button>
+        <p style="margin-top:0.8rem;font-size:0.8rem;line-height:1.5;color:var(--texto-leve);">Seus dados são usados apenas para responder a esta mensagem. Não inclua informações que identifiquem pacientes. Saiba mais na <a href="privacidade.html" style="color:var(--verde);">Política de Privacidade</a>.</p>
       </form>
       <div id="form-sucesso">✅ Mensagem enviada! Responderemos em breve.</div>
       <div id="form-erro">⚠️ Não foi possível enviar sua mensagem agora. Tente novamente em instantes ou escreva para <a id="email-fallback" href="#">contato<!-- bot -->@<!-- scraper -->cuidarseguro<!-- trap -->.com.br</a>.</div>
@@ -489,7 +480,7 @@
   <div class="footer-links">
     <a href="#temas">Temas</a><a href="#recursos">Recursos</a><a href="#artigos">Artigos</a><a href="#contato">Contato</a><a href="mapa-do-site.html">Mapa do site</a>
     <a href="https://www.facebook.com/CuidarSeguro" target="_blank">📘 Facebook</a>
-  </div>
+  <a href="privacidade.html">Privacidade</a></div>
 </footer>
 
 
@@ -509,7 +500,7 @@
     <div class="cf-turnstile" data-sitekey="0x4AAAAAAEVYoFUkd_vkTisK" data-theme="light"></div>
     <div id="ia-cadastro-erro"></div>
     <button onclick="iaCadastrar()">Liberar assistente →</button>
-    <p class="ia-lgpd">Seu nome e e-mail são usados apenas para liberar o acesso a este assistente. As perguntas enviadas são processadas por um serviço de inteligência artificial para gerar as respostas. Para solicitar a exclusão dos seus dados, use o <a href="#contato" onclick="iaFecharPainel()">formulário de contato</a>.</p>
+    <p class="ia-lgpd">Seu nome e e-mail são usados apenas para liberar o acesso a este assistente. As perguntas enviadas são processadas por um serviço de inteligência artificial para gerar as respostas. O cadastro é apagado automaticamente após 12 meses sem uso. Para solicitar a exclusão antes disso, use o <a href="#contato" onclick="iaFecharPainel()">formulário de contato</a>. Veja a <a href="privacidade.html">Política de Privacidade</a>.</p>
   </div>
   <div id="ia-chat">
     <div id="ia-mensagens"></div>

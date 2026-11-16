@@ -1,0 +1,10 @@
+# Cabeçalhos de segurança aplicados a todas as páginas e arquivos do site.
+# (X-Frame-Options, X-Content-Type-Options, Referrer-Policy e HSTS já são
+# enviados pela configuração da zona na Cloudflare; aqui entram os que faltavam.)
+/*
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://challenges.cloudflare.com https://cdnjs.cloudflare.com https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https:; media-src 'self'; connect-src 'self' https://challenges.cloudflare.com https://cloudflareinsights.com; frame-src https://www.youtube-nocookie.com https://challenges.cloudflare.com https://zgnp-zngp.maillist-manage.com https://n8n.cuidarseguro.com.br; form-action 'self' https://n8n.cuidarseguro.com.br; object-src 'none'; base-uri 'self'; frame-ancestors 'self'
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=()
+
+# Fontes não mudam: podem ficar em cache longo no navegador.
+/fonts/*
+  Cache-Control: public, max-age=31536000, immutable

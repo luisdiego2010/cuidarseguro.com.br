@@ -163,7 +163,7 @@ function tocarPodcast(){var capa=document.getElementById('podcast-capa');if(!cap
   // O modelo responde em Markdown; convertemos para HTML com escape prévio,
   // aceitando apenas um subconjunto seguro (negrito, itálico, código, listas e links http/https).
   function iaEscapar(s){
-    return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+    return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
   }
 
   function iaMarkdown(txt){

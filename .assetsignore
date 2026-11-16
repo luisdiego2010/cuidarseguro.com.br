@@ -1,2 +1,6 @@
 _worker.js
 wrangler.jsonc
+telegram-bot-worker.js
+README.md
+.env.example
+.gitignore
