@@ -77,12 +77,21 @@ function tocarPodcast(){var capa=document.getElementById('podcast-capa');if(!cap
     });
   })();
 
-  // Banner Jornada Segura
+  // Banner "Novo artigo" — automático: usa o 1º card da grade #artigos (o mais recente).
+  // Ao inserir um novo card no topo da grade, o banner passa a anunciá-lo e reaparece
+  // para quem fechou o anterior (a chave de dispensa é o link do artigo).
   (function(){
-    var CHAVE='cs_banner_jornada_v1';
     var barra=document.getElementById('aviso-cfm');
-    if(!barra) return;
+    var card=document.querySelector('#artigos .artigo-card');
+    if(!barra||!card) return;
+    var a=card.querySelector('a.ler-mais'), h=card.querySelector('h3');
+    if(!a||!h) return;
+    var href=a.getAttribute('href'), CHAVE='cs_banner_artigo_'+href;
     try{ if(localStorage.getItem(CHAVE)==='1') return; }catch(e){}
+    var cl=h.cloneNode(true); cl.querySelectorAll('span').forEach(function(s){s.remove();});
+    document.getElementById('aviso-titulo').textContent=cl.textContent.trim();
+    var l=document.getElementById('aviso-link'); l.href=href;
+    barra.setAttribute('aria-label','Novo artigo: '+cl.textContent.trim());
     barra.classList.add('ativo');
     document.documentElement.classList.add('com-aviso');
     function medir(){document.documentElement.style.setProperty('--aviso-altura',barra.offsetHeight+'px');}
