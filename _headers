@@ -8,3 +8,9 @@
 # Fontes não mudam: podem ficar em cache longo no navegador.
 /fonts/*
   Cache-Control: public, max-age=31536000, immutable
+
+# Slides das aulas do CBA 2026: acessíveis pelo link/QR, fora dos buscadores.
+/os-limites-da-tecnologia-cba-2026.pdf
+  X-Robots-Tag: noindex, noarchive
+/ia-gestao-centro-cirurgico-cba-2026.pdf
+  X-Robots-Tag: noindex, noarchive
